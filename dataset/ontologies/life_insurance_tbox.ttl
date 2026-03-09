@@ -1,0 +1,999 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix li:     <http://www.lifeinsurance.org/ontology#> .
+
+# ═══════════════════════════════════════════════════════════════════════
+# LIFE INSURANCE DOMAIN ONTOLOGY
+# Ground-Truth TBox for 10 Synthetic Contracts
+# ═══════════════════════════════════════════════════════════════════════
+
+<http://www.lifeinsurance.org/ontology>
+    a owl:Ontology ;
+    rdfs:label "Life Insurance Domain Ontology" ;
+    owl:versionInfo "2.0" ;
+    dcterms:created "2024-01-01"^^xsd:date ;
+    dcterms:modified "2024-10-03"^^xsd:date ;
+    dcterms:description "Full TBox for 10 life insurance contracts (C1–C10)." ;
+    rdfs:comment """
+    CONTRACTS COVERED:
+      C1  = SL-2024-TRM-00123   SecureLife          20-yr Level Term
+      C2  = GFP-WL-2024-8847    Guardian Family     Participating Whole Life
+      C3  = FPS-UL-24-03391     FlexProtect         Universal Life
+      C4  = PIL-VUL-2024-5521   Pinnacle Investment Variable Universal Life
+      C5  = CC-FE-2024-9903     ComfortCare         Final Expense (Guaranteed Issue Whole Life)
+      C6  = AGB-GT-2024-TC      Alliance Group      Group Term Certificate
+      C7  = PP-TL-2024-6729R    ProtectPlus         30-yr Term with 6 Riders
+      C8  = EPL-JSL-2024-1156   Estate Planning     Joint Survivorship (Second-to-Die)
+      C9  = VG-ROP-2024-4183    ValueGuard          Return of Premium Term
+      C10 = HWP-IUL-2024-7290   Horizon Wealth      Indexed Universal Life
+    """ .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# SECTION 1: TBOX — CLASS HIERARCHY
+# ═══════════════════════════════════════════════════════════════════════
+
+# ───────────────────────────────────────────────
+# 1.1  POLICY (Root)
+# ───────────────────────────────────────────────
+
+li:Policy a owl:Class ;
+    rdfs:label "Policy" ;
+    rdfs:comment "Root class: any life insurance contract." .
+
+li:TermLifePolicy a owl:Class ; rdfs:subClassOf li:Policy ;
+    rdfs:label "Term Life Policy" ;
+    rdfs:comment "Death protection only; no cash value; expires at end of term. Contracts: C1, C7, C9." .
+
+li:LevelTermPolicy a owl:Class ; rdfs:subClassOf li:TermLifePolicy ;
+    rdfs:label "Level Term Policy" ;
+    rdfs:comment "Fixed premiums and death benefit throughout the term. Contracts: C1 (base), C7 (base)." .
+
+li:ReturnOfPremiumTermPolicy a owl:Class ; rdfs:subClassOf li:TermLifePolicy ;
+    rdfs:label "Return of Premium Term Policy" ;
+    rdfs:comment "Refunds 100% of premiums if insured survives the full term; graded partial refund on early surrender; late premium during grace reduces ROP by 10% per occurrence. Contract: C9." .
+
+li:TermWithRidersPolicy a owl:Class ; rdfs:subClassOf li:LevelTermPolicy ;
+    rdfs:label "Term Policy with Riders" ;
+    rdfs:comment "Level term augmented with optional rider endorsements. Contract: C7 (6 riders: WOP, ADB-TI, ADB-CI, Children, ADB-AD, GIO)." .
+
+li:PermanentLifePolicy a owl:Class ; rdfs:subClassOf li:Policy ;
+    rdfs:label "Permanent Life Policy" ;
+    rdfs:comment "Lifetime coverage with cash value accumulation." .
+
+li:WholeLifePolicy a owl:Class ; rdfs:subClassOf li:PermanentLifePolicy ;
+    rdfs:label "Whole Life Policy" ;
+    rdfs:comment "Guaranteed premiums, guaranteed cash value, guaranteed death benefit." .
+
+li:ParticipatingWholeLifePolicy a owl:Class ; rdfs:subClassOf li:WholeLifePolicy ;
+    rdfs:label "Participating Whole Life Policy" ;
+    rdfs:comment "Whole life eligible for non-guaranteed dividends declared by Board of Directors. Contract: C2. NOTE: Current dividend selection on C2 is Paid-Up Additions (not Cash Payment — the checkmark in the printed form is misleading; see Section 6.3 text)." .
+
+li:FinalExpensePolicy a owl:Class ; rdfs:subClassOf li:WholeLifePolicy ;
+    rdfs:label "Final Expense Policy" ;
+    rdfs:comment "Guaranteed issue (NOT simplified issue) whole life; small face amount for burial/final expense costs. No medical exam or health questions. Features graded death benefit in years 1-2. Contract: C5. Underwriting type: li:GuaranteedIssueUnderwriting." .
+
+li:JointSurvivorshipPolicy a owl:Class ; rdfs:subClassOf li:WholeLifePolicy ;
+    rdfs:label "Joint Survivorship (Second-to-Die) Policy" ;
+    rdfs:comment "Insures two lives; benefit payable only after BOTH insureds have died. Designed for estate tax liquidity. Contract: C8." .
+
+li:UniversalLifePolicy a owl:Class ; rdfs:subClassOf li:PermanentLifePolicy ;
+    rdfs:label "Universal Life Policy" ;
+    rdfs:comment "Flexible-premium permanent policy with unbundled charges and interest crediting. Contract: C3." .
+
+li:VariableUniversalLifePolicy a owl:Class ; rdfs:subClassOf li:UniversalLifePolicy ;
+    rdfs:label "Variable Universal Life (VUL) Policy" ;
+    rdfs:comment "UL with investment sub-accounts; market-linked account value and death benefit. Investment risk borne entirely by policy owner. Securities product subject to SEC regulation. Contract: C4." .
+
+li:IndexedUniversalLifePolicy a owl:Class ; rdfs:subClassOf li:UniversalLifePolicy ;
+    rdfs:label "Indexed Universal Life (IUL) Policy" ;
+    rdfs:comment "UL with index-linked interest crediting subject to cap/floor/participation rate. NOT a securities product. Dividends from index components are NOT included in crediting calculations. Contract: C10." .
+
+li:GroupTermLifePolicy a owl:Class ; rdfs:subClassOf li:Policy ;
+    rdfs:label "Group Term Life Policy" ;
+    rdfs:comment "Master employer-sponsored group policy." .
+
+li:GroupLifeCertificate a owl:Class ; rdfs:subClassOf li:Policy ;
+    rdfs:label "Group Life Certificate" ;
+    rdfs:comment "Individual certificate evidencing coverage under a master group policy. The master policy controls in case of conflict. Contract: C6." .
+
+# ───────────────────────────────────────────────
+# 1.2  PARTY
+# ───────────────────────────────────────────────
+
+li:Party a owl:Class ; rdfs:label "Party" ;
+    rdfs:comment "Any person or legal entity involved in a life insurance contract." .
+
+li:Insured a owl:Class ; rdfs:subClassOf li:Party ;
+    rdfs:label "Insured" ;
+    rdfs:comment "Person whose life is covered; death triggers the death benefit." .
+
+li:JointInsured a owl:Class ; rdfs:subClassOf li:Insured ;
+    rdfs:label "Joint Insured" ;
+    rdfs:comment "One of two insureds on a joint survivorship policy (C8)." .
+
+li:FirstInsured a owl:Class ; rdfs:subClassOf li:JointInsured ;
+    rdfs:label "First Insured (Joint)" ;
+    rdfs:comment "Dies first in a joint policy; no benefit triggered by this death. Policy continues in force." .
+
+li:SecondInsured a owl:Class ; rdfs:subClassOf li:JointInsured ;
+    rdfs:label "Second Insured (Joint)" ;
+    rdfs:comment "Whose death triggers the survivorship benefit payment." .
+
+li:PolicyOwner a owl:Class ; rdfs:subClassOf li:Party ;
+    rdfs:label "Policy Owner" .
+
+li:Beneficiary a owl:Class ; rdfs:subClassOf li:Party ;
+    rdfs:label "Beneficiary" ;
+    rdfs:comment "Person or entity designated to receive death benefit. Multiple primary beneficiaries with individual percentages are supported (e.g. C7: 3 primary beneficiaries at 60/20/20%)." .
+
+li:PrimaryBeneficiary a owl:Class ; rdfs:subClassOf li:Beneficiary ;
+    rdfs:label "Primary Beneficiary" .
+
+li:ContingentBeneficiary a owl:Class ; rdfs:subClassOf li:Beneficiary ;
+    rdfs:label "Contingent Beneficiary" .
+
+li:Insurer a owl:Class ; rdfs:subClassOf li:Party ;
+    rdfs:label "Insurer" .
+
+li:Employer a owl:Class ; rdfs:subClassOf li:Party ;
+    rdfs:label "Employer (Group Policyholder)" .
+
+li:Employee a owl:Class ; rdfs:subClassOf li:Party ;
+    rdfs:label "Employee (Certificate Holder)" ;
+    rdfs:comment "Employee covered under a group life certificate. C6." .
+
+li:Trust a owl:Class ; rdfs:subClassOf li:Party ;
+    rdfs:label "Trust" .
+
+li:IrrevocableTrust a owl:Class ; rdfs:subClassOf li:Trust ;
+    rdfs:label "Irrevocable Life Insurance Trust (ILIT)" ;
+    rdfs:comment "Irrevocable trust used as policy owner to exclude proceeds from taxable estate. C8." .
+
+li:RevocableTrust a owl:Class ; rdfs:subClassOf li:Trust ;
+    rdfs:label "Revocable Trust" ;
+    rdfs:comment "Revocable trust used as contingent beneficiary. C6." .
+
+# ───────────────────────────────────────────────
+# 1.3  COVERAGE
+# ───────────────────────────────────────────────
+
+li:Coverage a owl:Class ; rdfs:label "Coverage" .
+
+li:DeathBenefit a owl:Class ; rdfs:subClassOf li:Coverage ;
+    rdfs:label "Death Benefit" .
+
+li:LevelDeathBenefit a owl:Class ; rdfs:subClassOf li:DeathBenefit ;
+    rdfs:label "Level Death Benefit" ;
+    rdfs:comment "Fixed death benefit equal to face/specified amount. C1, C2, C3(OptionA), C5, C6, C7, C9, C10(Option1)." .
+
+li:IncreasingDeathBenefit a owl:Class ; rdfs:subClassOf li:DeathBenefit ;
+    rdfs:label "Increasing Death Benefit" ;
+    rdfs:comment "Death benefit = Face Amount + Account Value. Available in C3 (Option B), C4 (Option II — currently selected), C10 (Option 2). Incurs higher COI charges." .
+
+li:GradedDeathBenefit a owl:Class ; rdfs:subClassOf li:DeathBenefit ;
+    rdfs:label "Graded Death Benefit" ;
+    rdfs:comment "Partial benefit in early years; full benefit after waiting period. C5 only: 30% Year 1, 70% Year 2, 100% Year 3+. Exception: accidental death always pays 100%." .
+
+li:SurvivorshipDeathBenefit a owl:Class ; rdfs:subClassOf li:DeathBenefit ;
+    rdfs:label "Survivorship Death Benefit" ;
+    rdfs:comment "Paid only after BOTH joint insureds die. C8 only." .
+
+li:SalaryBasedDeathBenefit a owl:Class ; rdfs:subClassOf li:DeathBenefit ;
+    rdfs:label "Salary-Based Death Benefit" ;
+    rdfs:comment "Multiple of annual salary, recalculated annually. C6 only." .
+
+li:BasicGroupCoverage a owl:Class ; rdfs:subClassOf li:SalaryBasedDeathBenefit ;
+    rdfs:label "Basic Group Life Coverage" ;
+    rdfs:comment "Employer-paid, auto-enrolled coverage equal to salary multiple (C6: 2x salary). No EOI required at hire." .
+
+li:VoluntarySupplementalCoverage a owl:Class ; rdfs:subClassOf li:SalaryBasedDeathBenefit ;
+    rdfs:label "Voluntary Supplemental Group Coverage" ;
+    rdfs:comment "Employee-elected additional coverage in fixed increments. EOI required for late enrollees. C6: increments of $10k, max 5x salary." .
+
+li:LivingBenefit a owl:Class ; rdfs:subClassOf li:Coverage ;
+    rdfs:label "Living Benefit" .
+
+li:AcceleratedDeathBenefit a owl:Class ; rdfs:subClassOf li:LivingBenefit ;
+    rdfs:label "Accelerated Death Benefit (ADB)" ;
+    rdfs:comment "Allows access to death benefit while insured is living under qualifying conditions." .
+
+li:TerminalIllnessADB a owl:Class ; rdfs:subClassOf li:AcceleratedDeathBenefit ;
+    rdfs:label "Terminal Illness ADB" ;
+    rdfs:comment "ADB triggered by terminal illness diagnosis. Life expectancy threshold varies: C6=12 months, C7=24 months. Max advance: C6=75%/$250k; C7=95%/$500k. Actuarial discount applies to both." .
+
+li:ChronicIllnessADB a owl:Class ; rdfs:subClassOf li:AcceleratedDeathBenefit ;
+    rdfs:label "Chronic Illness ADB" ;
+    rdfs:comment "ADB triggered by inability to perform 2+ of 6 ADLs for 90+ days. C7 Rider 3 only: 2%/month, max 50% of face, no actuarial discount." .
+
+li:ReturnOfPremiumBenefit a owl:Class ; rdfs:subClassOf li:LivingBenefit ;
+    rdfs:label "Return of Premium Benefit" ;
+    rdfs:comment "Refund of premiums at term end (100%) or partial refund on early surrender per graded schedule. C9 only. Forfeited on lapse; reduced 10% per late payment during grace period." .
+
+# ───────────────────────────────────────────────
+# 1.4  RIDERS
+# ───────────────────────────────────────────────
+
+li:Rider a owl:Class ; rdfs:label "Rider" ;
+    rdfs:comment "Optional endorsement providing additional or modified benefits." .
+
+li:WaiverOfPremiumRider a owl:Class ; rdfs:subClassOf li:Rider ;
+    rdfs:label "Waiver of Premium Rider" ;
+    rdfs:comment "Waives premiums during total disability after 6-month waiting period. C7 Rider 1 ($102/yr): waiver to age 65, disability must occur before age 60." .
+
+li:AccidentalDeathBenefitRider a owl:Class ; rdfs:subClassOf li:Rider ;
+    rdfs:label "Accidental Death Benefit (ADB) Rider" ;
+    rdfs:comment "Additional death benefit if death results from accidental injury within 90 days of accident. C7 Rider 5 ($94/yr): additional $750k, terminates at age 70. Excludes suicide/war/aviation(as pilot-crew)/drugs-alcohol." .
+
+li:ChildrenTermRider a owl:Class ; rdfs:subClassOf li:Rider ;
+    rdfs:label "Children's Term Insurance Rider" ;
+    rdfs:comment "Provides term coverage on each eligible child from birth/adoption to age 25. C7 Rider 4 ($156/yr): $15k per child. Children may convert to individual policy at age 25 without EOI, up to 5x rider amount." .
+
+li:GuaranteedInsurabilityRider a owl:Class ; rdfs:subClassOf li:Rider ;
+    rdfs:label "Guaranteed Insurability Option Rider" ;
+    rdfs:comment "Allows purchase of additional coverage without EOI at specified option dates. C7 Rider 6 ($89/yr): up to $100k per option date; option dates at ages 40,43,46,49 and birth/adoption; all options terminate age 50; must exercise within 90 days." .
+
+li:TerminalIllnessADBRider a owl:Class ;
+    rdfs:subClassOf li:TerminalIllnessADB , li:Rider ;
+    rdfs:label "Terminal Illness ADB Rider" ;
+    rdfs:comment "C7 Rider 2: included at no charge; up to 95% of face, min $10k, max $500k; ~8%/yr actuarial discount." .
+
+li:ChronicIllnessADBRider a owl:Class ;
+    rdfs:subClassOf li:ChronicIllnessADB , li:Rider ;
+    rdfs:label "Chronic Illness ADB Rider" ;
+    rdfs:comment "C7 Rider 3 ($48/yr): 2% of face per month; max 50% total; no actuarial discount; certified by licensed healthcare practitioner." .
+
+li:NoLapseGuaranteeRider a owl:Class ; rdfs:subClassOf li:Rider ;
+    rdfs:label "No Lapse Guarantee Rider" ;
+    rdfs:comment "Guarantees coverage will not lapse even if account value drops to zero, as long as minimum guaranteed premiums are paid. Available in C10 but NOT selected (coverageStatus = 'not_selected')." .
+
+li:AviationExclusionWaiver a owl:Class ; rdfs:subClassOf li:Rider ;
+    rdfs:label "Aviation Exclusion Waiver Rider" ;
+    rdfs:comment "Removes standard aviation exclusion. C7 only: extra premium $175/yr included in base. Covers death operating or riding in any aircraft; exception: military combat operations." .
+
+# ───────────────────────────────────────────────
+# 1.5  PREMIUM
+# ───────────────────────────────────────────────
+
+li:Premium a owl:Class ; rdfs:label "Premium" .
+
+li:LevelPremium a owl:Class ; rdfs:subClassOf li:Premium ;
+    rdfs:label "Level Premium" ;
+    rdfs:comment "Fixed premium amount throughout the payment period. C1, C2, C5, C7, C9." .
+
+li:FlexiblePremium a owl:Class ; rdfs:subClassOf li:Premium ;
+    rdfs:label "Flexible Premium" ;
+    rdfs:comment "Variable amount and timing; subject to min/max. May skip payments if account value sufficient. C3 (min $75, max $50k/yr), C4 (planned $12k/yr), C10 (min $100, max $50k/yr)." .
+
+li:EmployerPaidPremium a owl:Class ; rdfs:subClassOf li:Premium ;
+    rdfs:label "Employer-Paid Premium" ;
+    rdfs:comment "Premium paid by employer. C6: employer pays basic life." .
+
+li:EmployeePaidPremium a owl:Class ; rdfs:subClassOf li:Premium ;
+    rdfs:label "Employee-Paid Premium" ;
+    rdfs:comment "Premium paid by employee. C6: employee pays $12/month for voluntary coverage." .
+
+li:PremiumLoad a owl:Class ;
+    rdfs:label "Premium Load / Expense Charge" ;
+    rdfs:comment "Percentage deducted from each premium before crediting to account value. C3: 3%, C4: 5%, C10: 3.5%. Not applicable to C1, C2, C5, C6, C7, C8, C9." .
+
+li:GracePeriod a owl:Class ; rdfs:label "Grace Period" ;
+    rdfs:comment "Abstract parent: period after trigger event during which coverage continues without lapse. Two distinct subtypes based on trigger mechanism." .
+
+li:PremiumNonpaymentGracePeriod a owl:Class ; rdfs:subClassOf li:GracePeriod ;
+    rdfs:label "Premium Non-Payment Grace Period" ;
+    rdfs:comment "Triggered by failure to pay a scheduled premium. Coverage continues for specified days after premium due date. C1: 31 days, C2: 31 days (implied), C5: 30 days, C7: 31 days (unpaid premium deducted from death benefit if death occurs during grace), C9: 31 days." .
+
+li:AccountValueDepletionGracePeriod a owl:Class ; rdfs:subClassOf li:GracePeriod ;
+    rdfs:label "Account Value Depletion Grace Period" ;
+    rdfs:comment "Triggered when account value is insufficient to fund monthly policy deductions. C3: 61 days (with prior written notice), C4: 61 days (lapse notice 30 days before), C10: 61 days (prior notice 30 days before)." .
+
+# ───────────────────────────────────────────────
+# 1.6  CASH VALUE
+# ───────────────────────────────────────────────
+
+li:CashValue a owl:Class ; rdfs:label "Cash Value" .
+
+li:GuaranteedCashValue a owl:Class ; rdfs:subClassOf li:CashValue ;
+    rdfs:label "Guaranteed Cash Value" ;
+    rdfs:comment "Cash value that grows per guaranteed schedule. C2 (Yr10: $28,450; Yr20: $71,200), C5 (Yr10: ~$3,200), C8 (projected: Yr10: $285k; Yr20: $712k)." .
+
+li:AccountValue a owl:Class ; rdfs:subClassOf li:CashValue ;
+    rdfs:label "Account Value (UL)" ;
+    rdfs:comment "Accumulation of premiums paid, less monthly deductions and charges, plus interest/investment credits. C3, C4, C10." .
+
+li:CashSurrenderValue a owl:Class ; rdfs:subClassOf li:CashValue ;
+    rdfs:label "Cash Surrender Value" ;
+    rdfs:comment "Net amount receivable upon full policy surrender: Account/Cash Value minus surrender charges and outstanding loans. Formula varies: C3: AV - SC - Loans; C4: AV - SC - Loans; C10: AV - SC - Loans." .
+
+li:SurrenderCharge a owl:Class ;
+    rdfs:label "Surrender Charge" ;
+    rdfs:comment "Penalty for early surrender, applied for specified years. Calculation basis varies: C3=% of specified amount (Yr1:8%,Yr5:5%,Yr10:2%,Yr15+:0%); C4=% of premium paid (Yr1-2:7%,Yr3-4:5%,Yr5-6:3%,Yr7+:0%); C10=% of premiums paid in first 10 yrs (Yr1:10%..Yr12+:0%). Absent: C1,C2,C5,C6,C7,C9." .
+
+li:PolicyLoan a owl:Class ; rdfs:label "Policy Loan" ;
+    rdfs:comment "Loan against cash/account value. Present in C2,C3,C4,C7(implied),C8,C10. Not available: C9 (explicitly). C3: variable rate (Moody's+1.5%, min 4%); C4: 5.5% fixed; C8: variable 5.5%; C10: 4% fixed, loaned amounts earn 3% fixed. Minimum years in-force: C2=1yr, C8=2yrs, C10=1yr; C3/C4=no stated minimum." .
+
+li:PartialWithdrawal a owl:Class ; rdfs:label "Partial Withdrawal" ;
+    rdfs:comment "Partial access to account value. Available: C3 (min $500, Yr1-10:$25 fee), C4 (min $1,000, $50 fee, reduces face proportionally), C10 (min $500, first 10 free then $50; annual 10% free of surrender charge). Explicitly NOT permitted: C8, C9. Silent: C1,C2,C5,C6,C7." .
+
+# ───────────────────────────────────────────────
+# 1.7  INTEREST CREDITING
+# ───────────────────────────────────────────────
+
+li:InterestCreditingMechanism a owl:Class ;
+    rdfs:label "Interest Crediting Mechanism" .
+
+li:FixedInterestCrediting a owl:Class ; rdfs:subClassOf li:InterestCreditingMechanism ;
+    rdfs:label "Fixed Interest Crediting" ;
+    rdfs:comment "Guaranteed minimum rate declared by insurer. C3: guaranteed min 2.0%, current 3.5%. C10 Fixed Account: guaranteed min 2.0%, current 3.0%." .
+
+li:VariableSubAccountCrediting a owl:Class ; rdfs:subClassOf li:InterestCreditingMechanism ;
+    rdfs:label "Variable Sub-Account Crediting" ;
+    rdfs:comment "Market-linked; all investment risk borne by policy owner. No guaranteed minimum except Money Market (1.5%). C4 only." .
+
+li:IndexedCrediting a owl:Class ; rdfs:subClassOf li:InterestCreditingMechanism ;
+    rdfs:label "Index-Linked Crediting" ;
+    rdfs:comment "Index-based interest subject to cap/floor/participation rate. Floor=0% (no negative credit). Annual point-to-point method. Dividends from index components NOT included. C10 only." .
+
+li:DividendCrediting a owl:Class ; rdfs:subClassOf li:InterestCreditingMechanism ;
+    rdfs:label "Dividend (Participating Policy)" ;
+    rdfs:comment "Non-guaranteed; declared annually by Board of Directors based on mortality/investment/expense experience. C2 only. Current selection: Paid-Up Additions." .
+
+li:SubAccount a owl:Class ; rdfs:label "Sub-Account (VUL)" ;
+    rdfs:comment "Segregated investment account investing in shares of a designated mutual fund. C4: 6 sub-accounts available (Equity Growth, Balanced, Govt Bond, International, Money Market, Real Estate)." .
+
+li:AccumulationUnits a owl:Class ; rdfs:label "Accumulation Units (VUL)" ;
+    rdfs:comment "Units held in sub-accounts before any distributions. C4 §1.3." .
+
+li:UnitValue a owl:Class ; rdfs:label "Unit Value (VUL)" ;
+    rdfs:comment "Value of one unit of a sub-account, calculated daily based on fund performance. C4 §1.2." .
+
+li:IndexAccount a owl:Class ; rdfs:label "Index Account (IUL)" ;
+    rdfs:comment "Account where interest credits are linked to a market index subject to cap/floor/participation rate. C10: S&P 500, NASDAQ-100, Global Diversified." .
+
+li:CapRate a owl:Class ; rdfs:label "Cap Rate" ;
+    rdfs:comment "Maximum interest rate creditable in a given period. C10: S&P 500 cap=10.5%, NASDAQ cap=9.0%, Global cap=8.5%. Guaranteed minimums: all ≥4%." .
+
+li:FloorRate a owl:Class ; rdfs:label "Floor Rate" ;
+    rdfs:comment "Minimum interest rate creditable; protects against index losses. C10: floor=0% on all index accounts." .
+
+li:ParticipationRate a owl:Class ; rdfs:label "Participation Rate" ;
+    rdfs:comment "Percentage of index gain credited to account. C10: all accounts 100% current; guaranteed minimum 25%." .
+
+# ───────────────────────────────────────────────
+# 1.8  CHARGES
+# ───────────────────────────────────────────────
+
+li:PolicyCharge a owl:Class ; rdfs:label "Policy Charge" .
+
+li:CostOfInsurance a owl:Class ; rdfs:subClassOf li:PolicyCharge ;
+    rdfs:label "Cost of Insurance (COI)" ;
+    rdfs:comment "Monthly charge on net amount at risk = (DB - AV) × monthly COI rate / 1000. Present in C3, C4, C10. COI rates guaranteed not to exceed policy schedule maximum." .
+
+li:AdministrativeCharge a owl:Class ; rdfs:subClassOf li:PolicyCharge ;
+    rdfs:label "Administrative Charge" ;
+    rdfs:comment "Flat monthly fee. C3: $8/month, C4: $15/month, C10: $12/month." .
+
+li:MortalityAndExpenseCharge a owl:Class ; rdfs:subClassOf li:PolicyCharge ;
+    rdfs:label "Mortality and Expense (M&E) Risk Charge" ;
+    rdfs:comment "Daily charge as % of account value covering insurance risks and admin costs. C4 only: 0.90%/yr." .
+
+li:FundExpenseRatio a owl:Class ; rdfs:subClassOf li:PolicyCharge ;
+    rdfs:label "Fund Expense Ratio" ;
+    rdfs:comment "Annual sub-account fund expense. C4 only: 0.45–1.25%/yr (detailed in prospectus)." .
+
+li:TransactionFee a owl:Class ; rdfs:subClassOf li:PolicyCharge ;
+    rdfs:label "Transaction Fee" ;
+    rdfs:comment "Per-transaction fee for withdrawals, allocation changes, etc. C3: $25/withdrawal Yr1-10; C4: $50/withdrawal, $25/allocation change after 12/yr; C10: $50/withdrawal after 10 free, $25/reallocation after 4 free/yr." .
+
+# ───────────────────────────────────────────────
+# 1.9  EXCLUSIONS
+# ───────────────────────────────────────────────
+
+li:Exclusion a owl:Class ; rdfs:label "Exclusion" .
+
+li:SuicideExclusion a owl:Class ; rdfs:subClassOf li:Exclusion ;
+    rdfs:label "Suicide Exclusion" ;
+    rdfs:comment "Present in ALL 10 contracts. Period: 12 months (C6 only); 24 months (C1,C2,C3,C4,C5,C7,C8,C9,C10). Benefit outcome varies — use li:suicideBenefitType object property with li:SuicideBenefitType individuals." .
+
+li:SuicideBenefitType a owl:Class ;
+    rdfs:label "Suicide Benefit Type" ;
+    rdfs:comment "Controlled vocabulary for what is paid when death occurs by suicide within the exclusion period." .
+
+li:ReturnPremiumsPaid a li:SuicideBenefitType ;
+    rdfs:label "Return Premiums Paid" ;
+    rdfs:comment "Refund premiums paid, without interest. C1, C2, C5, C7, C8, C9." .
+
+li:ReturnAccountValue a li:SuicideBenefitType ;
+    rdfs:label "Return Account Value" ;
+    rdfs:comment "Pay account value (may exceed premiums paid). C3 only." .
+
+li:ReturnPremiumsMinusWithdrawals a li:SuicideBenefitType ;
+    rdfs:label "Return Premiums Minus Withdrawals" ;
+    rdfs:comment "Pay premiums paid minus any withdrawals made. C4 only." .
+
+li:ReturnPremiumsMinusWithdrawalsAndCharges a li:SuicideBenefitType ;
+    rdfs:label "Return Premiums Minus Withdrawals and Charges" ;
+    rdfs:comment "Pay premiums paid minus withdrawals and charges, without interest. C10 only." .
+
+li:NoBenefit a li:SuicideBenefitType ;
+    rdfs:label "No Benefit" ;
+    rdfs:comment "Complete denial; no death benefit and no premium refund. C6 only (12-month period)." .
+
+li:WarExclusion a owl:Class ; rdfs:subClassOf li:Exclusion ;
+    rdfs:label "War Exclusion" ;
+    rdfs:comment "Death while serving in military conflict in a war zone. C4 ONLY and time-bounded: excluded ONLY if death occurs within 24 months of issue (after 24 months, war deaths ARE covered). Use li:exclusionPeriodMonths=24 on C4 instance. Explicitly absent (no war exclusion): C1, C5, C8, C9. Silent: C2, C3, C6, C7, C10." .
+
+li:AviationExclusion a owl:Class ; rdfs:subClassOf li:Exclusion ;
+    rdfs:label "Aviation Exclusion" ;
+    rdfs:comment "Death from operating aircraft as pilot or crew. C4: permanent (no time limit), unless declared+approved+extra premium. Waived entirely in C7 via AviationExclusionWaiver rider. Explicitly absent: C1, C5, C8, C9. Silent: C2, C3, C6, C10." .
+
+li:MaterialMisrepresentation a owl:Class ; rdfs:subClassOf li:Exclusion ;
+    rdfs:label "Material Misrepresentation" ;
+    rdfs:comment "Policy may be contested within contestability period for material misrepresentation in application. Present: all 10 contracts (via incontestability clause)." .
+
+li:PreExistingConditionExclusion a owl:Class ; rdfs:subClassOf li:Exclusion ;
+    rdfs:label "Pre-Existing Condition Exclusion" ;
+    rdfs:comment "Explicitly ABSENT in C6 (group coverage has no pre-existing condition exclusions, per §8.2). Silent in all other contracts." .
+
+li:DrugAlcoholExclusion a owl:Class ; rdfs:subClassOf li:Exclusion ;
+    rdfs:label "Drug/Alcohol Exclusion" ;
+    rdfs:comment "Present only in C7 ADB Rider 5 (accidental death benefit): no payment if insured was under influence of drugs/alcohol at time of accident." .
+
+# ───────────────────────────────────────────────
+# 1.10 PROVISIONS
+# ───────────────────────────────────────────────
+
+li:Provision a owl:Class ; rdfs:label "Provision" .
+
+li:IncontestabilityProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Incontestability Provision" ;
+    rdfs:comment "After 2 years in force during insured's lifetime, insurer cannot contest. Present in ALL 10 contracts. C8: while both insureds are living. C9: new 2-year period starts on reinstatement." .
+
+li:FreeLookProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Free Look Period" ;
+    rdfs:comment "Right to cancel within specified days of receipt for full premium refund. Explicitly present: C2(30 days), C5(30 days), C8(30 days). Absent/silent: C1, C3, C4, C6, C7, C9, C10." .
+
+li:MisstatementOfAgeProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Misstatement of Age/Sex Provision" ;
+    rdfs:comment "If age/sex misstated, death benefit adjusted to what premiums would have purchased at correct age/sex. Present: C1 (age and sex), C2 (age only), C9 (age only; ROP amount unaffected). Silent: C3, C4, C5, C6, C7, C8, C10." .
+
+li:AssignmentProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Assignment Provision" ;
+    rdfs:comment "Policy may be assigned as collateral. Present: C1, C2, C9 (collateral assignment), C10 (implied). C8: requires trustee authorization. Silent: C3, C4, C5, C6, C7." .
+
+li:BeneficiaryChangeProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Beneficiary Change Provision" ;
+    rdfs:comment "Policy owner may change beneficiary at any time by written request. Present in all contracts. C6: submitted to employer HR department." .
+
+li:ConversionPrivilege a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Conversion Privilege" ;
+    rdfs:comment "Convert term/group to permanent policy without evidence of insurability. C1: before earlier of expiry or age 65. C6: within 31 days of termination, max $200k, whole life only. C7: before earlier of expiry or age 70, min $50k. C9: before earlier of expiry or age 65; ROP forfeited on conversion." .
+
+li:PortabilityProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Portability Provision" ;
+    rdfs:comment "C5: policy stays with insured regardless of state change. C6: port group coverage as individual policy within 31 days of employment termination, at age-banded group rates, no EOI required." .
+
+li:ReinstatementProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Reinstatement Provision" ;
+    rdfs:comment "Restore lapsed policy. C2: within 3 years, EOI required, 6% interest on back premiums. C4: within 3 years, EOI + 6% + repay loans. C5: within 2 years, pay missed premiums with interest. C9: within 5 years, EOI, 6% interest; ROP recalculated to exclude lapsed period; new 2-yr suicide/contestability period begins. Silent: C1, C3, C6, C7, C8, C10." .
+
+li:SettlementOptionProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Settlement Option" ;
+    rdfs:comment "Alternate settlement to lump-sum payment. C1 only (§5.2): beneficiary may choose alternate settlement option. Silent in all other contracts." .
+
+li:NonForfeitureOption a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Non-Forfeiture Option" ;
+    rdfs:comment "Options available when premium payments stop after policy has sufficient cash value." .
+
+li:CashSurrenderOption a owl:Class ; rdfs:subClassOf li:NonForfeitureOption ;
+    rdfs:label "Cash Surrender Option" ;
+    rdfs:comment "Receive cash surrender value and terminate the policy. Available: C2, C5, C3, C4, C8, C10 (via account value payout on surrender)." .
+
+li:ReducedPaidUpOption a owl:Class ; rdfs:subClassOf li:NonForfeitureOption ;
+    rdfs:label "Reduced Paid-Up Insurance Option" ;
+    rdfs:comment "Continue coverage for reduced death benefit; no further premiums. C2: based on cash value and attained age. C5: automatic after 2 years if payments stop. Absent in all others." .
+
+li:ExtendedTermOption a owl:Class ; rdfs:subClassOf li:NonForfeitureOption ;
+    rdfs:label "Extended Term Insurance Option" ;
+    rdfs:comment "Continue full face amount for limited period; no further premiums. C2 only. Auto-default if no election within 60 days of lapse. Absent in all others." .
+
+li:SplitOption a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Split Option (Joint Policy)" ;
+    rdfs:comment "C8 only: upon first death, policy owner may elect within 2 years to split into two single-life policies. Primarily for divorce or trust modification. EOI may be required." .
+
+li:DeathBenefitChangeOption a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Death Benefit Option Change (Level ↔ Increasing)" ;
+    rdfs:comment "Ability to switch between Level and Increasing death benefit options. C3: $50 fee, EOI required to increase; C4: $50 fee, proof of insurability to increase; C10: 60 days notice, EOI to increase." .
+
+li:DividendOption a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Dividend Option" ;
+    rdfs:comment "Selection of how dividends are applied. C2 only. Current selection: Paid-Up Additions." .
+
+li:CashDividendOption a owl:Class ; rdfs:subClassOf li:DividendOption ;
+    rdfs:label "Cash Dividend Option" .
+li:PremiumReductionDividendOption a owl:Class ; rdfs:subClassOf li:DividendOption ;
+    rdfs:label "Premium Reduction Dividend Option" .
+li:AccumulateAtInterestDividendOption a owl:Class ; rdfs:subClassOf li:DividendOption ;
+    rdfs:label "Accumulate at Interest Dividend Option" .
+li:PaidUpAdditionsDividendOption a owl:Class ; rdfs:subClassOf li:DividendOption ;
+    rdfs:label "Paid-Up Additions Dividend Option" ;
+    rdfs:comment "Currently selected option for C2." .
+
+li:WaiverOfPremiumProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Waiver of Premium (Group Contract Provision)" ;
+    rdfs:comment "C6 only as a contract-level provision (vs rider in C7): voluntary life premiums waived if totally disabled before age 60 for 6+ consecutive months. Waiver ends on return to work, recovery, or age 65. Annual proof of disability required." .
+
+li:GuaranteedRenewabilityProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Guaranteed Renewability Provision" ;
+    rdfs:comment "Guarantees policy may be renewed without evidence of insurability at increased premiums per the renewal rate schedule. C7 only: renewable to age 95." .
+
+li:LateEntrantProvision a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Late Entrant Provision" ;
+    rdfs:comment "Group insurance rule: employees who enroll for voluntary coverage after the initial 31-day window are 'late entrants' and may require evidence of insurability. C6 §2.3 only." .
+
+li:CoverageTerminationTrigger a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Coverage Termination Trigger" ;
+    rdfs:comment "Enumerated events that terminate group life coverage. C6 §4.1: (a) master policy terminates, (b) last day of month employee ceases eligible status, (c) date active full-time employment ceases, (d) date voluntary coverage requested terminated, (e) last day premiums paid." .
+
+li:PolicyAnniversary a owl:Class ; rdfs:subClassOf li:Provision ;
+    rdfs:label "Policy Anniversary" ;
+    rdfs:comment "The same day and month as the issue date in each subsequent year. Referenced in: C1 §4.4 (defined), C2 (non-forfeiture election), C3 (allocation changes), C10 (allocation changes, DB option changes, index crediting reset). Used as trigger for various policy events." .
+
+# ───────────────────────────────────────────────
+# 1.11 UNDERWRITING
+# ───────────────────────────────────────────────
+
+li:Underwriting a owl:Class ; rdfs:label "Underwriting" .
+
+li:RiskClass a owl:Class ; rdfs:label "Risk Class" .
+li:PreferredPlusClass    a owl:Class ; rdfs:subClassOf li:RiskClass ; rdfs:label "Preferred Plus" ;
+    rdfs:comment "C4 insured: Dr. Amanda Foster." .
+li:PreferredClass        a owl:Class ; rdfs:subClassOf li:RiskClass ; rdfs:label "Preferred" ;
+    rdfs:comment "C7 insured: Christopher Bennett (Preferred Non-Smoker); C8 second insured: Elizabeth Hartford." .
+li:StandardPlusClass     a owl:Class ; rdfs:subClassOf li:RiskClass ; rdfs:label "Standard Plus" ;
+    rdfs:comment "C10 insured: Jessica Thompson (Standard Plus Non-Tobacco)." .
+li:StandardClass         a owl:Class ; rdfs:subClassOf li:RiskClass ; rdfs:label "Standard" ;
+    rdfs:comment "C2: Standard Non-Tobacco; C8 first insured: William Hartford." .
+li:NonTobaccoClass       a owl:Class ; rdfs:subClassOf li:RiskClass ; rdfs:label "Non-Tobacco" .
+
+li:FullUnderwriting a owl:Class ; rdfs:subClassOf li:Underwriting ;
+    rdfs:label "Full Underwriting" ;
+    rdfs:comment "Complete medical examination and health history required. C1, C2, C3, C4, C7, C8, C9, C10." .
+
+li:SimplifiedIssueUnderwriting a owl:Class ; rdfs:subClassOf li:Underwriting ;
+    rdfs:label "Simplified Issue" ;
+    rdfs:comment "Health questions asked but no medical exam required. NOTE: Simplified Issue is a SIBLING of Guaranteed Issue, not its parent. Neither is a subclass of the other." .
+
+li:GuaranteedIssueUnderwriting a owl:Class ; rdfs:subClassOf li:Underwriting ;
+    rdfs:label "Guaranteed Issue" ;
+    rdfs:comment "No health questions and no medical exam; everyone within age eligibility qualifies. C5 only (ages 50-85 eligible). The graded death benefit in C5 compensates the insurer for accepting unknown health risks. NOTE: Sibling of SimplifiedIssue, not its parent." .
+
+li:EvidenceOfInsurability a owl:Class ;
+    rdfs:label "Evidence of Insurability" ;
+    rdfs:comment "Required for: reinstatement (C2, C4, C9), death benefit increase (C3, C4, C10), rider additions after issue (C7), split option in C8, late entrant voluntary coverage in C6, GIO not applicable (GIO exists to AVOID EOI requirement)." .
+
+# ───────────────────────────────────────────────
+# 1.12 POLICY EVENTS
+# ───────────────────────────────────────────────
+
+li:PolicyEvent a owl:Class ; rdfs:label "Policy Event" .
+li:PolicyIssuance         a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:PolicyLapse            a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:PolicySurrender        a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:PolicyReinstatement    a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:PolicyConversion       a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:PolicyMaturity         a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:ClaimEvent             a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:DeathClaimEvent        a owl:Class ; rdfs:subClassOf li:ClaimEvent .
+li:LivingBenefitClaimEvent a owl:Class ; rdfs:subClassOf li:ClaimEvent .
+li:FirstDeathEvent        a owl:Class ; rdfs:subClassOf li:PolicyEvent ;
+    rdfs:comment "Joint policy C8: first insured dies; no death benefit paid; policy continues; death certificate must be filed; premium obligation continues." .
+li:SecondDeathEvent       a owl:Class ; rdfs:subClassOf li:PolicyEvent ;
+    rdfs:comment "Joint policy C8: second insured dies; triggers death benefit payment. Both death certificates required." .
+li:SimultaneousDeathEvent a owl:Class ; rdfs:subClassOf li:PolicyEvent ;
+    rdfs:comment "C8: both insureds die in same accident/incident, or within 30 days of each other; treated as simultaneous; benefit paid immediately." .
+li:DisabilityEvent        a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:TerminalIllnessDiagnosis a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:ChronicIllnessDiagnosis  a owl:Class ; rdfs:subClassOf li:PolicyEvent .
+li:AccidentalDeathEvent   a owl:Class ; rdfs:subClassOf li:DeathClaimEvent ;
+    rdfs:comment "Death caused by accident. C5: overrides graded benefit (pays 100% at any time). C7 Rider 5: triggers additional $750k benefit. Accident defined as sudden unexpected event causing death within 90 days." .
+li:SuicideDeathEvent      a owl:Class ; rdfs:subClassOf li:DeathClaimEvent .
+
+# ───────────────────────────────────────────────
+# 1.13 CLAIM REQUIREMENTS
+# ───────────────────────────────────────────────
+
+li:ClaimRequirement a owl:Class ; rdfs:label "Claim Requirement" .
+li:DeathCertificate          a owl:Class ; rdfs:subClassOf li:ClaimRequirement .
+li:ClaimForm                 a owl:Class ; rdfs:subClassOf li:ClaimRequirement .
+li:OriginalPolicyDocument    a owl:Class ; rdfs:subClassOf li:ClaimRequirement .
+li:ProofOfBeneficiaryIdentity a owl:Class ; rdfs:subClassOf li:ClaimRequirement .
+li:PhysicianCertification    a owl:Class ; rdfs:subClassOf li:ClaimRequirement .
+li:GovernmentIssuedID        a owl:Class ; rdfs:subClassOf li:ClaimRequirement ;
+    rdfs:comment "C9 §2.3 only." .
+
+# ───────────────────────────────────────────────
+# 1.14 ESTATE PLANNING
+# ───────────────────────────────────────────────
+
+li:EstatePlanningProvision a owl:Class ; rdfs:label "Estate Planning Provision" .
+li:EstateTaxLiquidityProvision a owl:Class ; rdfs:subClassOf li:EstatePlanningProvision ;
+    rdfs:comment "C8: policy designed to provide liquidity to pay estate taxes on second death." .
+li:ThreeYearLookbackRule a owl:Class ; rdfs:subClassOf li:EstatePlanningProvision ;
+    rdfs:comment "C8 §8.3: if policy transferred to trust, three-year lookback rule may apply; consult estate attorney." .
+li:CrummeyPower a owl:Class ; rdfs:subClassOf li:EstatePlanningProvision ;
+    rdfs:comment "C8 §8.3: Crummey power requirements for annual exclusion gifts to ILIT." .
+
+# ───────────────────────────────────────────────
+# 1.15 REGULATORY
+# ───────────────────────────────────────────────
+
+li:RegulatoryProvision a owl:Class ; rdfs:label "Regulatory Provision" .
+li:SECRegistrationProvision a owl:Class ; rdfs:subClassOf li:RegulatoryProvision ;
+    rdfs:comment "VUL is a securities product registered with SEC; issued in connection with separate account (registered unit investment trust). C4 only." .
+li:ProspectusRequirement a owl:Class ; rdfs:subClassOf li:RegulatoryProvision ;
+    rdfs:comment "Prospectus for separate account and underlying funds must be read before investing. C4 only." .
+li:SeparateAccount a owl:Class ; rdfs:label "Separate Account" ;
+    rdfs:comment "Segregated investment account for VUL sub-accounts. C4: Pinnacle Investment Life Separate Account A." .
+li:MasterGroupPolicy a owl:Class ; rdfs:label "Master Group Policy" ;
+    rdfs:comment "The employer-level group policy under which individual certificates are issued. C6: AGB-2024-TC-GROUP. Controls in case of conflict with certificate." .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# SECTION 2: OBJECT PROPERTIES
+# ═══════════════════════════════════════════════════════════════════════
+
+li:hasInsured                  a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:Insured .
+li:hasOwner                    a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:PolicyOwner .
+li:hasPrimaryBeneficiary       a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:PrimaryBeneficiary ;
+    rdfs:comment "Not declared functional — multiple primary beneficiaries supported (e.g. C7 has 3 at 60/20/20%)." .
+li:hasContingentBeneficiary    a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:ContingentBeneficiary .
+li:issuedBy                    a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:Insurer .
+li:hasDeathBenefit             a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:DeathBenefit .
+li:hasLivingBenefit            a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:LivingBenefit .
+li:hasPremium                  a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:Premium .
+li:hasGracePeriod              a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:GracePeriod .
+li:hasExclusion                a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:Exclusion .
+li:hasProvision                a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:Provision .
+li:hasRider                    a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:Rider .
+li:hasCashValue                a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:CashValue .
+li:hasSurrenderCharge          a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:SurrenderCharge .
+li:hasPolicyLoan               a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:PolicyLoan .
+li:hasPartialWithdrawal        a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:PartialWithdrawal .
+li:hasCreditingMechanism       a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:InterestCreditingMechanism .
+li:hasCharge                   a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:PolicyCharge .
+li:hasRiskClass                a owl:ObjectProperty ; rdfs:domain li:Insured         ; rdfs:range li:RiskClass .
+li:hasUnderwritingType         a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:Underwriting .
+li:hasNonForfeitureOption      a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:NonForfeitureOption .
+li:hasFirstInsured             a owl:ObjectProperty ; rdfs:domain li:JointSurvivorshipPolicy ; rdfs:range li:FirstInsured .
+li:hasSecondInsured            a owl:ObjectProperty ; rdfs:domain li:JointSurvivorshipPolicy ; rdfs:range li:SecondInsured .
+li:governedByMasterPolicy      a owl:ObjectProperty ; rdfs:domain li:GroupLifeCertificate   ; rdfs:range li:MasterGroupPolicy .
+li:heldByEmployer              a owl:ObjectProperty ; rdfs:domain li:MasterGroupPolicy      ; rdfs:range li:Employer .
+li:hasSubAccount               a owl:ObjectProperty ; rdfs:domain li:VariableUniversalLifePolicy ; rdfs:range li:SubAccount .
+li:hasIndexAccount             a owl:ObjectProperty ; rdfs:domain li:IndexedUniversalLifePolicy ; rdfs:range li:IndexAccount .
+li:hasCapRate                  a owl:ObjectProperty ; rdfs:domain li:IndexAccount    ; rdfs:range li:CapRate .
+li:hasFloorRate                a owl:ObjectProperty ; rdfs:domain li:IndexAccount    ; rdfs:range li:FloorRate .
+li:hasParticipationRate        a owl:ObjectProperty ; rdfs:domain li:IndexAccount    ; rdfs:range li:ParticipationRate .
+li:heldInTrust                 a owl:ObjectProperty ; rdfs:domain li:Policy          ; rdfs:range li:Trust .
+li:hasDividendOption           a owl:ObjectProperty ; rdfs:domain li:ParticipatingWholeLifePolicy ; rdfs:range li:DividendOption .
+li:hasEstatePlanningProvision  a owl:ObjectProperty ; rdfs:domain li:JointSurvivorshipPolicy ; rdfs:range li:EstatePlanningProvision .
+li:triggeredBy                 a owl:ObjectProperty ; rdfs:domain li:Coverage        ; rdfs:range li:PolicyEvent .
+li:reducedBy                   a owl:ObjectProperty ; rdfs:domain li:DeathBenefit    ; rdfs:range li:PolicyLoan .
+li:hasPremiumLoad              a owl:ObjectProperty ; rdfs:domain li:FlexiblePremium ; rdfs:range li:PremiumLoad .
+li:suicideBenefitType          a owl:ObjectProperty ; rdfs:domain li:SuicideExclusion ; rdfs:range li:SuicideBenefitType ;
+    rdfs:comment "Links a suicide exclusion instance to the structured benefit-outcome type. Use with named individuals: li:ReturnPremiumsPaid, li:ReturnAccountValue, li:ReturnPremiumsMinusWithdrawals, li:ReturnPremiumsMinusWithdrawalsAndCharges, li:NoBenefit." .
+li:hasEmployee                 a owl:ObjectProperty ; rdfs:domain li:GroupLifeCertificate ; rdfs:range li:Employee .
+li:hasTrustee                  a owl:ObjectProperty ; rdfs:domain li:Trust ; rdfs:range li:Party ;
+    rdfs:comment "C8: trustee is First National Bank of Connecticut." .
+li:hasAccumulationUnits        a owl:ObjectProperty ; rdfs:domain li:SubAccount ; rdfs:range li:AccumulationUnits .
+li:hasUnitValue                a owl:ObjectProperty ; rdfs:domain li:SubAccount ; rdfs:range li:UnitValue .
+li:hasReinstatementProvision   a owl:ObjectProperty ; rdfs:domain li:Policy ; rdfs:range li:ReinstatementProvision .
+li:hasCoverageTerminationTrigger a owl:ObjectProperty ; rdfs:domain li:GroupLifeCertificate ; rdfs:range li:CoverageTerminationTrigger .
+li:hasLateEntrantProvision     a owl:ObjectProperty ; rdfs:domain li:GroupLifeCertificate ; rdfs:range li:LateEntrantProvision .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# SECTION 3: DATA PROPERTIES
+# ═══════════════════════════════════════════════════════════════════════
+
+# --- 3.1 Policy Identification ---
+li:policyNumber         a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:string .
+li:issueDate            a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:date .
+li:effectiveDate        a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:date .
+li:expiryDate           a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:date .
+li:maturityDate         a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:date .
+li:policyTermYears      a owl:DatatypeProperty ; rdfs:domain li:TermLifePolicy ; rdfs:range xsd:integer .
+li:stateOfIssuance      a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:string ;
+    rdfs:comment "US state where policy was executed/issued. C1: CT, C2: MA, C3: AZ, C4: NY, C5: FL, C6: CA, C7: CO, C8: CT, C9: MN, C10: IL." .
+
+li:policyAnniversaryMonth a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:integer ;
+    rdfs:comment "Month (1-12) of the policy anniversary date, derived from issue date." .
+li:policyAnniversaryDay   a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:integer ;
+    rdfs:comment "Day of the policy anniversary date, derived from issue date." .
+
+# --- 3.2 Coverage Amounts ---
+li:faceAmount              a owl:DatatypeProperty ; rdfs:range xsd:decimal ;
+    rdfs:comment "Face/specified/death benefit amount. C1:$500k, C2:$250k, C3:$400k, C4:$1M, C5:$10k, C6:$280k, C7:$750k, C8:$2.5M, C9:$300k, C10:$500k." .
+li:salaryMultiple          a owl:DatatypeProperty ; rdfs:domain li:SalaryBasedDeathBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "C6 basic: 2x annual salary." .
+li:salaryMaxTotalCoverage  a owl:DatatypeProperty ; rdfs:domain li:SalaryBasedDeathBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "C6: max total coverage $1,000,000." .
+li:deathBenefitPaymentDays a owl:DatatypeProperty ; rdfs:domain li:DeathBenefit ; rdfs:range xsd:integer ;
+    rdfs:comment "Days to pay valid claim after receiving complete documentation. C1:30, C2:7, C5:5(business), C6:10(business), C7:30, C8:30, C9:60. C3/C4/C10: not explicitly stated." .
+li:deathBenefitFormula     a owl:DatatypeProperty ; rdfs:domain li:DeathBenefit ; rdfs:range xsd:string ;
+    rdfs:comment "Formula text for computing death benefit. C2: 'Face Amount + Paid-Up Additions - Policy Loans - Loan Interest'. C3/C4/C10: 'Specified Amount - Outstanding Loans' (Level option)." .
+
+# --- 3.3 Premiums ---
+li:annualPremiumAmount      a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+li:monthlyPremiumAmount     a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+li:premiumPaymentFrequency  a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "e.g. 'monthly', 'annual', 'quarterly', 'flexible'." .
+li:premiumDueDayOfMonth     a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "C1: 15th, C5: 1st, C8: 20th (Aug annually)." .
+li:premiumPaymentPeriod     a owl:DatatypeProperty ; rdfs:domain li:WholeLifePolicy ; rdfs:range xsd:string ;
+    rdfs:comment "C2: 'To age 100'." .
+li:minimumPremiumAmount     a owl:DatatypeProperty ; rdfs:domain li:FlexiblePremium ; rdfs:range xsd:decimal ;
+    rdfs:comment "C3: $75/payment, C10: $100/payment." .
+li:maximumPremiumAnnual     a owl:DatatypeProperty ; rdfs:domain li:FlexiblePremium ; rdfs:range xsd:decimal ;
+    rdfs:comment "C3: $50,000/yr, C4: not stated (subject to tax limitations), C10: $50,000/yr." .
+li:targetPremiumAmount      a owl:DatatypeProperty ; rdfs:domain li:FlexiblePremium ; rdfs:range xsd:decimal ;
+    rdfs:comment "Planned/target premium. C3: $200/month, C4: $12,000/yr, C10: $6,000/yr." .
+li:premiumLoadPercentage    a owl:DatatypeProperty ; rdfs:domain li:PremiumLoad ; rdfs:range xsd:decimal ;
+    rdfs:comment "C3: 3.0%, C4: 5.0%, C10: 3.5%." .
+li:gracePeriodDays          a owl:DatatypeProperty ; rdfs:domain li:GracePeriod ; rdfs:range xsd:integer .
+li:unpaidPremiumDeductedOnDeathDuringGrace a owl:DatatypeProperty ; rdfs:domain li:PremiumNonpaymentGracePeriod ; rdfs:range xsd:boolean ;
+    rdfs:comment "If true, unpaid premium is deducted from death benefit if death occurs during grace period. C7 §3.2: true. Other contracts: not stated." .
+li:premiumGuaranteePeriodYears  a owl:DatatypeProperty ; rdfs:domain li:JointSurvivorshipPolicy ; rdfs:range xsd:integer ;
+    rdfs:comment "C8: 10 years of guaranteed level premium." .
+li:maximumGuaranteedPremium     a owl:DatatypeProperty ; rdfs:domain li:JointSurvivorshipPolicy ; rdfs:range xsd:decimal ;
+    rdfs:comment "C8: after Year 10, premium may increase but will never exceed $48,600/yr." .
+li:premiumSkippingAllowed   a owl:DatatypeProperty ; rdfs:domain li:FlexiblePremium ; rdfs:range xsd:boolean ;
+    rdfs:comment "If true, payments may be skipped as long as account value covers monthly deductions. C3: true, C4: true (implied), C10: true. C1/C2/C5/C7/C8/C9: false (fixed schedule)." .
+li:premiumRetryDayOfMonth   a owl:DatatypeProperty ; rdfs:domain li:LevelPremium ; rdfs:range xsd:integer ;
+    rdfs:comment "If initial draft fails, retry on this day. C5 §3.3: retry on 15th. Other contracts: not stated." .
+li:minimumIssueAge          a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:integer ;
+    rdfs:comment "Minimum age at which coverage can be issued. C5: 50. Others: not stated." .
+li:maximumIssueAge          a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:integer ;
+    rdfs:comment "Maximum age at which coverage can be issued. C5: 85. Others: not stated." .
+
+# --- 3.4 Exclusion Details ---
+li:suicideExclusionPeriodMonths a owl:DatatypeProperty ; rdfs:domain li:SuicideExclusion ; rdfs:range xsd:integer ;
+    rdfs:comment "C6: 12 months. All others: 24 months." .
+li:exclusionPeriodMonths    a owl:DatatypeProperty ; rdfs:domain li:Exclusion ; rdfs:range xsd:integer ;
+    rdfs:comment "If set, the exclusion applies only within this number of months from issue date; after this period, the exclusion no longer applies. C4 WarExclusion: 24 months. Absence of this property = exclusion is permanent." .
+li:exclusionIsTimeBounded   a owl:DatatypeProperty ; rdfs:domain li:Exclusion ; rdfs:range xsd:boolean ;
+    rdfs:comment "True if the exclusion expires after a defined period. C4 war exclusion: true (24 months). All other exclusions: false (permanent)." .
+
+# --- 3.5 Cash Value / Loans / Withdrawals ---
+li:policyLoanMaxPercentOfCV     a owl:DatatypeProperty ; rdfs:domain li:PolicyLoan ; rdfs:range xsd:decimal ;
+    rdfs:comment "Maximum loan as % of cash/surrender value. C2: 90%, C3: 90% of AV, C4: 90% of surrender value, C8: 90%, C10: 90%." .
+li:policyLoanInterestRate       a owl:DatatypeProperty ; rdfs:domain li:PolicyLoan ; rdfs:range xsd:decimal ;
+    rdfs:comment "Annual loan interest rate. C2: 5%, C4: 5.5%, C8: 5.5% (variable, currently), C10: 4% (fixed)." .
+li:policyLoanInterestRateType   a owl:DatatypeProperty ; rdfs:domain li:PolicyLoan ; rdfs:range xsd:string ;
+    rdfs:comment "C2: 'fixed', C3: 'variable (Moody's+1.5%, min 4%)', C4: 'fixed', C8: 'variable', C10: 'fixed'." .
+li:policyLoanInterestRateFormula a owl:DatatypeProperty ; rdfs:domain li:PolicyLoan ; rdfs:range xsd:string ;
+    rdfs:comment "C3 only: 'Moody's Corporate Bond Index + 1.5%, minimum 4%, adjusted annually each January 1'." .
+li:loanMinimumYearsInForce      a owl:DatatypeProperty ; rdfs:domain li:PolicyLoan ; rdfs:range xsd:integer ;
+    rdfs:comment "Minimum policy years in force before loan available. C2: 1, C8: 2, C10: 1. C3/C4: no stated minimum (silent)." .
+li:loanCollateralAccount        a owl:DatatypeProperty ; rdfs:domain li:PolicyLoan ; rdfs:range xsd:string ;
+    rdfs:comment "Account to which loaned amounts are transferred as collateral. C4: 'Money Market sub-account'. C10: loaned amounts credited at fixed account rate (3%). C2/C3/C8: no stated collateral account mechanism." .
+li:loanedAmountCreditingRate    a owl:DatatypeProperty ; rdfs:domain li:PolicyLoan ; rdfs:range xsd:decimal ;
+    rdfs:comment "Rate earned on loaned amount while loan is outstanding. C10: 3.0% (fixed account rate). C4: Money Market guaranteed min 1.5%." .
+li:withdrawalMinimumAmount      a owl:DatatypeProperty ; rdfs:domain li:PartialWithdrawal ; rdfs:range xsd:decimal ;
+    rdfs:comment "C3: $500, C4: $1,000, C10: $500." .
+li:withdrawalFeePerTransaction  a owl:DatatypeProperty ; rdfs:domain li:PartialWithdrawal ; rdfs:range xsd:decimal ;
+    rdfs:comment "C3 Yr1-10: $25, C4: $50 (plus surrender charges), C10: $50 after 10 free." .
+li:withdrawalFreeNumberPerYear  a owl:DatatypeProperty ; rdfs:domain li:PartialWithdrawal ; rdfs:range xsd:integer ;
+    rdfs:comment "Number of free withdrawals per year before fee applies. C10: 10. C3: no free allowance. C4: no free allowance." .
+li:freeWithdrawalAnnualPercentage a owl:DatatypeProperty ; rdfs:domain li:SurrenderCharge ; rdfs:range xsd:decimal ;
+    rdfs:comment "Annual percentage of account value that may be withdrawn free of surrender charge. C10 §8.4: 10% (after Year 1). C3: 0% (no such allowance). C4: not stated." .
+li:surrenderChargeBasis         a owl:DatatypeProperty ; rdfs:domain li:SurrenderCharge ; rdfs:range xsd:string ;
+    rdfs:comment "The base amount on which the surrender charge percentage is applied. C3: 'specified_amount' (% of face value), C4: 'premiums_paid', C10: 'premiums_paid_first_10_years'. Critical for computing actual dollar surrender charge." .
+li:surrenderChargePeriodYears   a owl:DatatypeProperty ; rdfs:domain li:SurrenderCharge ; rdfs:range xsd:integer ;
+    rdfs:comment "Number of years during which surrender charge applies. C3: 15 years, C4: 7 years, C10: 12 years." .
+li:lapseAutoPaysSurrenderValue  a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:boolean ;
+    rdfs:comment "If true, any account value exceeding surrender charges is automatically paid to policy owner upon lapse. C3 §10.3: true, C10 §10.3: true. Silent for other contracts." .
+li:lapsePriorNoticeRequiredDays a owl:DatatypeProperty ; rdfs:domain li:AccountValueDepletionGracePeriod ; rdfs:range xsd:integer ;
+    rdfs:comment "Days prior written notice insurer must give before policy lapses due to account value depletion. C3 §10.1: implied (notification sent), C4 §7.2: 30 days, C10 §10.1: 30 days." .
+
+# --- 3.6 Crediting ---
+li:creditingGuaranteedMinimumRate a owl:DatatypeProperty ; rdfs:domain li:FixedInterestCrediting ; rdfs:range xsd:decimal ;
+    rdfs:comment "C3: 2.0%/yr, C10 Fixed Account: 2.0%/yr (guaranteed min)." .
+li:creditingCurrentRate           a owl:DatatypeProperty ; rdfs:domain li:FixedInterestCrediting ; rdfs:range xsd:decimal ;
+    rdfs:comment "C3 current: 3.5%/yr (subject to monthly change), C10 fixed account current: 3.0%/yr." .
+li:creditingFrequency             a owl:DatatypeProperty ; rdfs:domain li:FixedInterestCrediting ; rdfs:range xsd:string ;
+    rdfs:comment "C3: daily crediting. C10: annual crediting on policy anniversary." .
+li:capRateCurrentValue            a owl:DatatypeProperty ; rdfs:domain li:CapRate ; rdfs:range xsd:decimal .
+li:capRateGuaranteedMinimum       a owl:DatatypeProperty ; rdfs:domain li:CapRate ; rdfs:range xsd:decimal ;
+    rdfs:comment "C10 guarantee: caps will never be less than 4% on any index account." .
+li:floorRateValue                 a owl:DatatypeProperty ; rdfs:domain li:FloorRate ; rdfs:range xsd:decimal ;
+    rdfs:comment "C10: all index accounts have 0% floor (no negative credits)." .
+li:participationRateCurrent       a owl:DatatypeProperty ; rdfs:domain li:ParticipationRate ; rdfs:range xsd:decimal .
+li:participationRateGuaranteedMinimum a owl:DatatypeProperty ; rdfs:domain li:ParticipationRate ; rdfs:range xsd:decimal ;
+    rdfs:comment "C10 guarantee: participation rates will never be less than 25%." .
+li:creditingMethod                a owl:DatatypeProperty ; rdfs:domain li:IndexAccount ; rdfs:range xsd:string ;
+    rdfs:comment "Method used to calculate index-linked interest. C10 §1.6: 'annual_point_to_point' for all three index accounts." .
+li:creditingPeriodYears           a owl:DatatypeProperty ; rdfs:domain li:IndexAccount ; rdfs:range xsd:integer ;
+    rdfs:comment "Length of the crediting period in years. C10: 1 year for all index accounts." .
+li:indexDividendsIncluded         a owl:DatatypeProperty ; rdfs:domain li:IndexAccount ; rdfs:range xsd:boolean ;
+    rdfs:comment "Whether dividends from index components are included in the index performance calculation. C10 §12.2: false (dividends NOT included)." .
+
+# --- 3.7 Provisions: Contestability, Free Look, Reinstatement ---
+li:contestabilityPeriodYears      a owl:DatatypeProperty ; rdfs:domain li:IncontestabilityProvision ; rdfs:range xsd:integer ;
+    rdfs:comment "All 10 contracts: 2 years." .
+li:freeLookDays                   a owl:DatatypeProperty ; rdfs:domain li:FreeLookProvision ; rdfs:range xsd:integer ;
+    rdfs:comment "C2: 30, C5: 30, C8: 30." .
+li:reinstatementPeriodYears       a owl:DatatypeProperty ; rdfs:domain li:ReinstatementProvision ; rdfs:range xsd:integer ;
+    rdfs:comment "C2: 3, C4: 3, C5: 2, C9: 5." .
+li:reinstatementInterestRate      a owl:DatatypeProperty ; rdfs:domain li:ReinstatementProvision ; rdfs:range xsd:decimal ;
+    rdfs:comment "Annual interest rate on back premiums for reinstatement. C2: 6%, C4: 6%, C9: 6%." .
+li:reinstatementNewSuicidePeriod  a owl:DatatypeProperty ; rdfs:domain li:ReinstatementProvision ; rdfs:range xsd:boolean ;
+    rdfs:comment "If true, reinstatement resets the suicide exclusion period. C9: true. C4: true (§8.1 mentions suicide within 2 years of 'issue or reinstatement')." .
+li:conversionMaxAge               a owl:DatatypeProperty ; rdfs:domain li:ConversionPrivilege ; rdfs:range xsd:integer ;
+    rdfs:comment "Maximum age at conversion. C1: 65, C7: 70, C9: 65." .
+li:conversionDeadlineDays         a owl:DatatypeProperty ; rdfs:domain li:ConversionPrivilege ; rdfs:range xsd:integer ;
+    rdfs:comment "Days from termination of coverage to apply for conversion. C6: 31 days." .
+li:conversionMaxAmount            a owl:DatatypeProperty ; rdfs:domain li:ConversionPrivilege ; rdfs:range xsd:decimal ;
+    rdfs:comment "Maximum face amount of conversion policy. C6: lesser of group coverage or $200,000." .
+li:conversionMinAmount            a owl:DatatypeProperty ; rdfs:domain li:ConversionPrivilege ; rdfs:range xsd:decimal ;
+    rdfs:comment "Minimum face amount for conversion. C7: $50,000, C9: $50,000." .
+li:portabilityApplicationDays     a owl:DatatypeProperty ; rdfs:domain li:PortabilityProvision ; rdfs:range xsd:integer ;
+    rdfs:comment "Days to apply for portability after employment termination. C6: 31 days." .
+li:ropLatePremiumPenaltyPercentage a owl:DatatypeProperty ; rdfs:domain li:ReturnOfPremiumBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "Percentage by which ROP benefit is reduced for each premium paid during (not before) the grace period rather than by the due date. C9 §4.5: 10% reduction per late payment." .
+li:ropLapseForfeitsROP            a owl:DatatypeProperty ; rdfs:domain li:ReturnOfPremiumBenefit ; rdfs:range xsd:boolean ;
+    rdfs:comment "If true, policy lapse (failure to pay within grace period) results in complete forfeiture of ROP benefit. C9 §4.4: true." .
+li:ropPercentAtEndOfTerm          a owl:DatatypeProperty ; rdfs:domain li:ReturnOfPremiumBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "Percentage of premiums returned if insured survives full term with all premiums paid on time. C9: 100%." .
+
+# --- 3.8 ADB / Living Benefits ---
+li:adbMaxPercentOfFaceAmount      a owl:DatatypeProperty ; rdfs:domain li:AcceleratedDeathBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "Maximum acceleration as % of death benefit. C6: 75%, C7 TI rider: 95%." .
+li:adbMinimumAmount               a owl:DatatypeProperty ; rdfs:domain li:AcceleratedDeathBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "Minimum acceleration amount. C6: $5,000, C7 TI rider: $10,000." .
+li:adbMaximumAmount               a owl:DatatypeProperty ; rdfs:domain li:AcceleratedDeathBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "Maximum acceleration dollar amount. C6: $250,000, C7 TI rider: $500,000." .
+li:terminalIllnessLifeExpectancyMonths a owl:DatatypeProperty ; rdfs:domain li:TerminalIllnessADB ; rdfs:range xsd:integer ;
+    rdfs:comment "Maximum remaining life expectancy to qualify for terminal illness ADB. C6: 12 months, C7: 24 months. A patient with 18-month expectancy qualifies under C7 but NOT C6." .
+li:adbActuarialDiscountApplies    a owl:DatatypeProperty ; rdfs:domain li:AcceleratedDeathBenefit ; rdfs:range xsd:boolean ;
+    rdfs:comment "Whether an actuarial discount is applied to the accelerated amount. C6: true (unspecified rate), C7 TI rider: true (~8%/yr), C7 CI rider: false (no discount)." .
+li:adbActuarialDiscountApproxPercentPerYear a owl:DatatypeProperty ; rdfs:domain li:AcceleratedDeathBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "Approximate actuarial discount rate per year of remaining life expectancy. C7 TI Rider 2: approximately 8%/yr. C6: not specified." .
+li:adlMinimumUnableToPerform      a owl:DatatypeProperty ; rdfs:domain li:ChronicIllnessADB ; rdfs:range xsd:integer ;
+    rdfs:comment "Minimum number of ADLs insured must be unable to perform. C7: 2 of 6." .
+li:adlQualifyingPeriodDays        a owl:DatatypeProperty ; rdfs:domain li:ChronicIllnessADB ; rdfs:range xsd:integer ;
+    rdfs:comment "Minimum consecutive days the ADL limitation must be certified. C7: 90 days." .
+li:chronicallyIllMonthlyAdvancePercentage a owl:DatatypeProperty ; rdfs:domain li:ChronicIllnessADB ; rdfs:range xsd:decimal ;
+    rdfs:comment "Monthly advance as % of face amount. C7 Rider 3: 2% per month." .
+li:chronicIllnessMaxTotalPercentage a owl:DatatypeProperty ; rdfs:domain li:ChronicIllnessADB ; rdfs:range xsd:decimal ;
+    rdfs:comment "Maximum total advance as % of face amount. C7 Rider 3: 50%." .
+
+# --- 3.9 Riders ---
+li:riderAnnualPremium             a owl:DatatypeProperty ; rdfs:domain li:Rider ; rdfs:range xsd:decimal ;
+    rdfs:comment "Annual premium for rider. C7: WOP=$102, CI-ADB=$48, Children=$156, ADB=$94, GIO=$89. Terminal ADB: included at no charge." .
+li:waiverDisabilityWaitingMonths  a owl:DatatypeProperty ; rdfs:domain li:WaiverOfPremiumRider ; rdfs:range xsd:integer ;
+    rdfs:comment "C7 Rider 1 and C6 provision: 6 consecutive months of disability required." .
+li:waiverMaxAgeAtDisability       a owl:DatatypeProperty ; rdfs:domain li:WaiverOfPremiumRider ; rdfs:range xsd:integer ;
+    rdfs:comment "Maximum age at which disability must occur to qualify. C7 Rider 1 and C6: age 60." .
+li:waiverTerminationAge           a owl:DatatypeProperty ; rdfs:domain li:WaiverOfPremiumRider ; rdfs:range xsd:integer ;
+    rdfs:comment "Age at which waiver benefit terminates. C7 Rider 1 and C6: age 65." .
+li:adbRiderAdditionalBenefitAmount a owl:DatatypeProperty ; rdfs:domain li:AccidentalDeathBenefitRider ; rdfs:range xsd:decimal ;
+    rdfs:comment "Additional death benefit amount on accidental death. C7 Rider 5: $750,000." .
+li:adbRiderAccidentDeathWindowDays a owl:DatatypeProperty ; rdfs:domain li:AccidentalDeathBenefitRider ; rdfs:range xsd:integer ;
+    rdfs:comment "Death must occur within this many days of accident. C7 Rider 5: 90 days. C5 graded benefit accidental exception: 90 days." .
+li:adbRiderTerminationAge         a owl:DatatypeProperty ; rdfs:domain li:AccidentalDeathBenefitRider ; rdfs:range xsd:integer ;
+    rdfs:comment "Age at which ADB rider terminates. C7 Rider 5: age 70." .
+li:childrenRiderCoverageAmount    a owl:DatatypeProperty ; rdfs:domain li:ChildrenTermRider ; rdfs:range xsd:decimal ;
+    rdfs:comment "Coverage per eligible child. C7 Rider 4: $15,000 per child." .
+li:childrenRiderMaxAge            a owl:DatatypeProperty ; rdfs:domain li:ChildrenTermRider ; rdfs:range xsd:integer ;
+    rdfs:comment "Age at which child's coverage terminates. C7 Rider 4: age 25." .
+li:childrenRiderConversionMultiple a owl:DatatypeProperty ; rdfs:domain li:ChildrenTermRider ; rdfs:range xsd:decimal ;
+    rdfs:comment "Maximum coverage multiple of rider amount for conversion at rider termination age (without EOI). C7 Rider 4: 5x (up to 5 × $15,000 = $75,000)." .
+li:gioOptionDates                 a owl:DatatypeProperty ; rdfs:domain li:GuaranteedInsurabilityRider ; rdfs:range xsd:string ;
+    rdfs:comment "C7 Rider 6: ages 40, 43, 46, 49, and at birth/adoption of child." .
+li:gioMaxCoveragePerOption        a owl:DatatypeProperty ; rdfs:domain li:GuaranteedInsurabilityRider ; rdfs:range xsd:decimal ;
+    rdfs:comment "C7 Rider 6: $100,000 per option date." .
+li:gioTerminationAge              a owl:DatatypeProperty ; rdfs:domain li:GuaranteedInsurabilityRider ; rdfs:range xsd:integer ;
+    rdfs:comment "C7 Rider 6: all options terminate at age 50." .
+li:gioExerciseWindowDays          a owl:DatatypeProperty ; rdfs:domain li:GuaranteedInsurabilityRider ; rdfs:range xsd:integer ;
+    rdfs:comment "C7 Rider 6: option must be exercised within 90 days of option date." .
+
+# --- 3.10 Graded Benefit ---
+li:gradedBenefitYear1Percent      a owl:DatatypeProperty ; rdfs:domain li:GradedDeathBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "C5: 30% of face amount during Year 1." .
+li:gradedBenefitYear2Percent      a owl:DatatypeProperty ; rdfs:domain li:GradedDeathBenefit ; rdfs:range xsd:decimal ;
+    rdfs:comment "C5: 70% of face amount during Year 2." .
+li:gradedBenefitFullYear          a owl:DatatypeProperty ; rdfs:domain li:GradedDeathBenefit ; rdfs:range xsd:integer ;
+    rdfs:comment "Policy year from which 100% benefit is payable. C5: Year 3 (on or after May 1, 2026)." .
+li:gradedBenefitAccidentalDeathException a owl:DatatypeProperty ; rdfs:domain li:GradedDeathBenefit ; rdfs:range xsd:boolean ;
+    rdfs:comment "C5: true — accidental death at any time pays 100% of face amount plus premiums paid, bypassing graded schedule." .
+li:gradedBenefitIncludesPremiumsPaid a owl:DatatypeProperty ; rdfs:domain li:GradedDeathBenefit ; rdfs:range xsd:boolean ;
+    rdfs:comment "C5: true — graded amounts are paid PLUS all premiums paid are returned." .
+
+# --- 3.11 Joint Policy ---
+li:simultaneousDeathWindowDays    a owl:DatatypeProperty ; rdfs:domain li:SimultaneousDeathEvent ; rdfs:range xsd:integer ;
+    rdfs:comment "C8 §9.2: deaths within 30 days of each other treated as simultaneous." .
+li:splitOptionElectionYearsAfterDeath a owl:DatatypeProperty ; rdfs:domain li:SplitOption ; rdfs:range xsd:integer ;
+    rdfs:comment "C8 §6.2: must elect split within 2 years of first death." .
+li:waiverOfPremiumAvailable       a owl:DatatypeProperty ; rdfs:domain li:JointSurvivorshipPolicy ; rdfs:range xsd:boolean ;
+    rdfs:comment "C8 §4.5: false — premium waiver is NOT available on joint survivorship policies." .
+
+# --- 3.12 Death Benefit Option Change ---
+li:deathBenefitOptionChangeFee    a owl:DatatypeProperty ; rdfs:domain li:DeathBenefitChangeOption ; rdfs:range xsd:decimal ;
+    rdfs:comment "Fee to change death benefit option. C3: $50, C4: $50, C10: not stated (no fee mentioned)." .
+li:deathBenefitOptionChangeNoticeDays a owl:DatatypeProperty ; rdfs:domain li:DeathBenefitChangeOption ; rdfs:range xsd:integer ;
+    rdfs:comment "Advance notice required to change death benefit option. C10: 60 days. C3/C4: not stated." .
+
+# --- 3.13 Guaranteed Renewability ---
+li:renewableToAge                 a owl:DatatypeProperty ; rdfs:domain li:GuaranteedRenewabilityProvision ; rdfs:range xsd:integer ;
+    rdfs:comment "Maximum age to which policy may be renewed. C7: age 95." .
+li:renewalPremiumBasis            a owl:DatatypeProperty ; rdfs:domain li:GuaranteedRenewabilityProvision ; rdfs:range xsd:string ;
+    rdfs:comment "Basis for renewal premium. C7: 'increased per renewal rate schedule'." .
+
+# --- 3.14 Late Entrant Provision ---
+li:lateEntrantEnrollmentWindowDays a owl:DatatypeProperty ; rdfs:domain li:LateEntrantProvision ; rdfs:range xsd:integer ;
+    rdfs:comment "Window in days from hire/eligibility date for enrollment without late-entrant consequences. C6: 31 days." .
+li:lateEntrantRequiresEOI         a owl:DatatypeProperty ; rdfs:domain li:LateEntrantProvision ; rdfs:range xsd:boolean ;
+    rdfs:comment "Whether evidence of insurability is required for late entrants. C6: implied true for voluntary coverage." .
+
+# --- 3.15 Party Attributes ---
+li:partyName               a owl:DatatypeProperty ; rdfs:domain li:Party ; rdfs:range xsd:string .
+li:dateOfBirth             a owl:DatatypeProperty ; rdfs:domain li:Party ; rdfs:range xsd:date .
+li:ageAtIssue              a owl:DatatypeProperty ; rdfs:domain li:Insured ; rdfs:range xsd:integer .
+li:gender                  a owl:DatatypeProperty ; rdfs:domain li:Insured ; rdfs:range xsd:string .
+li:smokerStatus            a owl:DatatypeProperty ; rdfs:domain li:Insured ; rdfs:range xsd:string .
+li:beneficiarySharePercentage a owl:DatatypeProperty ; rdfs:domain li:Beneficiary ; rdfs:range xsd:decimal ;
+    rdfs:comment "Percentage share for this specific beneficiary individual. Attach to each Beneficiary instance (not to Policy) to support multiple beneficiaries with distinct shares." .
+li:beneficiaryRelationship    a owl:DatatypeProperty ; rdfs:domain li:Beneficiary ; rdfs:range xsd:string .
+li:insurerName             a owl:DatatypeProperty ; rdfs:domain li:Insurer ; rdfs:range xsd:string .
+li:insurerAddress          a owl:DatatypeProperty ; rdfs:domain li:Insurer ; rdfs:range xsd:string .
+li:claimsAddress           a owl:DatatypeProperty ; rdfs:domain li:Insurer ; rdfs:range xsd:string .
+li:insurerPhone            a owl:DatatypeProperty ; rdfs:domain li:Insurer ; rdfs:range xsd:string ;
+    rdfs:comment "C5: 1-800-COMFORT (1-800-266-3678), C10: 1-888-HORIZON-1." .
+li:insurerWebsite          a owl:DatatypeProperty ; rdfs:domain li:Insurer ; rdfs:range xsd:string ;
+    rdfs:comment "C9: service@valueguardlife.com; C10: www.horizonwealthprotection.com." .
+li:claimsPhone             a owl:DatatypeProperty ; rdfs:domain li:Insurer ; rdfs:range xsd:string ;
+    rdfs:comment "C6: 1-888-555-CLAIM." .
+li:employeeID              a owl:DatatypeProperty ; rdfs:domain li:Employee ; rdfs:range xsd:string ;
+    rdfs:comment "C6: TC-8842." .
+li:employeeDepartment      a owl:DatatypeProperty ; rdfs:domain li:Employee ; rdfs:range xsd:string ;
+    rdfs:comment "C6: Software Engineering." .
+li:dateOfHire              a owl:DatatypeProperty ; rdfs:domain li:Employee ; rdfs:range xsd:date ;
+    rdfs:comment "C6: March 1, 2022." .
+li:annualSalaryAmount      a owl:DatatypeProperty ; rdfs:domain li:Employee ; rdfs:range xsd:decimal ;
+    rdfs:comment "Employee annual base salary. C6: $90,000 (implied from 2x salary = $180,000 basic coverage)." .
+li:trusteeName             a owl:DatatypeProperty ; rdfs:domain li:Trust ; rdfs:range xsd:string ;
+    rdfs:comment "C8: First National Bank of Connecticut." .
+li:trusteeType             a owl:DatatypeProperty ; rdfs:domain li:Trust ; rdfs:range xsd:string ;
+    rdfs:comment "C8: 'corporate trustee'." .
+li:trustDate               a owl:DatatypeProperty ; rdfs:domain li:Trust ; rdfs:range xsd:date ;
+    rdfs:comment "C8: August 1, 2024." .
+    
+
+# --- 3.16 Traceability / Analysis ---
+li:sourceContractID        a owl:DatatypeProperty ; rdfs:domain owl:Thing ; rdfs:range xsd:string ;
+    rdfs:comment "Contract identifier. Required on EVERY ABox instance. Values: 'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10'." .
+li:sourceContractSection   a owl:DatatypeProperty ; rdfs:domain owl:Thing ; rdfs:range xsd:string ;
+    rdfs:comment "Section/article in source contract (e.g., 'Section 7.1', 'Article V §5.3'). Required on every ABox instance." .
+li:coverageSourceText      a owl:DatatypeProperty ; rdfs:domain owl:Thing ; rdfs:range xsd:string ;
+    rdfs:comment "Verbatim or close paraphrase of relevant contract language. Required for justification of queries." .
+li:coverageStatus          a owl:DatatypeProperty ; rdfs:domain owl:Thing ; rdfs:range xsd:string ;
+    rdfs:comment "Controlled vocabulary: 'covered'=affirmatively present in contract; 'excluded'=affirmatively absent/excluded; 'partial'=available conditionally/with limitations; 'silent'=not mentioned; 'not_selected'=present in contract but option not chosen (e.g. NLG rider in C10)." .
+li:isNegated               a owl:DatatypeProperty ; rdfs:domain owl:Thing ; rdfs:range xsd:boolean ;
+    rdfs:comment "True when contract EXPLICITLY states this feature does NOT apply (stronger signal than 'silent'). Examples: C5 §5.2 'NO war exclusion, no aviation exclusion', C8 §4.5 'waiver not available', C9 §6.1 'policy loans NOT available'." .
+
+# --- 3.17 Allocation / Investment Provisions ---
+li:freeAllocChangesPerYear        a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:integer ;
+    rdfs:comment "Number of free allocation changes per year before fee applies. C4: 12, C10: 4." .
+li:allocationChangeFeeAfterFree   a owl:DatatypeProperty ; rdfs:domain li:Policy ; rdfs:range xsd:decimal ;
+    rdfs:comment "Fee per allocation change after free allowance exhausted. C4: $25, C10: $25." .
+li:accountLabel a owl:DatatypeProperty ; rdfs:domain [ owl:unionOf ( li:SubAccount li:IndexAccount ) ] ; rdfs:range xsd:string .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# END OF ONTOLOGY
+# ═══════════════════════════════════════════════════════════════════════

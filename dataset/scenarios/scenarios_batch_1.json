@@ -1,0 +1,692 @@
+[
+  {
+    "scenario_id": "SCEN-001",
+    "category": "BASIC_DEATH_CLAIM",
+    "scenario_description": "Insured dies from natural causes (heart attack) 5 years after policy issue. All premiums paid on time. No outstanding loans.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . FILTER NOT EXISTS { ?db a li:SurvivorshipDeathBenefit } OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . ?db a li:SurvivorshipDeathBenefit . OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "Death benefit of $500,000 payable. Death occurred within the 20-year term, all premiums paid, no exclusions triggered (2-year suicide and 2-year contestability periods have both lapsed). No outstanding loans.",
+        "source": "Section 5.1: 'We will pay the death benefit to the beneficiary if: (a) The insured dies while this policy is in force, and (b) We receive proof of death acceptable to us, and (c) The death occurs before the policy expiry date.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "Full face amount ($250,000) plus any paid-up additions payable. Permanent whole life \u2014 coverage does not expire. No outstanding loans assumed.",
+        "source": "Section 8.1: 'Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "Death benefit of $400,000 payable under Option A (Level). Policy is in force with account value maintained. No outstanding loans.",
+        "source": "Article 5.1, 5.4: 'OPTION A (Level Death Benefit) - Currently Selected. Death Benefit = Specified Amount. Death benefit is paid minus any outstanding policy loans.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "Death benefit under Option II (Face + Account Value) payable. Policy in force. War exclusion does not apply (natural causes after 24-month exclusion window).",
+        "source": "Section 4.2: 'OPTION II - Variable Death Benefit (CURRENTLY SELECTED). Death Benefit = Face Amount + Account Value. Higher charges but death benefit grows with account.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "Full benefit of $10,000 payable. Death occurs in year 5, which is well past the 2-year graded benefit waiting period. Full benefit is in force.",
+        "source": "Section 2: 'After Year 2 (on or after May 1, 2026): We pay the full benefit amount ($10,000).'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Death benefit of $280,000 payable (basic + voluntary coverage). Policy in force, employee assumed still employed. 12-month suicide exclusion has lapsed.",
+        "source": "Section 3.1: 'BASIC LIFE: Your basic benefit equals 2 times your annual base salary, rounded to the next higher $1,000. Benefits will be paid within 10 business days of receipt of complete claim documentation.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Death benefit of $750,000 payable. Death occurred within the 30-year term, all premiums paid. All exclusion and contestability periods have lapsed.",
+        "source": "Section 1: 'We will pay the death benefit if the insured dies while this policy is in force and all premiums have been paid.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "details": "No benefit payable on the first insured's death. This is a second-to-die (survivorship) policy; the death benefit is triggered only upon the death of the second insured to die.",
+        "source": "Article I, 1.2: 'DEATH BENEFIT TRIGGER: The death benefit is payable only upon the death of the SECOND insured to die (survivorship basis). If the first insured dies, no death benefit is paid and the policy continues in force covering the surviving insured.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "Death benefit of $300,000 payable. Death occurred within the 20-year term, all premiums paid on time.",
+        "source": "Section 2.1: 'If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "Death benefit of $500,000 payable under Option 1 (Level). Policy in force with account value sufficient to cover charges. No outstanding loans.",
+        "source": "Article 6.1: 'OPTION 1 - Level Death Benefit (CURRENT). Death Benefit = $500,000 (specified amount). Lower ongoing charges.'"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-002",
+    "category": "SUICIDE_EXCLUSION_WITHIN_PERIOD",
+    "scenario_description": "Insured dies by suicide 10 months after the policy issue date. All premiums were paid up to date. No prior withdrawals or loans.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?exclusionPeriod ?benefitType ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasExclusion ?excl . ?excl a li:SuicideExclusion ; li:suicideExclusionPeriodMonths ?exclusionPeriod ; li:suicideBenefitType ?benefitType . OPTIONAL { ?excl li:sourceContractSection ?sourceSection . } OPTIONAL { ?excl li:coverageSourceText ?sourceText . } FILTER(?exclusionPeriod <= 10) }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?exclusionPeriod ?benefitType ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasExclusion ?excl . ?excl a li:SuicideExclusion ; li:suicideExclusionPeriodMonths ?exclusionPeriod ; li:suicideBenefitType ?benefitType . OPTIONAL { ?excl li:sourceContractSection ?sourceSection . } OPTIONAL { ?excl li:coverageSourceText ?sourceText . } FILTER(?exclusionPeriod > 10) }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 24-month suicide exclusion period. Benefit limited to a refund of premiums paid only; no death benefit paid.",
+        "source": "Section 7.1: 'SUICIDE CLAUSE: If the insured commits suicide within two years from the issue date, our liability is limited to a refund of premiums paid.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 24-month exclusion period. Only premiums paid are returned, without interest.",
+        "source": "Section 11.1: 'SUICIDE: If the insured dies by suicide within two years from the issue date, we will pay only the premiums paid, without interest.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 24-month exclusion. Only the current Account Value is paid, without interest; no standard death benefit.",
+        "source": "Article 9.1: 'SUICIDE EXCLUSION: If insured dies by suicide within 24 months of issue date, we pay only the Account Value, without interest.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 24-month exclusion period. Only premiums paid minus any withdrawals are returned; no death benefit.",
+        "source": "Section 8.1: 'SUICIDE: If death occurs by suicide within 2 years of issue or reinstatement, we pay only premiums paid minus withdrawals.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 24-month suicide exclusion period. Only premiums paid are returned; no death benefit.",
+        "source": "Section 5.1: 'SUICIDE: If death occurs by suicide within 2 years of the issue date, we will only return the premiums paid.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 12-month suicide exclusion period. No death benefit is paid whatsoever \u2014 not even a premium refund. This is the strictest outcome across all contracts.",
+        "source": "Section 8.1: 'SUICIDE: If death occurs by suicide within 12 months of the coverage effective date, we will not pay a death benefit.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 24-month exclusion period. Only premiums paid are returned, without interest.",
+        "source": "Section 1.3: 'EXCLUSION - SUICIDE: If death occurs by suicide within 2 years of the issue date, we will pay only the premiums paid, without interest.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 24-month exclusion period. Death benefit is limited to return of premiums paid.",
+        "source": "Article VII.1: 'SUICIDE CLAUSE: If either insured commits suicide within 2 years of the issue date, the death benefit is limited to return of premiums paid.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 24-month exclusion period. Only premiums paid are returned, without interest; no death benefit.",
+        "source": "Section 7.1: 'SUICIDE: If the insured dies by suicide within 24 months of the issue date, we will pay only the premiums paid without interest. No death benefit is payable.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "details": "Suicide at 10 months falls within the 24-month exclusion period. Only premiums paid minus any withdrawals and charges are returned, without interest.",
+        "source": "Article 11.1: 'SUICIDE: If insured commits suicide within 2 years of issue or reinstatement, we pay only premiums paid minus any withdrawals and charges, without interest.'"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-003",
+    "category": "SUICIDE_EXCLUSION_BOUNDARY",
+    "scenario_description": "Insured dies by suicide exactly 13 months after policy issue. All premiums were paid. No prior withdrawals or loans.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?exclusionPeriod ?benefitType ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasExclusion ?excl . ?excl a li:SuicideExclusion ; li:suicideExclusionPeriodMonths ?exclusionPeriod ; li:suicideBenefitType ?benefitType . OPTIONAL { ?excl li:sourceContractSection ?sourceSection . } OPTIONAL { ?excl li:coverageSourceText ?sourceText . } FILTER(?exclusionPeriod <= 12) }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?exclusionPeriod ?benefitType ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasExclusion ?excl . ?excl a li:SuicideExclusion ; li:suicideExclusionPeriodMonths ?exclusionPeriod ; li:suicideBenefitType ?benefitType . OPTIONAL { ?excl li:sourceContractSection ?sourceSection . } OPTIONAL { ?excl li:coverageSourceText ?sourceText . } FILTER(?exclusionPeriod > 12) }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "details": "Suicide at 13 months still falls within the 24-month exclusion period. Only premiums paid are refunded.",
+        "source": "Section 7.1: 'SUICIDE CLAUSE: If the insured commits suicide within two years from the issue date, our liability is limited to a refund of premiums paid.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "details": "Suicide at 13 months still falls within the 24-month exclusion period. Only premiums paid are returned, without interest.",
+        "source": "Section 11.1: 'SUICIDE: If the insured dies by suicide within two years from the issue date, we will pay only the premiums paid, without interest.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "details": "Suicide at 13 months still falls within the 24-month exclusion period. Only the Account Value is paid.",
+        "source": "Article 9.1: 'SUICIDE EXCLUSION: If insured dies by suicide within 24 months of issue date, we pay only the Account Value, without interest.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "details": "Suicide at 13 months still falls within the 24-month exclusion period. Only premiums paid minus withdrawals are returned.",
+        "source": "Section 8.1: 'SUICIDE: If death occurs by suicide within 2 years of issue or reinstatement, we pay only premiums paid minus withdrawals.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "details": "Suicide at 13 months still falls within the 24-month exclusion period. Only premiums paid are returned.",
+        "source": "Section 5.1: 'SUICIDE: If death occurs by suicide within 2 years of the issue date, we will only return the premiums paid.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Suicide at 13 months falls OUTSIDE the 12-month suicide exclusion period. The full death benefit of $280,000 is payable. This is a critical gap: C6 has only a 12-month exclusion vs. 24 months in all other contracts.",
+        "source": "Section 8.1: 'SUICIDE: If death occurs by suicide within 12 months of the coverage effective date, we will not pay a death benefit.' \u2014 13 months is beyond this window, so full benefit applies."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "details": "Suicide at 13 months still falls within the 24-month exclusion period. Only premiums paid are returned.",
+        "source": "Section 1.3: 'EXCLUSION - SUICIDE: If death occurs by suicide within 2 years of the issue date, we will pay only the premiums paid, without interest.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "details": "Suicide at 13 months still falls within the 24-month exclusion period. Benefit limited to return of premiums paid.",
+        "source": "Article VII.1: 'SUICIDE CLAUSE: If either insured commits suicide within 2 years of the issue date, the death benefit is limited to return of premiums paid.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "details": "Suicide at 13 months still falls within the 24-month exclusion period. Only premiums paid are returned.",
+        "source": "Section 7.1: 'SUICIDE: If the insured dies by suicide within 24 months of the issue date, we will pay only the premiums paid without interest.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "details": "Suicide at 13 months still falls within the 24-month exclusion period. Only premiums paid minus withdrawals and charges are returned.",
+        "source": "Article 11.1: 'SUICIDE: If insured commits suicide within 2 years of issue or reinstatement, we pay only premiums paid minus any withdrawals and charges, without interest.'"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-004",
+    "category": "GRADED_DEATH_BENEFIT",
+    "scenario_description": "Insured dies from a natural illness in the 14th month after the policy issue date. All premiums were paid on time.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . FILTER NOT EXISTS { ?db a li:SurvivorshipDeathBenefit } OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy a li:JointSurvivorshipPolicy ; li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "Full death benefit of $500,000 payable. Month 14 is within the policy term and past all exclusion periods.",
+        "source": "Section 5.1: 'We will pay the death benefit to the beneficiary if: (a) The insured dies while this policy is in force...'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "Full death benefit (face amount + paid-up additions) payable. No graded benefit applies to whole life.",
+        "source": "Section 8.1: 'Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "Full death benefit of $400,000 payable. No graded benefit feature; policy in force.",
+        "source": "Article 5.1, 5.4: 'OPTION A (Level Death Benefit) - Currently Selected. Death Benefit = Specified Amount.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "Full death benefit (face + account value) payable. No graded benefit feature in VUL.",
+        "source": "Section 4.2: 'OPTION II - Variable Death Benefit (CURRENTLY SELECTED). Death Benefit = Face Amount + Account Value.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "Graded benefit applies: Month 14 falls in Year 2. Per the graded schedule, 70% of the $10,000 face amount ($7,000) plus all premiums paid to date is payable. Full $10,000 benefit is not available until after Month 24, but a valid payout is made.",
+        "source": "Section 2: 'During Year 2 (May 1, 2025 - April 30, 2026): We pay 70% of face amount ($7,000) plus all premiums paid.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Full death benefit of $280,000 payable. No graded benefit structure; standard group term.",
+        "source": "Section 3.1: 'BASIC LIFE: Your basic benefit equals 2 times your annual base salary, rounded to the next higher $1,000.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Full death benefit of $750,000 payable. No graded benefit; however, the 2-year contestability period is still active at month 14.",
+        "source": "Section 1: 'We will pay the death benefit if the insured dies while this policy is in force and all premiums have been paid.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "details": "No benefit payable on first death alone. Survivorship policy only pays on the second death. Policy continues in force.",
+        "source": "Article I, 1.2: 'DEATH BENEFIT TRIGGER: The death benefit is payable only upon the death of the SECOND insured to die (survivorship basis).'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "Full death benefit of $300,000 payable. No graded benefit feature in ROP term policy.",
+        "source": "Section 2.1: 'If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "Full death benefit of $500,000 payable. No graded benefit feature in IUL.",
+        "source": "Article 6.1: 'OPTION 1 - Level Death Benefit (CURRENT). Death Benefit = $500,000 (specified amount).'"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-005",
+    "category": "GRADED_BENEFIT_ACCIDENTAL_DEATH_EXCEPTION",
+    "scenario_description": "Insured dies from an accidental fall in the 8th month after policy issue. Death occurs within 90 days of the accident. All premiums were paid on time.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . FILTER NOT EXISTS { ?db a li:GradedDeathBenefit } FILTER NOT EXISTS { ?db a li:SurvivorshipDeathBenefit } OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } } UNION { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . ?db a li:GradedDeathBenefit ; li:gradedBenefitAccidentalDeathException true . OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } } }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . ?db a li:SurvivorshipDeathBenefit . OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "Full death benefit of $500,000 payable. No graded period applies; accidental deaths are treated like any other death in term policies.",
+        "source": "Section 5.1: 'We will pay the death benefit to the beneficiary if: (a) The insured dies while this policy is in force...'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "Full death benefit (face + paid-up additions) payable. No graded benefit; accidental death covered normally.",
+        "source": "Section 8.1: 'Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "Full death benefit of $400,000 payable. No graded benefit; accidental death covered normally under Option A.",
+        "source": "Article 5.1: 'OPTION A (Level Death Benefit) - Currently Selected. Death Benefit = Specified Amount.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "Full death benefit (face + account value) payable. No graded benefit; accidental death covered normally.",
+        "source": "Section 4.2: 'OPTION II - Variable Death Benefit (CURRENTLY SELECTED). Death Benefit = Face Amount + Account Value.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "The accidental death exception applies. Despite the 8th-month death falling in Year 1 of the graded benefit schedule, accidental death triggers the full $10,000 face amount plus all premiums paid immediately.",
+        "source": "Section 2: 'EXCEPTION - ACCIDENTAL DEATH: If death results from an accident at any time, we pay the full benefit amount immediately, plus all premiums paid. An accident means a sudden, unexpected event causing injury that results in death within 90 days of the event.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Full death benefit of $280,000 payable. No graded benefit; accidental death covered normally in group term.",
+        "source": "Section 3.1: 'BASIC LIFE: Your basic benefit equals 2 times your annual base salary...'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Full death benefit of $750,000 payable plus an additional $750,000 from the Accidental Death Benefit Rider (Rider 5), totaling $1,500,000, since death from accidental injury occurred within 90 days of the accident.",
+        "source": "Section 2, Rider 5: 'Pays an additional $750,000 if death results from accidental injury: Accident must be the direct cause of death. Death must occur within 90 days of accident.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "details": "No benefit payable on first death, regardless of cause. Survivorship policy only pays on the second death.",
+        "source": "Article I, 1.2: 'DEATH BENEFIT TRIGGER: The death benefit is payable only upon the death of the SECOND insured to die (survivorship basis).'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "Full death benefit of $300,000 payable. No graded benefit; accidental death covered normally under ROP term.",
+        "source": "Section 2.1: 'If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "Full death benefit of $500,000 payable. No graded benefit; accidental death covered normally under IUL.",
+        "source": "Article 6.1: 'OPTION 1 - Level Death Benefit (CURRENT). Death Benefit = $500,000 (specified amount).'"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-006",
+    "category": "SURVIVORSHIP_BOTH_INSUREDS_DEAD",
+    "scenario_description": "Both joint insureds have died \u2014 the first insured died 3 years ago and the second insured has just died. All premiums were paid. No outstanding loans.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . ?db a li:SurvivorshipDeathBenefit . OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured term life policy. Survivorship trigger does not apply. Death of a single insured during the term triggers full benefit.",
+        "source": "Section 5.1: 'We will pay the death benefit to the beneficiary if: (a) The insured dies while this policy is in force...'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured whole life policy. No survivorship trigger. Death of the insured triggers full benefit.",
+        "source": "Section 8.1: 'Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured universal life policy. No survivorship structure.",
+        "source": "Article 5.1: 'OPTION A (Level Death Benefit) - Currently Selected. Death Benefit = Specified Amount.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured VUL. No survivorship structure.",
+        "source": "Section 4.2: 'OPTION II - Variable Death Benefit (CURRENTLY SELECTED). Death Benefit = Face Amount + Account Value.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured final expense policy. No survivorship structure.",
+        "source": "Section 2: 'After Year 2 (on or after May 1, 2026): We pay the full benefit amount ($10,000).'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured group term certificate. No survivorship structure.",
+        "source": "Section 3.1: 'BASIC LIFE: Your basic benefit equals 2 times your annual base salary...'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured term policy with riders. No survivorship structure.",
+        "source": "Section 1: 'We will pay the death benefit if the insured dies while this policy is in force and all premiums have been paid.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "The death benefit of $2,500,000 is now payable. The second insured has died, which is the trigger event for this survivorship policy. Both death certificates must be submitted.",
+        "source": "Article II, 2.1: 'Upon the death of the second insured, we will pay $2,500,000 to the designated beneficiary, minus any outstanding loans. Proof of both deaths must be submitted: Death certificate of first insured. Death certificate of second insured.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured ROP term policy. No survivorship structure.",
+        "source": "Section 2.1: 'If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured IUL policy. No survivorship structure.",
+        "source": "Article 6.1: 'OPTION 1 - Level Death Benefit (CURRENT). Death Benefit = $500,000 (specified amount).'"
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#>\nPREFIX li_abox: <http://www.lifeinsurance.org/ontology/abox#>\nSELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE {\n  ?policy li:sourceContractID ?contractID ;\n          li:hasExclusion ?excl .\n  ?excl a li:SurvivorshipExclusion .\n  OPTIONAL { ?excl li:sourceSection ?sourceSection ; li:sourceText ?sourceText . }\n}"
+  },
+  {
+    "scenario_id": "SCEN-007",
+    "category": "FREE_LOOK_CANCELLATION",
+    "scenario_description": "The policy owner decides to cancel the policy 20 days after receiving it and requests a full refund of premiums paid.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?freeLookDays ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:FreeLookProvision ; li:freeLookDays ?freeLookDays . FILTER(?freeLookDays >= 20) OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "No free look provision is explicitly stated in this contract. The ontology records it as absent/silent.",
+        "source": "Contract is silent on free look period; no provision present in Section 10 (General Provisions) or elsewhere."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "A 30-day free look period applies. Cancellation on day 20 qualifies for a full refund of premiums paid.",
+        "source": "Section 12: 'You may cancel this policy within 30 days of receipt for a full refund of premiums paid.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No free look provision is explicitly stated in this contract.",
+        "source": "Contract is silent on free look period."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No free look provision is explicitly stated in this contract.",
+        "source": "Contract is silent on free look period."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "A 30-day free look period applies. Cancellation on day 20 qualifies for a full premium refund.",
+        "source": "Section 7.1: '30-DAY FREE LOOK: You can cancel within 30 days of receiving this policy for a full refund.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "No free look provision is explicitly stated in this group certificate.",
+        "source": "Contract is silent on free look period."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "No free look provision is explicitly stated in this contract.",
+        "source": "Contract is silent on free look period."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "A 30-day free look period applies. Cancellation on day 20 qualifies for a full refund of premium paid.",
+        "source": "Article XI: 'The policy owner may cancel within 30 days of policy receipt for a full refund of premium paid.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "No free look provision is explicitly stated in this contract.",
+        "source": "Contract is silent on free look period."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No free look provision is explicitly stated in this contract.",
+        "source": "Contract is silent on free look period."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#>\nPREFIX li_abox: <http://www.lifeinsurance.org/ontology/abox#>\nSELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE {\n  ?policy li:sourceContractID ?contractID ;\n          li:hasProvision ?prov .\n  ?prov a li:FreeLookProvision ;\n        li:freeLookPeriodDays ?days .\n  FILTER(?days < 20)\n  OPTIONAL { ?prov li:sourceSection ?sourceSection ; li:sourceText ?sourceText . }\n}"
+  },
+  {
+    "scenario_id": "SCEN-008",
+    "category": "POLICY_LAPSE_NON_FORFEITURE",
+    "scenario_description": "After several years, the policy owner stops paying premiums and neither surrenders the policy nor selects a non-forfeiture option within 60 days of lapse.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?optionType ?sourceSection ?sourceText WHERE { { ?policy li:sourceContractID ?contractID ; li:hasNonForfeitureOption ?opt . ?opt a ?optionType . VALUES ?optionType { li:CashSurrenderOption li:ReducedPaidUpOption li:ExtendedTermOption } OPTIONAL { ?opt li:sourceContractSection ?sourceSection . } OPTIONAL { ?opt li:coverageSourceText ?sourceText . } } UNION { ?policy a li:UniversalLifePolicy ; li:sourceContractID ?contractID ; li:lapseAutoPaysSurrenderValue true . FILTER NOT EXISTS { ?policy a li:IndexedUniversalLifePolicy . } FILTER NOT EXISTS { ?policy a li:VariableUniversalLifePolicy . } FILTER NOT EXISTS { ?policy li:hasNonForfeitureOption ?opt . } BIND(li:CashSurrenderOption AS ?optionType) } }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasNonForfeitureOption ?opt . ?opt a ?optionType . ?opt li:isNegated true . OPTIONAL { ?opt li:sourceContractSection ?sourceSection . } OPTIONAL { ?opt li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Term life policy with no cash value. Upon lapse, coverage simply terminates. No non-forfeiture options exist.",
+        "source": "Section 6.3: 'If the premium is not paid by the end of the grace period, the policy will lapse and coverage will terminate.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "After 3+ years, Extended Term Insurance automatically applies if no election is made within 60 days of lapse. The insured retains full face amount coverage for a limited period funded by the accumulated cash value.",
+        "source": "Section 9.3, 9.4: 'EXTENDED TERM INSURANCE: Continue the full face amount for a limited period based on cash value. No further premiums. If no election is made within 60 days of lapse, Extended Term Insurance will automatically apply.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "Upon lapse, any Account Value in excess of surrender charges is automatically paid to the policy owner. No traditional non-forfeiture election is required.",
+        "source": "Article 10.3: 'Upon lapse, any Account Value in excess of surrender charges will be paid to you automatically.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No traditional non-forfeiture options explicitly listed. Upon lapse, any surrender value remaining after account value depletion would be returned, but no extended term or reduced paid-up options are stated.",
+        "source": "Section 7 addresses lapse conditions but does not specify non-forfeiture options beyond surrendering the account value."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "After 2+ years, the policy automatically continues with a reduced benefit amount based on the accumulated cash value. No further premiums needed.",
+        "source": "Section 8.1: 'After 2 years, if you stop paying premiums, your policy will automatically continue with a reduced benefit amount based on the cash value. No further premiums needed.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate \u2014 no cash value and no non-forfeiture options. Coverage terminates when premiums stop.",
+        "source": "Section 4.1: 'Your coverage terminates on the earliest of... (e) The last day for which required premiums have been paid.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Term life policy with no cash value. No non-forfeiture options available upon lapse.",
+        "source": "Section 3.2: 'GRACE PERIOD: 31 days from due date. Coverage continues during grace period.' \u2014 No non-forfeiture provision beyond the grace period."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "No non-forfeiture options are listed. If premiums stop, the 60-day grace period applies, after which coverage terminates unless partial withdrawals from cash value fund premiums. Waiver of premium is explicitly not available.",
+        "source": "Article IV, 4.5: 'WAIVER OPTION: Premium waiver is not available on joint survivorship policies.' Article IV, 4.6: 'GRACE PERIOD: A grace period of 60 days will be granted for the payment of every premium after the first.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "ROP term policy has no cash value and no non-forfeiture options. Lapse forfeits the ROP benefit.",
+        "source": "Section 4.4: 'If premium is not paid within grace period, policy lapses and return of premium benefit is forfeited.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "IUL policy has no formal non-forfeiture election. Upon lapse, any remaining surrender value is paid automatically. No extended term or reduced paid-up options are stated.",
+        "source": "Article 10.3: 'If premium not received within grace period, policy lapses and any remaining surrender value is paid to you.'"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-009",
+    "category": "CONVERSION_PRIVILEGE",
+    "scenario_description": "A term or group life policy owner wishes to convert their coverage to a permanent individual policy without providing evidence of insurability.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?maxAge ?minAmount ?maxAmount ?deadlineDays ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:ConversionPrivilege . OPTIONAL { ?prov li:conversionMaxAge ?maxAge . } OPTIONAL { ?prov li:conversionMinAmount ?minAmount . } OPTIONAL { ?prov li:conversionMaxAmount ?maxAmount . } OPTIONAL { ?prov li:conversionDeadlineDays ?deadlineDays . } OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:ConversionPrivilege ; li:isNegated true . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "Conversion to a permanent policy is available without evidence of insurability, before the earlier of policy expiry date or the insured's 65th birthday.",
+        "source": "Section 8.1, 8.2: 'You may convert this policy to a permanent life insurance policy without evidence of insurability. Conversion must occur before the earlier of: (a) The policy expiry date, or (b) The insured's 65th birthday.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent whole life policy. Conversion privilege does not apply.",
+        "source": "Contract contains no conversion provision; it is already a permanent policy."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent universal life policy. Conversion privilege does not apply.",
+        "source": "Contract contains no conversion provision; it is already a permanent policy."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent VUL policy. Conversion privilege does not apply.",
+        "source": "Contract contains no conversion provision; it is already a permanent policy."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent whole life (final expense) policy. No conversion privilege needed or stated.",
+        "source": "Contract contains no conversion provision; it is already a permanent guaranteed-issue whole life policy."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Conversion to an individual whole life policy is available within 31 days of group coverage termination, without evidence of insurability. Maximum convertible amount is the lesser of group coverage or $200,000.",
+        "source": "Section 5.1, 5.3: 'If your group coverage terminates for any reason except non-payment of premium, you may convert to an individual whole life policy without evidence of insurability. You must apply for conversion within 31 days of termination. Maximum amount: Lesser of group coverage or $200,000.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Conversion is available before the earlier of policy expiration or the insured's 70th birthday. Minimum conversion amount is $50,000. No evidence of insurability required.",
+        "source": "Section 4.2: 'You may convert all or part of this policy to permanent life insurance without evidence of insurability: Before the policy expiration date, or Before your 70th birthday, whichever is earlier. Minimum conversion amount: $50,000.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent joint survivorship whole life policy. No conversion provision is stated.",
+        "source": "Contract contains no conversion provision; it is already a permanent policy."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "Conversion is available before the earlier of policy expiry or the insured's 65th birthday. Upon conversion, the ROP benefit is forfeited and premiums paid to date are not returned. Minimum conversion: $50,000.",
+        "source": "Section 5.2, 5.4: 'Conversion available: At any time before the policy expires, OR Before the insured's 65th birthday, whichever is earlier. Upon conversion: New policy premium based on attained age. ROP benefit is forfeited. Premiums paid to date are NOT returned.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent IUL policy. No conversion privilege stated.",
+        "source": "Contract contains no conversion provision; it is already a permanent policy."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-010",
+    "category": "REINSTATEMENT_AFTER_LAPSE",
+    "scenario_description": "A policy lapses due to non-payment. The policy owner applies to reinstate it 18 months after lapse, paying all overdue premiums with interest and providing evidence of insurability.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?reinstatePeriod ?interestRate ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:ReinstatementProvision ; li:reinstatementPeriodYears ?reinstatePeriod . OPTIONAL { ?prov li:reinstatementInterestRate ?interestRate . } OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } FILTER(?reinstatePeriod * 12 >= 18) }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:ReinstatementProvision ; li:isNegated true . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "No reinstatement provision is explicitly stated in this contract. The ontology records it as absent/silent.",
+        "source": "Contract is silent on reinstatement."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "Reinstatement within 3 years of lapse is available. Requires evidence of insurability, payment of all overdue premiums at 6% interest per annum, and repayment of any outstanding policy loans with interest.",
+        "source": "Section 10.1: 'You may reinstate this policy within 3 years of lapse if: (a) You provide evidence of insurability satisfactory to us, (b) You pay all overdue premiums with interest at 6% per annum, (c) You repay or reinstate any policy loans with interest.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No reinstatement provision is explicitly stated for C3. The ontology records it as absent/silent for this contract.",
+        "source": "Contract is silent on a formal reinstatement window."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "Reinstatement within 3 years of lapse is available. Requires evidence of insurability, payment of all back charges at 6% interest, and repayment of outstanding loans.",
+        "source": "Section 7.3: 'Reinstatement within 3 years requires: Evidence of insurability. Payment of all back charges plus 6% interest. Repayment of outstanding loans.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "Reinstatement within 2 years of lapse is available by paying missed premiums with interest. At 18 months post-lapse, this window is still open.",
+        "source": "Section 8.3: 'You may restart your policy within 2 years by paying missed premiums with interest.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate \u2014 no reinstatement provision. Coverage simply terminates upon employment end or premium non-payment.",
+        "source": "Section 4.1: 'Your coverage terminates on the earliest of... (e) The last day for which required premiums have been paid.' No reinstatement provision is stated."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "No reinstatement provision is explicitly stated for this contract. The ontology records it as absent/silent.",
+        "source": "Contract is silent on reinstatement."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "No reinstatement provision is explicitly stated for this contract. The ontology records it as absent/silent.",
+        "source": "Contract is silent on reinstatement."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "Reinstatement within 5 years of lapse is available. Requires evidence of insurability and payment of all past-due premiums at 6% interest. Upon reinstatement, ROP is recalculated to exclude the lapsed period, and a new 2-year suicide and contestability period begins.",
+        "source": "Section 8.1, 8.3: 'If the policy lapses, you may apply for reinstatement within 5 years if: You provide satisfactory evidence of insurability. You pay all past due premiums with interest at 6% per annum. Upon reinstatement, the ROP benefit is recalculated to exclude the lapsed period. A new 2-year suicide and contestability period begins upon reinstatement.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No formal reinstatement provision is explicitly stated in this IUL contract. The ontology records it as absent/silent.",
+        "source": "Contract is silent on reinstatement."
+      }
+    ] 
+  }
+]

@@ -1,0 +1,692 @@
+[
+  {
+    "scenario_id": "SCEN-011",
+    "category": "GRACE_PERIOD_DEATH",
+    "scenario_description": "The insured dies 20 days after a missed premium due date, during the grace period. No prior loans or withdrawals.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?graceDays ?deductOnDeath ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasGracePeriod ?gp . FILTER NOT EXISTS { ?policy a li:JointSurvivorshipPolicy . } OPTIONAL { ?gp li:gracePeriodDays ?graceDays . } OPTIONAL { ?gp li:unpaidPremiumDeductedOnDeathDuringGrace ?deductOnDeath . } OPTIONAL { ?gp li:sourceContractSection ?sourceSection . } OPTIONAL { ?gp li:coverageSourceText ?sourceText . } FILTER(!bound(?graceDays) || ?graceDays >= 20) }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?graceDays ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasGracePeriod ?gp . ?gp li:gracePeriodDays ?graceDays . FILTER(?graceDays < 20) OPTIONAL { ?gp li:sourceContractSection ?sourceSection . } OPTIONAL { ?gp li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "Grace period is 31 days. Death on day 20 falls within the grace period. Full death benefit of $500,000 payable. No deduction of unpaid premium is stated for C1.",
+        "source": "Section 4.3, 6.2: 'Grace Period means the 31-day period following the premium due date during which coverage continues without lapse.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "Grace period is 31 days. Death on day 20 falls within the grace period. Full death benefit payable. No deduction clause for C2.",
+        "source": "Section 6 (implied): Grace period of 31 days. Coverage continues during the grace period."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "Grace period for account value depletion is 61 days. Death on day 20 falls within the grace period. Full death benefit of $400,000 payable.",
+        "source": "Article 10.1: 'If Account Value is insufficient to pay monthly deductions, we will notify you. Policy continues for 61 days.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "Grace period is 61 days. Death on day 20 falls within the grace period. Full death benefit (face + account value) payable.",
+        "source": "Section 7.1: 'If account value is insufficient to cover monthly deductions for 61 consecutive days, the policy will lapse.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "Grace period is 30 days. Death on day 20 falls within the grace period. Applicable graded or full benefit is payable depending on policy year.",
+        "source": "Section 3.4: 'GRACE PERIOD: If payment is not received, you have 30 days to pay before the policy cancels.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Coverage continues through the last day for which premiums have been paid. Day 20 within any informal grace window is covered as long as the employer continues coverage.",
+        "source": "Section 4.1(e): 'Coverage terminates on... the last day for which required premiums have been paid.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Grace period is 31 days. Death on day 20 falls within the grace period. Full death benefit of $750,000 is payable, but the unpaid premium will be deducted from the death benefit.",
+        "source": "Section 3.2: 'GRACE PERIOD: 31 days from due date. Coverage continues during grace period. If death occurs during grace period, unpaid premium will be deducted from death benefit.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Grace period is 60 days. Death on day 20 is within the grace period; however, if this is the first insured's death, no benefit is payable regardless. If this is the second insured's death, the benefit is payable (as survivorship condition is met).",
+        "source": "Article IV, 4.6: 'GRACE PERIOD: A grace period of 60 days will be granted for the payment of every premium after the first.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "Grace period is 31 days. Death on day 20 falls within the grace period. Full death benefit of $300,000 payable.",
+        "source": "Section 4.4: 'Grace period: 31 days. If premium is not paid within grace period, policy lapses and return of premium benefit is forfeited.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "Grace period is 61 days. Death on day 20 falls within the grace period. Full death benefit of $500,000 payable.",
+        "source": "Article 10.1, 10.2: 'If account value is insufficient to pay monthly deductions, we will notify you at least 30 days before lapse. Grace period: 61 days to pay sufficient premium to bring policy back in force.'"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-012",
+    "category": "POLICY_LOAN_AVAILABILITY",
+    "scenario_description": "The policy owner wishes to take out a loan against the policy's cash value or account value, shortly after the policy has been in force for 1 year.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?maxPct ?interestRate ?rateType ?minYears ?sourceSection ?sourceText WHERE { { ?policy li:sourceContractID ?contractID ; li:hasPolicyLoan ?loan . ?loan li:policyLoanMaxPercentOfCV ?maxPct . OPTIONAL { ?loan li:policyLoanInterestRate ?interestRate . } OPTIONAL { ?loan li:policyLoanInterestRateType ?rateType . } OPTIONAL { ?loan li:loanMinimumYearsInForce ?minYears . } OPTIONAL { ?loan li:sourceContractSection ?sourceSection . } OPTIONAL { ?loan li:coverageSourceText ?sourceText . } FILTER(!BOUND(?minYears) || ?minYears <= 1) } UNION { ?policy li:sourceContractID ?contractID ; li:hasCashValue ?cv . FILTER NOT EXISTS { ?policy li:hasPolicyLoan ?loan . } FILTER NOT EXISTS { ?policy a li:TermLifePolicy . } FILTER NOT EXISTS { ?policy a li:GroupLifeCertificate . } OPTIONAL { ?cv li:sourceContractSection ?sourceSection . } OPTIONAL { ?cv li:coverageSourceText ?sourceText . } } }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?minYears ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasPolicyLoan ?loan . ?loan li:loanMinimumYearsInForce ?minYears . FILTER(?minYears > 1) OPTIONAL { ?loan li:sourceContractSection ?sourceSection . } OPTIONAL { ?loan li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Term life policy with no cash value. Policy loans are not available.",
+        "source": "Contract has no cash value or policy loan provision."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "Policy loans are available after 1 full year in force. Maximum is 90% of current cash surrender value at 5% per annum, compounded annually.",
+        "source": "Section 7.1, 7.3: 'You may borrow against the cash value after the policy has been in force for one full year. Maximum loan amount: 90% of current cash surrender value. Loan interest rate: 5% per annum, compounded annually.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "Policy loans available up to 90% of current account value. Interest is variable (Moody's Corporate Bond Index + 1.5%, minimum 4%).",
+        "source": "Article 7.1, 7.2: 'Maximum loan: 90% of current Account Value. Loan interest rate: Variable rate = Moody's Corporate Bond Index + 1.5%, minimum 4%, adjusted annually each January 1.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "Policy loans available up to 90% of surrender value at 5.5% fixed interest. Loan amounts are moved to the Money Market sub-account.",
+        "source": "Section 6.1: 'POLICY LOANS: Maximum: 90% of surrender value. Interest Rate: 5.5% per annum (fixed). Loan amounts are moved to the Money Market sub-account.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "Policy loans are available against the small accumulated cash value. No minimum in-force requirement is explicitly stated.",
+        "source": "Section 4.3: 'You can borrow against the cash value or surrender the policy for the cash value at any time.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate with no cash value. Policy loans are not available.",
+        "source": "Contract has no cash value or policy loan provision."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Term life policy with no cash value. Policy loans are not available.",
+        "source": "Contract has no cash value or policy loan provision."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "details": "Policy loans require the policy to be in force for 2 years. At the 1-year mark, the minimum loan eligibility period has not been met. No loan can be issued at this time.",
+        "source": "Article V, 5.3: 'POLICY LOANS: Available after policy has been in force for 2 years. Maximum: 90% of cash surrender value. Interest rate: Variable, currently 5.5% per annum.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Policy loans are explicitly NOT available under this ROP term policy.",
+        "source": "Section 6.1: 'Policy loans are NOT available under this policy type.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "Policy loans available after 1 year at 4% fixed interest. Loaned amounts earn the fixed account rate of 3%, resulting in a net loan cost of 1% annually.",
+        "source": "Article 7.1: 'Available after 1 year. Maximum: 90% of surrender value. Loan interest: 4% annually (fixed loan rate). Loaned amounts earn fixed account rate (3%). Net cost: 1% annually.'"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-013",
+    "category": "PARTIAL_WITHDRAWAL",
+    "scenario_description": "The policy owner requests a cash withdrawal of $2,000 from the policy's account value (not a loan) to cover an emergency expense.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?minAmount ?feePerTxn ?freeCount ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasPartialWithdrawal ?pw . ?pw li:withdrawalMinimumAmount ?minAmount . OPTIONAL { ?pw li:withdrawalFeePerTransaction ?feePerTxn . } OPTIONAL { ?pw li:withdrawalFreeNumberPerYear ?freeCount . } OPTIONAL { ?pw li:sourceContractSection ?sourceSection . } OPTIONAL { ?pw li:coverageSourceText ?sourceText . } FILTER(?minAmount <= 2000) }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasPartialWithdrawal ?pw . ?pw li:isNegated true . OPTIONAL { ?pw li:sourceContractSection ?sourceSection . } OPTIONAL { ?pw li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Term life policy with no account value. Partial withdrawals are not available.",
+        "source": "Contract has no cash value or withdrawal provision."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Whole life policy does not offer partial withdrawals. Only policy loans against cash value are available.",
+        "source": "Section 7: Policy loan provision is offered. No partial withdrawal provision is stated."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "Partial withdrawals of at least $500 are available at any time. In years 1–10, a $25 transaction fee applies. The $2,000 withdrawal exceeds the minimum.",
+        "source": "Article 6.1, 6.3: 'You may make partial withdrawals from Account Value at any time. Minimum withdrawal: $500. Withdrawal charges: Years 1-10: $25 per withdrawal. Years 11+: No charge.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "Partial withdrawals of at least $1,000 are available. A $50 processing fee applies per withdrawal. The $2,000 withdrawal exceeds the minimum. Surrender charges may also apply if within the charge period.",
+        "source": "Section 6.2: 'PARTIAL WITHDRAWALS: Minimum: $1,000. Maximum: Account value minus $5,000. Processing fee: $50. Surrender charges may apply.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Final expense policy — only cash value surrender or loans are mentioned. No explicit partial withdrawal provision.",
+        "source": "Section 4.3: 'You can borrow against the cash value or surrender the policy for the cash value at any time.' — Partial withdrawal not offered as a distinct feature."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate with no cash value. Partial withdrawals are not available.",
+        "source": "Contract has no cash value or withdrawal provision."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Term life policy with no account value. Partial withdrawals are not available.",
+        "source": "Contract has no cash value or withdrawal provision."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Partial withdrawals are explicitly NOT permitted under this joint survivorship policy.",
+        "source": "Article V, 5.4: 'WITHDRAWALS: Partial withdrawals are not permitted under this policy type.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Partial withdrawals are explicitly NOT permitted under this ROP term policy.",
+        "source": "Section 6.2: 'Partial withdrawals are NOT permitted.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "Partial withdrawals of at least $500 are available. The first 10 withdrawals per year are free; a $50 fee applies thereafter. The $2,000 withdrawal exceeds the minimum. An annual free partial withdrawal of up to 10% of account value is available after Year 1 without surrender charge.",
+        "source": "Article 7.2, 8.4: 'Minimum: $500. First 10 withdrawals free; $50 fee thereafter. FREE PARTIAL WITHDRAWAL: You may withdraw up to 10% of account value each year without surrender charge after Year 1.'"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-014",
+    "category": "FLEXIBLE_PREMIUM_SKIPPING",
+    "scenario_description": "The policy owner skips a premium payment month entirely, making no payment, while the account value remains sufficient to cover all monthly charges.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasPremium ?prem . ?prem a li:FlexiblePremium ; li:premiumSkippingAllowed true . OPTIONAL { ?prem li:sourceContractSection ?sourceSection . } OPTIONAL { ?prem li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium term policy. Skipping a payment causes the grace period to begin; continued non-payment causes lapse. Premiums are not flexible.",
+        "source": "Section 6.2: 'If a premium is not paid by the due date, a grace period of 31 days is allowed.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium whole life. Skipping a payment triggers the grace period. Non-forfeiture options activate upon lapse. Premiums are not flexible.",
+        "source": "Section 6: Grace period implied. Premiums due annually."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "Flexible premiums allow skipping a payment as long as the account value covers monthly deductions. Coverage continues uninterrupted without any lapse or grace period triggered.",
+        "source": "Article 2.3: 'You may skip payments as long as the Account Value is sufficient to cover monthly deductions.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "Flexible premiums allow skipping payments as long as account value covers monthly charges. No lapse triggered if account value is sufficient.",
+        "source": "Section 2 (implied from flexible premium structure). The policy has li:premiumSkippingAllowed true in the ABox."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium final expense policy. Skipping a payment triggers the 30-day grace period. Non-payment causes lapse.",
+        "source": "Section 3.4: 'GRACE PERIOD: If payment is not received, you have 30 days to pay before the policy cancels.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term — premiums paid by employer (basic) or employee (voluntary). Skipping is not optional; coverage ends on last day premiums are paid.",
+        "source": "Section 4.1(e): 'Coverage terminates on... the last day for which required premiums have been paid.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Level annual premium term policy. Skipping causes the 31-day grace period to begin.",
+        "source": "Section 3.2: 'GRACE PERIOD: 31 days from due date. Coverage continues during grace period.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Level annual premium joint survivorship policy. Skipping triggers the 60-day grace period.",
+        "source": "Article IV, 4.6: 'GRACE PERIOD: A grace period of 60 days will be granted for the payment of every premium after the first.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Level annual premium ROP term policy. Skipping a payment triggers the 31-day grace period, and non-payment forfeits the ROP benefit.",
+        "source": "Section 4.4: 'Grace period: 31 days. If premium is not paid within grace period, policy lapses and return of premium benefit is forfeited.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "Flexible premiums allow skipping payments as long as account value covers monthly deductions. The minimum premium is $100 per payment when payments are made.",
+        "source": "Article 4.1, 4.3: 'You may pay premiums at any time in any amount between Minimum: $100 per payment. You may skip premium payments as long as account value is sufficient to cover monthly deductions.'"
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasPremium ?prem . ?prem a li:FlexiblePremium ; li:premiumSkippingAllowed false . OPTIONAL { ?prem li:sourceContractSection ?sourceSection . } OPTIONAL { ?prem li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-015",
+    "category": "WAIVER_OF_PREMIUM_DISABILITY",
+    "scenario_description": "The insured becomes totally disabled at age 55 and remains disabled for 8 consecutive months. The insured cannot pay premiums during this disability period.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?waitMonths ?maxAgeAtDisability ?terminationAge ?sourceSection ?sourceText WHERE { { ?policy li:sourceContractID ?contractID ; li:hasRider ?rider . ?rider a li:WaiverOfPremiumRider ; li:waiverDisabilityWaitingMonths ?waitMonths ; li:waiverMaxAgeAtDisability ?maxAgeAtDisability ; li:waiverTerminationAge ?terminationAge . OPTIONAL { ?rider li:sourceContractSection ?sourceSection . } OPTIONAL { ?rider li:coverageSourceText ?sourceText . } FILTER(?waitMonths <= 8 && ?maxAgeAtDisability > 55) } UNION { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:WaiverOfPremiumProvision ; li:waiverDisabilityWaitingMonths ?waitMonths ; li:waiverMaxAgeAtDisability ?maxAgeAtDisability ; li:waiverTerminationAge ?terminationAge . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } FILTER(?waitMonths <= 8 && ?maxAgeAtDisability > 55) } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "No waiver of premium provision or rider is attached to this basic term policy.",
+        "source": "Contract does not contain a waiver of premium provision."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "No waiver of premium provision or rider is stated in this whole life contract.",
+        "source": "Contract does not contain a waiver of premium provision."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No waiver of premium provision or rider is stated. However, flexible premiums and account value can fund deductions during disability without lapse.",
+        "source": "Article 2.3: 'You may skip payments as long as the Account Value is sufficient to cover monthly deductions.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No waiver of premium provision or rider is stated. Flexible premiums and account value can fund charges during disability.",
+        "source": "Contract does not contain a waiver of premium provision."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "No waiver of premium provision or rider is stated in this final expense policy.",
+        "source": "Contract does not contain a waiver of premium provision."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Waiver of premium applies. At age 55 (under the age-60 threshold), after 8 months of continuous disability (exceeding the 6-month waiting period), voluntary life insurance premiums are waived. Coverage continues without premium payment until recovery, return to work, or age 65.",
+        "source": "Section 11.1, 11.4: 'If you become totally disabled before age 60 and remain disabled for 6 consecutive months, your voluntary life insurance premiums will be waived. Waiver ends when you return to work, recover, or reach age 65.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Waiver of Premium Rider (Rider 1) applies. At age 55 (under the age-60 threshold), after 8 months of total disability (exceeding the 6-month waiting period), all future premiums are waived. Coverage continues in full force. Annual proof of continuing disability required.",
+        "source": "Section 2, Rider 1: 'If you become totally disabled before age 60 and remain disabled for 6 consecutive months: All future premiums are waived. Coverage continues in full force. Waiver continues until you recover, return to work, or age 65.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Premium waiver is explicitly NOT available on this joint survivorship policy.",
+        "source": "Article IV, 4.5: 'WAIVER OPTION: Premium waiver is not available on joint survivorship policies.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "No waiver of premium provision or rider is stated in this ROP term policy.",
+        "source": "Contract does not contain a waiver of premium provision."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No waiver of premium provision or rider is stated. Flexible premiums and account value can fund deductions during disability.",
+        "source": "Contract does not contain a waiver of premium provision."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { { ?policy li:sourceContractID ?contractID ; li:hasRider ?rider . ?rider a li:WaiverOfPremiumRider ; li:isNegated true . OPTIONAL { ?rider li:sourceContractSection ?sourceSection . } OPTIONAL { ?rider li:coverageSourceText ?sourceText . } } UNION { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:WaiverOfPremiumProvision ; li:isNegated true . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } } }"
+  },
+  {
+    "scenario_id": "SCEN-016",
+    "category": "TERMINAL_ILLNESS_ACCELERATED_BENEFIT",
+    "scenario_description": "The insured is diagnosed with a terminal illness and given a life expectancy of 10 months. The insured requests an advance of a portion of the death benefit while still alive.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?maxPct ?minAmount ?maxAmount ?lifeExpMonths ?discount ?sourceSection ?sourceText WHERE { { ?policy li:sourceContractID ?contractID ; li:hasRider ?r . ?r a li:TerminalIllnessADBRider ; li:terminalIllnessLifeExpectancyMonths ?lifeExpMonths ; li:adbMaxPercentOfFaceAmount ?maxPct . OPTIONAL { ?r li:adbMinimumAmount ?minAmount . } OPTIONAL { ?r li:adbMaximumAmount ?maxAmount . } OPTIONAL { ?r li:adbActuarialDiscountApplies ?discount . } OPTIONAL { ?r li:sourceContractSection ?sourceSection . } OPTIONAL { ?r li:coverageSourceText ?sourceText . } FILTER(?lifeExpMonths >= 10) } UNION { ?policy li:sourceContractID ?contractID ; li:hasLivingBenefit ?lb . ?lb a li:TerminalIllnessADB ; li:terminalIllnessLifeExpectancyMonths ?lifeExpMonths ; li:adbMaxPercentOfFaceAmount ?maxPct . OPTIONAL { ?lb li:adbMinimumAmount ?minAmount . } OPTIONAL { ?lb li:adbMaximumAmount ?maxAmount . } OPTIONAL { ?lb li:adbActuarialDiscountApplies ?discount . } OPTIONAL { ?lb li:sourceContractSection ?sourceSection . } OPTIONAL { ?lb li:coverageSourceText ?sourceText . } FILTER(?lifeExpMonths >= 10) } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "No accelerated death benefit provision is attached to this basic term policy.",
+        "source": "Contract does not contain a terminal illness ADB provision."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "No accelerated death benefit provision is stated in this whole life contract.",
+        "source": "Contract does not contain a terminal illness ADB provision."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No accelerated death benefit provision is stated in this universal life contract.",
+        "source": "Contract does not contain a terminal illness ADB provision."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No accelerated death benefit provision is stated in this VUL contract.",
+        "source": "Contract does not contain a terminal illness ADB provision."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "No accelerated death benefit provision is stated in this final expense policy.",
+        "source": "Contract does not contain a terminal illness ADB provision."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Terminal illness ADB is available. With a 10-month life expectancy (under the 12-month threshold), up to 75% of the death benefit may be advanced, subject to a minimum of $5,000 and maximum of $250,000, with an actuarial discount applied.",
+        "source": "Section 7.1, 7.2, 7.3: 'If you are diagnosed with a terminal illness with life expectancy of 12 months or less, you may request acceleration of up to 75% of your death benefit. Minimum acceleration: $5,000. Maximum acceleration: $250,000. Accelerated amount will be reduced by an actuarial discount.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Terminal Illness ADB Rider (Rider 2) is included at no charge. With a 10-month life expectancy (under the 24-month threshold), up to 95% of the death benefit may be advanced ($10,000 minimum, $500,000 maximum), reduced by an actuarial discount of approximately 8% per year.",
+        "source": "Section 2, Rider 2: 'If diagnosed with a terminal illness: May access up to 95% of death benefit while living. Minimum advance: $10,000. Maximum advance: $500,000. Benefit reduced by actuarial discount (approximately 8% per year).'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "No accelerated death benefit provision is stated in this joint survivorship contract.",
+        "source": "Contract does not contain a terminal illness ADB provision."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "No accelerated death benefit provision is stated in this ROP term contract.",
+        "source": "Contract does not contain a terminal illness ADB provision."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No accelerated death benefit provision is stated in this IUL contract.",
+        "source": "Contract does not contain a terminal illness ADB provision."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { { ?policy li:sourceContractID ?contractID ; li:hasRider ?r . ?r a li:TerminalIllnessADBRider ; li:isNegated true . OPTIONAL { ?r li:sourceContractSection ?sourceSection . } OPTIONAL { ?r li:coverageSourceText ?sourceText . } } UNION { ?policy li:sourceContractID ?contractID ; li:hasLivingBenefit ?lb . ?lb a li:TerminalIllnessADB ; li:isNegated true . OPTIONAL { ?lb li:sourceContractSection ?sourceSection . } OPTIONAL { ?lb li:coverageSourceText ?sourceText . } } }"
+  },
+  {
+    "scenario_id": "SCEN-017",
+    "category": "RETURN_OF_PREMIUM_SURVIVAL",
+    "scenario_description": "The insured survives the full policy term with all premiums paid on time. The policy owner requests the return of all premiums paid.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?ropPct ?latePenalty ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasLivingBenefit ?lb . ?lb a li:ReturnOfPremiumBenefit ; li:ropPercentAtEndOfTerm ?ropPct . OPTIONAL { ?lb li:ropLatePremiumPenaltyPercentage ?latePenalty . } OPTIONAL { ?lb li:sourceContractSection ?sourceSection . } OPTIONAL { ?lb li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Standard level term policy. No return of premium feature. Premiums are not refunded if the insured survives.",
+        "source": "Contract has no return of premium benefit provision."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Whole life policy. No ROP feature. Cash value and maturity benefits exist but are distinct from ROP.",
+        "source": "Contract has no return of premium benefit provision."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Universal life policy. No ROP feature.",
+        "source": "Contract has no return of premium benefit provision."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Variable universal life. No ROP feature.",
+        "source": "Contract has no return of premium benefit provision."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Final expense whole life. No ROP feature. Policy does not expire; it is permanent.",
+        "source": "Contract has no return of premium benefit provision."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate. No ROP feature.",
+        "source": "Contract has no return of premium benefit provision."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy with riders. No ROP feature.",
+        "source": "Contract has no return of premium benefit provision."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Joint survivorship whole life. No ROP feature.",
+        "source": "Contract has no return of premium benefit provision."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "100% of all premiums paid ($32,400) are returned to the policy owner upon survival of the full 20-year term, provided all premiums were paid on time. Payment is made within 60 days. If any premium was paid during the grace period, ROP is reduced by 10% per late payment.",
+        "source": "Section 3.1, 3.4: 'If the insured is alive on September 15, 2044, and all premiums have been paid, we will pay the policy owner $32,400 (100% of premiums paid over 20 years). If a premium is paid late (during grace period), the ROP benefit is reduced by 10% for each late payment.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "Indexed universal life. No ROP feature.",
+        "source": "Contract has no return of premium benefit provision."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasLivingBenefit ?lb . ?lb a li:ReturnOfPremiumBenefit ; li:isNegated true . OPTIONAL { ?lb li:sourceContractSection ?sourceSection . } OPTIONAL { ?lb li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-018",
+    "category": "AVIATION_DEATH_PILOT",
+    "scenario_description": "The insured, who is a licensed private pilot, dies while operating a small private aircraft on a non-commercial flight. No war or military activity is involved.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy a li:Policy ; li:sourceContractID ?contractID . FILTER NOT EXISTS { ?policy a li:VariableUniversalLifePolicy } OPTIONAL { ?policy li:hasRider ?r . ?r a li:AviationExclusionWaiver . OPTIONAL { ?r li:sourceContractSection ?sourceSection } OPTIONAL { ?r li:coverageSourceText ?sourceText } } }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy a li:Policy ; li:sourceContractID ?contractID ; li:hasExclusion ?excl . ?excl a li:AviationExclusion . FILTER NOT EXISTS { ?excl li:isNegated true } OPTIONAL { ?excl li:sourceContractSection ?sourceSection } OPTIONAL { ?excl li:coverageSourceText ?sourceText } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "No aviation exclusion is present in this contract. The death benefit is payable.",
+        "source": "Section 7.2: 'No other exclusions apply to this policy.' — Aviation exclusion is explicitly absent."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "No aviation exclusion is stated in this whole life contract. The death benefit is payable.",
+        "source": "Contract is silent on aviation exclusion. No exclusion section mentions aviation."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "No aviation exclusion is stated in this universal life contract.",
+        "source": "Article 9: Only suicide and contestability exclusions are listed. Aviation exclusion is absent."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "details": "Aviation exclusion applies. Death from operating an aircraft as pilot is excluded unless the aviation risk was declared and approved with an extra premium. This was not done.",
+        "source": "Section 8.3: 'AVIATION: Death resulting from operating an aircraft as pilot or crew member is excluded unless declared and approved with extra premium.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "No aviation exclusion applies. This policy explicitly has no aviation exclusion.",
+        "source": "Section 5.2: 'NO OTHER EXCLUSIONS: This policy has no war exclusion, no aviation exclusion, and no travel restrictions.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "No aviation exclusion is stated in this group term certificate.",
+        "source": "Section 8: Only suicide and pre-existing condition exclusions are mentioned. Aviation exclusion is absent."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "The standard aviation exclusion has been expressly waived by an Aviation Exclusion Waiver rider for this policy, based on the insured's declared private pilot activities. An additional premium of $175/year is included. Full death benefit is payable.",
+        "source": "Section 6: 'The standard aviation exclusion has been waived for this policy based on the insured's declared private pilot activities. Additional premium of $175/year is included in the base premium.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "No aviation exclusion is present in this joint survivorship contract.",
+        "source": "Article VII, 7.4: 'NO OTHER EXCLUSIONS: No war, aviation, or travel exclusions apply to this policy.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "No aviation exclusion applies to this ROP term policy.",
+        "source": "Section 7.3: 'NO OTHER EXCLUSIONS: No war, aviation, travel, or hazardous activity exclusions apply.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "No aviation exclusion is stated in this IUL contract.",
+        "source": "Article 11: Only suicide and contestability exclusions are listed. Aviation exclusion is absent."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-019",
+    "category": "WAR_EXCLUSION_MILITARY_DEATH",
+    "scenario_description": "An insured who is an active-duty military member dies while serving in a military conflict in a war zone, 18 months after the policy issue date.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID WHERE { ?policy a li:Policy ; li:sourceContractID ?contractID . FILTER NOT EXISTS { ?policy a li:VariableUniversalLifePolicy } }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?exclusionPeriod ?timeBounded ?sourceSection ?sourceText WHERE { ?policy a li:Policy ; li:sourceContractID ?contractID ; li:hasExclusion ?excl . ?excl a li:WarExclusion . OPTIONAL { ?excl li:exclusionPeriodMonths ?exclusionPeriod } OPTIONAL { ?excl li:exclusionIsTimeBounded ?timeBounded } OPTIONAL { ?excl li:sourceContractSection ?sourceSection } OPTIONAL { ?excl li:coverageSourceText ?sourceText } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "No war exclusion in this term life policy. Death benefit payable.",
+        "source": "Section 7.2: 'No other exclusions apply to this policy.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "No war exclusion stated in this whole life contract.",
+        "source": "Section 11: Only suicide and misstatement of age exclusions listed. No war exclusion."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "No war exclusion stated in this universal life contract.",
+        "source": "Article 9: Only suicide and contestability listed. No war exclusion."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "details": "War exclusion applies. At 18 months post-issue, this falls within the 24-month war exclusion window. Death while serving in military conflict in a war zone is excluded within 24 months of issue.",
+        "source": "Section 8.2: 'WAR EXCLUSION: Death while serving in military conflict in a war zone is excluded if it occurs within 24 months of issue.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "No war exclusion. This policy explicitly has no war exclusion.",
+        "source": "Section 5.2: 'NO OTHER EXCLUSIONS: This policy has no war exclusion, no aviation exclusion, and no travel restrictions.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "No war exclusion stated in this group term certificate.",
+        "source": "Section 8: Only suicide and pre-existing condition exclusions are mentioned. No war exclusion."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "No war exclusion in this contract. The aviation exclusion waiver rider explicitly covers military combat aviation deaths as an exception (combat operations excluded from aviation waiver). But general military death in war zone is not excluded.",
+        "source": "Section 6: Aviation waiver section notes 'Exception: military combat operations' — but no general war exclusion exists in the policy."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "No war exclusion in this joint survivorship policy.",
+        "source": "Article VII, 7.4: 'NO OTHER EXCLUSIONS: No war, aviation, or travel exclusions apply to this policy.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "No war exclusion applies to this ROP term policy.",
+        "source": "Section 7.3: 'NO OTHER EXCLUSIONS: No war, aviation, travel, or hazardous activity exclusions apply.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "No war exclusion stated in this IUL contract.",
+        "source": "Article 11: Only suicide and contestability exclusions listed. No war exclusion."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-020",
+    "category": "MISSTATEMENT_OF_AGE",
+    "scenario_description": "Upon a death claim, the insurer discovers the insured misrepresented their age on the application — the insured was actually 5 years older than declared. The policy has been in force for 3 years.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:MisstatementOfAgeProvision . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "The insurer adjusts the death benefit to the amount the premium paid would have purchased at the correct (older) age and correct sex. Policy is not voided; benefit is adjusted.",
+        "source": "Section 10.2: 'MISSTATEMENT OF AGE OR SEX: If the age or sex of the insured has been misstated, we will adjust the death benefit to what the premiums paid would have purchased at the correct age and sex.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "The face amount is adjusted to what the premium would have purchased at the correct age. Policy is not voided.",
+        "source": "Section 11.2: 'MISSTATEMENT OF AGE: If the insured's age was misstated, we will adjust the face amount to what the premium would have purchased at the correct age.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit misstatement of age provision is stated in this contract.",
+        "source": "Contract is silent on misstatement of age."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit misstatement of age provision is stated in this VUL contract.",
+        "source": "Contract is silent on misstatement of age."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit misstatement of age provision is stated. Guaranteed issue means age was not a rated factor.",
+        "source": "Contract is silent on misstatement of age, and this is a guaranteed issue policy."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit misstatement of age provision is stated in this group certificate.",
+        "source": "Contract is silent on misstatement of age."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit misstatement of age provision is stated in this term-with-riders contract.",
+        "source": "Contract is silent on misstatement of age."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit misstatement of age provision is stated in this joint survivorship contract.",
+        "source": "Contract is silent on misstatement of age."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "The death benefit is adjusted to what the premium would have purchased at the correct age. Notably, the ROP amount is NOT affected by the misstatement correction.",
+        "source": "Section 9.4: 'MISSTATEMENT OF AGE: If age was misstated, we will adjust the death benefit to what the premium would have purchased at the correct age. ROP amount is not affected.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit misstatement of age provision is stated in this IUL contract.",
+        "source": "Contract is silent on misstatement of age."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:MisstatementOfAgeProvision ; li:isNegated true . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }"
+  }
+]

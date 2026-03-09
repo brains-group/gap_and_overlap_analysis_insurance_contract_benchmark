@@ -1,0 +1,234 @@
+[
+  {
+    "scenario_id": "SCEN-001",
+    "scenario_description": "Insured dies from natural causes (heart attack) 5 years after policy issue. All premiums paid on time. No outstanding loans."
+  },
+  {
+    "scenario_id": "SCEN-002",
+    "scenario_description": "Insured dies by suicide 10 months after the policy issue date. All premiums were paid up to date. No prior withdrawals or loans."
+  },
+  {
+    "scenario_id": "SCEN-003",
+    "scenario_description": "Insured dies by suicide exactly 13 months after policy issue. All premiums were paid. No prior withdrawals or loans."
+  },
+  {
+    "scenario_id": "SCEN-004",
+    "scenario_description": "Insured dies from a natural illness in the 14th month after the policy issue date. All premiums were paid on time."
+  },
+  {
+    "scenario_id": "SCEN-005",
+    "scenario_description": "Insured dies from an accidental fall in the 8th month after policy issue. Death occurs within 90 days of the accident. All premiums were paid on time."
+  },
+  {
+    "scenario_id": "SCEN-006",
+    "scenario_description": "Both joint insureds have died \u2014 the first insured died 3 years ago and the second insured has just died. All premiums were paid. No outstanding loans."
+  },
+  {
+    "scenario_id": "SCEN-007",
+    "scenario_description": "The policy owner decides to cancel the policy 20 days after receiving it and requests a full refund of premiums paid."
+  },
+  {
+    "scenario_id": "SCEN-008",
+    "scenario_description": "After several years, the policy owner stops paying premiums and neither surrenders the policy nor selects a non-forfeiture option within 60 days of lapse."
+  },
+  {
+    "scenario_id": "SCEN-009",
+    "scenario_description": "A term or group life policy owner wishes to convert their coverage to a permanent individual policy without providing evidence of insurability."
+  },
+  {
+    "scenario_id": "SCEN-010",
+    "scenario_description": "A policy lapses due to non-payment. The policy owner applies to reinstate it 18 months after lapse, paying all overdue premiums with interest and providing evidence of insurability."
+  },
+  {
+    "scenario_id": "SCEN-011",
+    "scenario_description": "The insured dies 20 days after a missed premium due date, during the grace period. No prior loans or withdrawals."
+  },
+  {
+    "scenario_id": "SCEN-012",
+    "scenario_description": "The policy owner wishes to take out a loan against the policy's cash value or account value, shortly after the policy has been in force for 1 year."
+  },
+  {
+    "scenario_id": "SCEN-013",
+    "scenario_description": "The policy owner requests a cash withdrawal of $2,000 from the policy's account value (not a loan) to cover an emergency expense."
+  },
+  {
+    "scenario_id": "SCEN-014",
+    "scenario_description": "The policy owner skips a premium payment month entirely, making no payment, while the account value remains sufficient to cover all monthly charges."
+  },
+  {
+    "scenario_id": "SCEN-015",
+    "scenario_description": "The insured becomes totally disabled at age 55 and remains disabled for 8 consecutive months. The insured cannot pay premiums during this disability period."
+  },
+  {
+    "scenario_id": "SCEN-016",
+    "scenario_description": "The insured is diagnosed with a terminal illness and given a life expectancy of 10 months. The insured requests an advance of a portion of the death benefit while still alive."
+  },
+  {
+    "scenario_id": "SCEN-017",
+    "scenario_description": "The insured survives the full policy term with all premiums paid on time. The policy owner requests the return of all premiums paid."
+  },
+  {
+    "scenario_id": "SCEN-018",
+    "scenario_description": "The insured, who is a licensed private pilot, dies while operating a small private aircraft on a non-commercial flight. No war or military activity is involved."
+  },
+  {
+    "scenario_id": "SCEN-019",
+    "scenario_description": "An insured who is an active-duty military member dies while serving in a military conflict in a war zone, 18 months after the policy issue date."
+  },
+  {
+    "scenario_id": "SCEN-020",
+    "scenario_description": "Upon a death claim, the insurer discovers the insured misrepresented their age on the application \u2014 the insured was actually 5 years older than declared. The policy has been in force for 3 years."
+  },
+  {
+    "scenario_id": "SCEN-021",
+    "scenario_description": "The policy owner decides to fully surrender a permanent or investment-linked policy in Year 3 and requests the full account value or cash surrender value."
+  },
+  {
+    "scenario_id": "SCEN-022",
+    "scenario_description": "The policy owner selects the increasing death benefit option (face amount + account value) at policy inception. The insured dies with a substantial account value accumulated."
+  },
+  {
+    "scenario_id": "SCEN-023",
+    "scenario_description": "The stock market index drops 15% during a policy year. The policy owner is concerned about a corresponding loss in account value due to index-linked crediting."
+  },
+  {
+    "scenario_id": "SCEN-024",
+    "scenario_description": "An applicant with severe pre-existing health conditions (cancer, heart disease) applies for a new life insurance policy and cannot answer health questions favorably."
+  },
+  {
+    "scenario_id": "SCEN-025",
+    "scenario_description": "The insured dies 18 months after policy issue. The insurer investigates and discovers a material misrepresentation in the original application (the insured omitted a prior cancer diagnosis)."
+  },
+  {
+    "scenario_id": "SCEN-026",
+    "scenario_description": "An employee covered under a group life certificate is laid off from their job. The employee asks what happens to their life insurance coverage."
+  },
+  {
+    "scenario_id": "SCEN-027",
+    "scenario_description": "The insurer declares an annual dividend on a participating whole life policy. The policy owner wants to understand how the dividend will be applied."
+  },
+  {
+    "scenario_id": "SCEN-028",
+    "scenario_description": "Both joint insureds die in the same car accident and are pronounced dead within 15 days of each other. Determining who died first is medically impossible."
+  },
+  {
+    "scenario_id": "SCEN-029",
+    "scenario_description": "The insured's child, age 10, dies unexpectedly. The insured has a children's term insurance rider on their policy."
+  },
+  {
+    "scenario_id": "SCEN-030",
+    "scenario_description": "The insured is certified by a licensed healthcare practitioner as chronically ill, being unable to perform 3 of 6 Activities of Daily Living for over 90 days. The insured requests an early benefit advance."
+  },
+  {
+    "scenario_id": "SCEN-031",
+    "scenario_description": "A wealthy couple wants to ensure their life insurance proceeds are excluded from their taxable estate and immediately available for estate tax liquidity upon the death of the surviving spouse."
+  },
+  {
+    "scenario_id": "SCEN-032",
+    "scenario_description": "A policy owner pays a premium into a flexible-premium permanent policy. A portion of the premium is deducted as a front-end load before allocation to the account."
+  },
+  {
+    "scenario_id": "SCEN-033",
+    "scenario_description": "The insured turns 43 years old and wishes to purchase additional life insurance coverage without undergoing a new medical examination."
+  },
+  {
+    "scenario_id": "SCEN-034",
+    "scenario_description": "An employee covered under a group life certificate receives a significant salary raise. The policy owner wishes to know if the basic life insurance benefit automatically changes."
+  },
+  {
+    "scenario_id": "SCEN-035",
+    "scenario_description": "The insured dies in a car accident that is the direct cause of death. The insured's blood alcohol level was below the legal limit. Death occurs 30 days after the accident."
+  },
+  {
+    "scenario_id": "SCEN-036",
+    "scenario_description": "The S&P 500 index rises 18% during the policy year. The policy owner expects to receive the full 18% interest credit on the indexed account."
+  },
+  {
+    "scenario_id": "SCEN-037",
+    "scenario_description": "An insured who had a pre-existing heart condition (disclosed in the application) dies from heart failure. The claim is submitted and the insurer checks for pre-existing condition exclusions."
+  },
+  {
+    "scenario_id": "SCEN-038",
+    "scenario_description": "The policy owner wishes to use their life insurance policy as collateral for a bank loan, assigning the policy to the lender."
+  },
+  {
+    "scenario_id": "SCEN-039",
+    "scenario_description": "The first insured on a joint survivorship policy has died. The surviving insured and the trust want to explore splitting the joint policy into two separate individual policies."
+  },
+  {
+    "scenario_id": "SCEN-040",
+    "scenario_description": "A beneficiary submits a complete and valid death claim with all required documentation. The beneficiary wants to know the fastest possible time to receive payment."
+  },
+  {
+    "scenario_id": "SCEN-041",
+    "scenario_description": "A flexible-premium permanent policy owner stops paying premiums. High monthly charges eventually deplete the account value to zero. The insurer sends a lapse notice."
+  },
+  {
+    "scenario_id": "SCEN-042",
+    "scenario_description": "A severe market crash causes all equity-linked sub-accounts in a variable life policy to lose 40% of their value. The account value drops sharply, and monthly charges may now exceed account value."
+  },
+  {
+    "scenario_id": "SCEN-043",
+    "scenario_description": "The policy owner of an IUL policy is concerned about the policy lapsing if the account value drops to zero due to insufficient index credits in consecutive poor market years. The policy owner wants a guarantee that the policy will not lapse as long as minimum premiums are paid."
+  },
+  {
+    "scenario_id": "SCEN-044",
+    "scenario_description": "After 10 years, the owner of a return of premium term policy decides to convert the policy to permanent life insurance. The policy owner asks whether premiums paid to date will be refunded at conversion."
+  },
+  {
+    "scenario_id": "SCEN-045",
+    "scenario_description": "The joint survivorship policy has been in force for 12 years. The insurer notifies the trust that the premium may be increased."
+  },
+  {
+    "scenario_id": "SCEN-046",
+    "scenario_description": "The insured dies in a car accident. Toxicology confirms the insured had a blood alcohol concentration above the legal limit at the time of the accident. The beneficiary files an accidental death benefit claim."
+  },
+  {
+    "scenario_id": "SCEN-047",
+    "scenario_description": "A whole life policy owner stops paying premiums. After the grace period expires, the policy lapses. The owner does not contact the insurer within 60 days of lapse to choose a non-forfeiture option."
+  },
+  {
+    "scenario_id": "SCEN-048",
+    "scenario_description": "An employee who has been at the company for 8 months attempts to enroll in the voluntary supplemental group life coverage for the first time."
+  },
+  {
+    "scenario_id": "SCEN-049",
+    "scenario_description": "The primary beneficiary of a life insurance policy wishes to receive the death benefit in installments over time rather than as a single lump-sum payment."
+  },
+  {
+    "scenario_id": "SCEN-050",
+    "scenario_description": "After many years of premium payments, a whole life policy owner wishes to stop paying premiums entirely but wants to keep some level of life insurance coverage in force for the rest of their life without paying any more premiums."
+  },
+  {
+    "scenario_id": "SCEN-051",
+    "scenario_description": "Both insureds on a joint survivorship policy die in the same car accident. It cannot be medically determined who died first. The beneficiary wants to know if the full $2,500,000 death benefit is immediately payable."
+  },
+  {
+    "scenario_id": "SCEN-052",
+    "scenario_description": "On a joint survivorship policy, the annual premium due on August 20th was not paid. The first insured dies 36 days after the premium due date. The surviving insured wants to know if the policy continues."
+  },
+  {
+    "scenario_id": "SCEN-053",
+    "scenario_description": "On a joint survivorship policy, the first insured dies with an outstanding policy loan of $50,000 at 5.5% annual interest. The surviving insured and trustee want to know how the loan is treated during the continuation period and its impact on the eventual death benefit."
+  },
+  {
+    "scenario_id": "SCEN-054",
+    "scenario_description": "The insured's annual premium goes unpaid on its due date. The insured suffers an accidental injury 20 days later, while still within the grace period. The insured dies from those injuries 11 days after that \u2014 which is 31 days after the grace period expired and the policy had lapsed. The beneficiary files a claim for the Accidental Death Benefit rider."
+  },
+  {
+    "scenario_id": "SCEN-055",
+    "scenario_description": "The insured disclosed a prior history of cancer (in remission) on the application. Eighteen months after policy issue, the cancer returns and a physician certifies a terminal prognosis of less than 24 months. The insurer argues the terminal condition 'existed' before issue and attempts to deny the accelerated death benefit."
+  },
+  {
+    "scenario_id": "SCEN-056",
+    "scenario_description": "A child covered under the Children's Term Insurance Rider turns 25 years old. The child dies 7 days after their 25th birthday. The insurer has not yet processed the administrative termination of the child's coverage. The parent wants to know if the $15,000 child rider benefit is payable."
+  },
+  {
+    "scenario_id": "SCEN-057",
+    "scenario_description": "The insured dies 23 months after policy issue. During the claim investigation, the insurer discovers the insured answered 'No' on the application to questions about recent foreign travel to a high-risk region and a recent driving license suspension, both of which were false. The insurer wants to contest and deny the claim on the basis of material misrepresentation."
+  },
+  {
+    "scenario_id": "SCEN-058",
+    "scenario_description": "A policyholder wants to understand how much cash value their Variable Universal Life policy will accumulate over 30 years at contract maximum charges, assuming a 5% gross annual return. The projection assumes a $250,000 face amount, issue age 35, Death Benefit Option I (Level), and a $1,500 planned annual premium."
+  }
+]

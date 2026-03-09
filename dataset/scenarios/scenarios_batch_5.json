@@ -1,0 +1,692 @@
+[
+  {
+    "scenario_id": "SCEN-041",
+    "category": "ACCOUNT_VALUE_DEPLETION_LAPSE_RISK",
+    "scenario_description": "A flexible-premium permanent policy owner stops paying premiums. High monthly charges eventually deplete the account value to zero. The insurer sends a lapse notice.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?graceDays ?priorNoticeDays ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasGracePeriod ?gp . ?gp a li:AccountValueDepletionGracePeriod ; li:gracePeriodDays ?graceDays . OPTIONAL { ?gp li:lapsePriorNoticeRequiredDays ?priorNoticeDays . } OPTIONAL { ?gp li:sourceContractSection ?sourceSection . } OPTIONAL { ?gp li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium term policy. No account value; lapse is triggered by missed fixed premium payments, not account depletion.",
+        "source": "Section 6.3: 'If the premium is not paid by the end of the grace period, the policy will lapse.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium whole life. No account depletion mechanism; lapse triggered by missed premium payment.",
+        "source": "Contract uses premium non-payment grace period, not account value depletion."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "When account value is insufficient to cover monthly deductions, a 61-day grace period begins. If sufficient premium is not paid within 61 days, the policy lapses. Any remaining account value (above surrender charges) is automatically paid to the policy owner.",
+        "source": "Article 10.1, 10.2, 10.3: 'If Account Value is insufficient to pay monthly deductions, we will notify you. Policy continues for 61 days. If sufficient premium is not received within 61 days, policy lapses. Upon lapse, any Account Value in excess of surrender charges will be paid to you automatically.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "When account value cannot cover monthly deductions for 61 consecutive days, policy lapses. A 30-day advance lapse notice is required. Poor market performance accelerates account depletion risk in VUL.",
+        "source": "Section 7.1, 7.2: 'If account value is insufficient to cover monthly deductions for 61 consecutive days, the policy will lapse. Lapse notice will be sent at least 30 days before lapse.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium final expense policy. No account depletion mechanism.",
+        "source": "Contract uses premium non-payment grace period (30 days)."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate with no account value.",
+        "source": "Contract has no account value."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium term policy. No account value.",
+        "source": "Contract uses premium non-payment grace period."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium joint survivorship policy. No account depletion mechanism.",
+        "source": "Contract uses premium non-payment grace period (60 days)."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium ROP term policy. No account value.",
+        "source": "Contract uses premium non-payment grace period (31 days)."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "When account value is insufficient to cover monthly deductions, a 61-day grace period begins with at least 30 days prior notice. If sufficient premium is not paid, policy lapses and remaining surrender value is paid out.",
+        "source": "Article 10.1, 10.2, 10.3: 'We will notify you at least 30 days before lapse. Grace period: 61 days to pay sufficient premium to bring policy back in force. If premium not received within grace period, policy lapses and any remaining surrender value is paid to you.'"
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasGracePeriod ?gp . ?gp a li:AccountValueDepletionGracePeriod ; li:isNegated true . OPTIONAL { ?gp li:sourceContractSection ?sourceSection . } OPTIONAL { ?gp li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-042",
+    "category": "VUL_INVESTMENT_RISK_MARKET_CRASH",
+    "scenario_description": "A severe market crash causes all equity-linked sub-accounts in a variable life policy to lose 40% of their value. The account value drops sharply, and monthly charges may now exceed account value.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasCreditingMechanism ?mech . ?mech a li:VariableSubAccountCrediting . OPTIONAL { ?mech li:sourceContractSection ?sourceSection . } OPTIONAL { ?mech li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy with no investment component. Not subject to market risk.",
+        "source": "Contract has no sub-accounts or investment component."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Whole life with guaranteed cash value. Not subject to market risk.",
+        "source": "Contract has guaranteed cash value schedule, not market-linked."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Universal life with fixed crediting. Not subject to market risk. Guaranteed minimum 2% interest.",
+        "source": "Article 4.2: 'Guaranteed minimum rate: 2.0% per annum.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "Direct exposure to market risk. A 40% sub-account loss directly reduces account value by 40%. The policy owner bears the full investment risk. If account value drops below the level needed to cover monthly charges, the 61-day grace period begins. This is the only policy in the portfolio with direct downside investment risk.",
+        "source": "Section 5.1, 5.2, 5.3: 'The account value and death benefit (under Option II) are NOT guaranteed and will fluctuate based on sub-account performance. Investment risk is borne entirely by the policy owner. Poor investment performance can cause the policy to lapse if account value becomes insufficient to cover charges.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Final expense policy with guaranteed cash value. Not subject to market risk.",
+        "source": "Contract has guaranteed cash value, not market-linked."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate with no investment component.",
+        "source": "Contract has no investment component."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy with no investment component.",
+        "source": "Contract has no investment component."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Joint survivorship whole life with guaranteed cash value. Not subject to market risk.",
+        "source": "Contract has guaranteed cash value schedule."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "ROP term policy with no investment component.",
+        "source": "Contract has no investment component."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "IUL with floor rate of 0%. A market crash results in 0% interest credit, not negative returns. Account value is NOT reduced by market declines — only by monthly charges.",
+        "source": "Article 3.3, 12.5: 'CRITICAL: You never lose money due to market decline. The worst case is 0% interest for that year. Zero is your hero — you cannot lose money due to negative index performance.'"
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasCreditingMechanism ?mech . ?mech a li:VariableSubAccountCrediting ; li:isNegated true . OPTIONAL { ?mech li:sourceContractSection ?sourceSection . } OPTIONAL { ?mech li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-043",
+    "category": "NO_LAPSE_GUARANTEE_RIDER",
+    "scenario_description": "The policy owner of an IUL policy is concerned about the policy lapsing if the account value drops to zero due to insufficient index credits in consecutive poor market years. The policy owner wants a guarantee that the policy will not lapse as long as minimum premiums are paid.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?status ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasRider ?rider . ?rider a li:NoLapseGuaranteeRider ; li:coverageStatus ?status . OPTIONAL { ?rider li:sourceContractSection ?sourceSection . } OPTIONAL { ?rider li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Term life policy. No no-lapse guarantee rider applicable.",
+        "source": "Contract does not have a no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Whole life with guaranteed premiums and guaranteed cash value. No no-lapse rider needed or available.",
+        "source": "Contract does not have a no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Universal life. No no-lapse guarantee rider is stated.",
+        "source": "Contract does not have a no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Variable universal life. No no-lapse guarantee rider is stated.",
+        "source": "Contract does not have a no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Final expense whole life with guaranteed premiums. No no-lapse rider needed.",
+        "source": "Contract does not have a no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate. No no-lapse rider applicable.",
+        "source": "Contract does not have a no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy. No no-lapse guarantee rider applicable.",
+        "source": "Contract does not have a no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Joint survivorship whole life. No no-lapse rider needed.",
+        "source": "Contract does not have a no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "ROP term policy. No no-lapse rider applicable.",
+        "source": "Contract does not have a no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "The No Lapse Guarantee rider is available as an optional add-on for this IUL policy.",
+        "source": "Article 9: 'Available as optional rider: Guarantees coverage will not lapse even if account value drops to zero, as long as minimum guaranteed premiums are paid. Not currently elected on this policy.'"
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasRider ?rider . ?rider a li:NoLapseGuaranteeRider ; li:isNegated true . OPTIONAL { ?rider li:sourceContractSection ?sourceSection . } OPTIONAL { ?rider li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-044",
+    "category": "ROP_CONVERSION_TRADE_OFF",
+    "scenario_description": "After 10 years, the owner of a return of premium term policy decides to convert the policy to permanent life insurance. The policy owner asks whether premiums paid to date will be refunded at conversion.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?maxAge ?minAmount ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:ConversionPrivilege . OPTIONAL { ?prov li:conversionMaxAge ?maxAge . } OPTIONAL { ?prov li:conversionMinAmount ?minAmount . } OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "Conversion to permanent insurance is available before policy expiry or insured's age 65. No ROP feature exists, so no trade-off applies.",
+        "source": "Section 8.2: 'Conversion must occur before the earlier of: (a) The policy expiry date, or (b) The insured's 65th birthday.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent whole life policy. No conversion needed.",
+        "source": "Contract is already a permanent policy."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent universal life policy. No conversion needed.",
+        "source": "Contract is already a permanent policy."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent VUL policy. No conversion needed.",
+        "source": "Contract is already a permanent policy."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent final expense policy. No conversion needed.",
+        "source": "Contract is already a permanent policy."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Conversion to individual whole life is available within 31 days of group coverage termination. No ROP feature to forfeit.",
+        "source": "Section 5.1: 'You may convert to an individual whole life policy without evidence of insurability within 31 days of termination.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Conversion available before policy expiry or insured's age 70, minimum $50,000. No ROP feature.",
+        "source": "Section 4.2: 'Conversion without EOI before policy expiry or age 70. Minimum conversion amount: $50,000.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent joint survivorship policy. No conversion needed.",
+        "source": "Contract is already a permanent policy."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "Conversion is available before policy expiry or the insured's 65th birthday, whichever is earlier. Upon conversion, the new policy premium is based on attained age. However, the ROP benefit is explicitly forfeited upon conversion — premiums paid to date are not returned.",
+        "source": "Section 5.2, 5.4: 'Conversion available: At any time before the policy expires, OR Before the insured's 65th birthday, whichever is earlier. Upon conversion: New policy premium based on attained age. ROP benefit is forfeited. Premiums paid to date are NOT returned.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "Already a permanent IUL policy. No conversion needed.",
+        "source": "Contract is already a permanent policy."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:ConversionPrivilege ; li:isNegated true . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-045",
+    "category": "JOINT_POLICY_PREMIUM_GUARANTEE_PERIOD",
+    "scenario_description": "The joint survivorship policy has been in force for 12 years. The insurer notifies the trust that the premium may be increased.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?guaranteePeriod ?maxPremium ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:premiumGuaranteePeriodYears ?guaranteePeriod . OPTIONAL { ?policy li:maximumGuaranteedPremium ?maxPremium . } OPTIONAL { ?policy li:sourceContractSection ?sourceSection . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium term policy. Premiums are level and fixed for the entire 20-year term.",
+        "source": "Section 2: Premium is level at $45/month for 20 years."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Whole life with level premium to age 100. Premiums do not increase.",
+        "source": "Section 2: 'Premium Payment Period: To age 100.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Universal life with flexible premiums. No premium guarantee period structure.",
+        "source": "Contract uses flexible premiums."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "VUL with flexible premiums. No premium guarantee period structure.",
+        "source": "Contract uses flexible premiums."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Final expense policy with guaranteed level premium for life.",
+        "source": "Section 3.1: 'Your monthly premium is $87.50 and will never increase.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate. Premium is employer-paid (basic) and employee-elected (voluntary). No guarantee period structure.",
+        "source": "Contract has no premium guarantee period structure."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium term policy for 30 years. Premiums are level throughout the term.",
+        "source": "Section 3.1: 'Annual Premium: $1,089.00 (base + all riders).'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "The annual premium of $32,400 was guaranteed level only for the first 10 years. At Year 12, the guarantee period has passed. The premium may now increase up to the maximum guaranteed premium of $48,600 per year.",
+        "source": "Article IV, 4.1, 4.2: 'PREMIUM GUARANTEE PERIOD: Annual premium of $32,400 is guaranteed level for the first 10 policy years. AFTER YEAR 10: Premium may increase but will never exceed the maximum guaranteed premium of $48,600 per year.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium term policy for 20 years.",
+        "source": "Section 4.2: 'Premiums are LEVEL and will not increase during the term.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "IUL with flexible premiums. No fixed premium guarantee period structure.",
+        "source": "Contract uses flexible premiums."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:PremiumGuaranteeProvision ; li:isNegated true . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-046",
+    "category": "ADB_RIDER_DRUG_ALCOHOL_EXCLUSION",
+    "scenario_description": "The insured dies in a car accident. Toxicology confirms the insured had a blood alcohol concentration above the legal limit at the time of the accident. The beneficiary files an accidental death benefit claim.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID WHERE { ?policy li:sourceContractID ?contractID . FILTER NOT EXISTS { ?policy li:hasExclusion ?excl . ?excl a li:DrugAlcoholExclusion . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "No accidental death benefit rider and no drug/alcohol exclusion. Standard death benefit of $500,000 is payable for any covered death.",
+        "source": "Section 7.2: 'No other exclusions apply to this policy.' — Standard death benefit payable."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "No ADB rider and no drug/alcohol exclusion. Standard death benefit payable.",
+        "source": "Section 11: Only suicide and age misstatement exclusions listed. No drug/alcohol exclusion."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "No ADB rider and no drug/alcohol exclusion. Standard death benefit payable.",
+        "source": "Article 9: Only suicide exclusion listed. No drug/alcohol exclusion."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "No ADB rider and no drug/alcohol exclusion affecting the standard death benefit. Standard death benefit (face + account value) payable, subject to any suicide or war exclusion.",
+        "source": "Section 8: Drug/alcohol exclusion is not listed among the VUL exclusions."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "No drug/alcohol exclusion. The standard graded/full benefit is payable. Note: the accidental death exception still applies to pay full face amount, but this is a graded benefit context.",
+        "source": "Section 5.2: 'NO OTHER EXCLUSIONS: This policy has no war exclusion, no aviation exclusion, and no travel restrictions.' — Drug/alcohol exclusion is also absent."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "No drug/alcohol exclusion. Standard death benefit payable. No ADB rider is attached.",
+        "source": "Section 8: Only suicide and pre-existing condition exclusions listed. No drug/alcohol exclusion."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "The base death benefit of $750,000 is fully payable. However, the Accidental Death Benefit Rider (Rider 5) is denied because the insured was under the influence of drugs or alcohol, which is an explicit exclusion of that rider. Only the base $750,000 is paid, not the additional $750,000 ADB.",
+        "source": "Section 2, Rider 5: 'No payment if insured was under influence of drugs/alcohol.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "No drug/alcohol exclusion. Standard survivorship death benefit payable (if second insured).",
+        "source": "Article VII, 7.4: 'NO OTHER EXCLUSIONS: No war, aviation, or travel exclusions apply.' — Drug/alcohol exclusion also absent."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "No drug/alcohol exclusion. Standard death benefit payable.",
+        "source": "Section 7.3: 'NO OTHER EXCLUSIONS: No war, aviation, travel, or hazardous activity exclusions apply.' — Drug/alcohol also absent."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "No drug/alcohol exclusion. Standard death benefit payable.",
+        "source": "Article 11: Only suicide and contestability exclusions listed. No drug/alcohol exclusion."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasExclusion ?excl . ?excl a li:DrugAlcoholExclusion . OPTIONAL { ?excl li:sourceContractSection ?sourceSection . } OPTIONAL { ?excl li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-047",
+    "category": "EXTENDED_TERM_NON_FORFEITURE_DEFAULT",
+    "scenario_description": "A whole life policy owner stops paying premiums. After the grace period expires, the policy lapses. The owner does not contact the insurer within 60 days of lapse to choose a non-forfeiture option.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasNonForfeitureOption ?opt . ?opt a li:ExtendedTermOption . OPTIONAL { ?opt li:sourceContractSection ?sourceSection . } OPTIONAL { ?opt li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy with no cash value. No extended term option available.",
+        "source": "Contract has no cash value or non-forfeiture options."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "If no election is made within 60 days of lapse, Extended Term Insurance automatically applies. The full face amount of $250,000 continues for a limited period based on cash value and the insured's attained age — no further premiums required.",
+        "source": "Section 9.3, 9.4: 'EXTENDED TERM INSURANCE: Continue the full face amount for a limited period based on cash value. No further premiums. If no election is made within 60 days of lapse, Extended Term Insurance will automatically apply.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Universal life with no traditional non-forfeiture election. Any remaining account value is automatically paid out on lapse.",
+        "source": "Article 10.3: 'Upon lapse, any Account Value in excess of surrender charges will be paid to you automatically.' — No extended term option."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "VUL with no traditional non-forfeiture option.",
+        "source": "Contract has no extended term non-forfeiture option."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Final expense policy automatically converts to reduced paid-up (not extended term) if premiums stop after 2 years.",
+        "source": "Section 8.1: 'After 2 years, if you stop paying premiums, your policy will automatically continue with a reduced benefit amount based on the cash value.' — Reduced paid-up, not extended term."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term with no cash value or extended term option.",
+        "source": "Contract has no non-forfeiture options."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy with no cash value or extended term option.",
+        "source": "Contract has no non-forfeiture options."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Joint survivorship policy. No extended term non-forfeiture option stated.",
+        "source": "Contract does not list extended term as a non-forfeiture option."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "ROP term policy with no cash value or extended term option.",
+        "source": "Contract has no non-forfeiture options."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "IUL with no traditional non-forfeiture election. Remaining surrender value is paid on lapse.",
+        "source": "Contract has no extended term non-forfeiture option."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasNonForfeitureOption ?opt . ?opt a li:ExtendedTermOption ; li:isNegated true . OPTIONAL { ?opt li:sourceContractSection ?sourceSection . } OPTIONAL { ?opt li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-048",
+    "category": "GROUP_LATE_ENTRANT_EOI_REQUIREMENT",
+    "scenario_description": "An employee who has been at the company for 8 months attempts to enroll in the voluntary supplemental group life coverage for the first time.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?windowDays ?requiresEOI ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:LateEntrantProvision ; li:lateEntrantEnrollmentWindowDays ?windowDays . ?prov li:lateEntrantRequiresEOI ?requiresEOI . FILTER(?requiresEOI = false) OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual term policy. No group enrollment or late entrant provision.",
+        "source": "Individual policy. No group enrollment process."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual whole life. No group enrollment or late entrant provision.",
+        "source": "Individual policy."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual universal life. No group enrollment or late entrant provision.",
+        "source": "Individual policy."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual VUL. No group enrollment or late entrant provision.",
+        "source": "Individual policy."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual final expense policy. No group enrollment or late entrant provision.",
+        "source": "Individual policy."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "details": "The 31-day initial enrollment window from the date of hire has passed (employee is at 8 months). The late entrant provision applies, requiring Evidence of Insurability (EOI) to enroll in voluntary supplemental coverage. Without submitting and passing EOI, coverage cannot be issued.",
+        "source": "Section 2.3: 'Voluntary coverage required enrollment within 31 days of hire (Late Entrant provisions apply if enrolling after 31 days).'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual term policy. No group enrollment or late entrant provision.",
+        "source": "Individual policy."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual joint survivorship policy. No group enrollment.",
+        "source": "Individual policy."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual ROP term policy. No group enrollment.",
+        "source": "Individual policy."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual IUL policy. No group enrollment.",
+        "source": "Individual policy."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?windowDays ?requiresEOI ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:LateEntrantProvision ; li:lateEntrantEnrollmentWindowDays ?windowDays . ?prov li:lateEntrantRequiresEOI ?requiresEOI . FILTER(?requiresEOI = true) OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-049",
+    "category": "SETTLEMENT_OPTION_BENEFICIARY",
+    "scenario_description": "The primary beneficiary of a life insurance policy wishes to receive the death benefit in installments over time rather than as a single lump-sum payment.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:SettlementOptionProvision . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "The beneficiary may choose an alternate settlement option instead of a lump sum. This is the only contract explicitly offering beneficiary-selected settlement options.",
+        "source": "Section 5.2: 'The death benefit will be paid in one lump sum unless the beneficiary chooses an alternate settlement option.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "No settlement option provision is explicitly stated in this whole life contract. Payment is made within 7 days, implying lump sum.",
+        "source": "Section 8.2: 'Payment will be made within 7 days of receiving complete claim documentation.' — No alternate settlement option stated."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No settlement option provision is stated in this universal life contract.",
+        "source": "Contract is silent on settlement options."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No settlement option provision is stated in this VUL contract.",
+        "source": "Contract is silent on settlement options."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "No settlement option provision is stated in this final expense contract.",
+        "source": "Contract is silent on settlement options."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "No settlement option provision is stated in this group certificate.",
+        "source": "Contract is silent on settlement options."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "No settlement option provision is explicitly stated in this term-with-riders contract.",
+        "source": "Contract is silent on settlement options."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "No settlement option provision is stated in this joint survivorship contract.",
+        "source": "Contract is silent on settlement options."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "No settlement option provision is stated in this ROP term contract.",
+        "source": "Contract is silent on settlement options."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No settlement option provision is stated in this IUL contract.",
+        "source": "Contract is silent on settlement options."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:SettlementOptionProvision ; li:isNegated true . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-050",
+    "category": "REDUCED_PAID_UP_NON_FORFEITURE",
+    "scenario_description": "After many years of premium payments, a whole life policy owner wishes to stop paying premiums entirely but wants to keep some level of life insurance coverage in force for the rest of their life without paying any more premiums.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasNonForfeitureOption ?opt . ?opt a li:ReducedPaidUpOption . OPTIONAL { ?opt li:sourceContractSection ?sourceSection . } OPTIONAL { ?opt li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy with no cash value. No reduced paid-up option available.",
+        "source": "Contract has no cash value or non-forfeiture options."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "Reduced paid-up option is available after 3 years in force. The policy owner receives a reduced death benefit (calculated based on cash value and insured's attained age) with no further premiums required. Coverage continues for the insured's lifetime.",
+        "source": "Section 9.2: 'REDUCED PAID-UP INSURANCE: Continue coverage for a reduced death benefit with no further premiums required. Amount based on cash value and insured's attained age.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Universal life. No traditional reduced paid-up option. Account value funds ongoing charges until depletion or lapse.",
+        "source": "Contract has no reduced paid-up non-forfeiture option."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "VUL. No traditional reduced paid-up option.",
+        "source": "Contract has no reduced paid-up non-forfeiture option."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "After 2 years in force, the policy automatically converts to reduced paid-up coverage if premiums stop. A reduced death benefit continues for life, no further premiums required.",
+        "source": "Section 8.1: 'After 2 years, if you stop paying premiums, your policy will automatically continue with a reduced benefit amount based on the cash value. No further premiums needed.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate with no cash value. No reduced paid-up option.",
+        "source": "Contract has no non-forfeiture options."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy with no cash value. No reduced paid-up option.",
+        "source": "Contract has no non-forfeiture options."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Joint survivorship whole life. No reduced paid-up option is explicitly stated.",
+        "source": "Contract does not list reduced paid-up as a non-forfeiture option."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "ROP term policy. No cash value and no reduced paid-up option.",
+        "source": "Contract has no non-forfeiture options."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "IUL. No traditional reduced paid-up option. Account value funds ongoing charges.",
+        "source": "Contract has no reduced paid-up non-forfeiture option."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasNonForfeitureOption ?opt . ?opt a li:ReducedPaidUpOption ; li:isNegated true . OPTIONAL { ?opt li:sourceContractSection ?sourceSection . } OPTIONAL { ?opt li:coverageSourceText ?sourceText . } }"
+  }
+]

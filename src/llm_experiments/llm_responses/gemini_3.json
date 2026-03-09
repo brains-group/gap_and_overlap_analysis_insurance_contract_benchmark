@@ -1,0 +1,3192 @@
+[
+  {
+    "scenario_id": "SCEN-001",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "5.1 We will pay the death benefit to the beneficiary if: (a) The insured dies while this policy is in force, and (b) We receive proof of death acceptable to us, and (c) The death occurs before the policy expiry date. [cite: 6]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "8.1 Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest [cite: 34]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "5.1 OPTION A (Level Death Benefit) - Currently Selected Death Benefit = Specified Amount [cite: 59]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "4.2 OPTION II - Variable Death Benefit (CURRENTLY SELECTED) Death Benefit = Face Amount + Account Value [cite: 82]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "After Year 2 (on or after May 1, 2026): We pay the full benefit amount ($10,000) [cite: 104]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "10.4 Benefits will be paid within 10 business days of receipt of complete claim documentation. [cite: 156]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "1.1 We will pay the death benefit if the insured dies while this policy is in force and all premiums have been paid. [cite: 165]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "1.2 DEATH BENEFIT TRIGGER: The death benefit is payable only upon the death of the SECOND insured to die (survivorship basis). [cite: 183]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "2.1 If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary. [cite: 217]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "6.1 OPTION 1 - Level Death Benefit (CURRENT) Death Benefit = $500,000 (specified amount) [cite: 263]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-002",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "7.1 SUICIDE CLAUSE: If the insured commits suicide within two years from the issue date, our liability is limited to a refund of premiums paid. [cite: 11]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "11.1 SUICIDE: If the insured dies by suicide within two years from the issue date, we will pay only the premiums paid, without interest. [cite: 41]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "9.1 SUICIDE EXCLUSION: If insured dies by suicide within 24 months of issue date, we pay only the Account Value, without interest. [cite: 64]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "8.1 SUICIDE: If death occurs by suicide within 2 years of issue or reinstatement, we pay only premiums paid minus withdrawals. [cite: 90]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "5.1 SUICIDE: If death occurs by suicide within 2 years of the issue date, we will only return the premiums paid. [cite: 114]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "8.1 SUICIDE: If death occurs by suicide within 12 months of the coverage effective date, we will not pay a death benefit. [cite: 150]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "1.3 EXCLUSION - SUICIDE: If death occurs by suicide within 2 years of the issue date, we will pay only the premiums paid, without interest. [cite: 167]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "7.1 SUICIDE CLAUSE: If either insured commits suicide within 2 years of the issue date, the death benefit is limited to return of premiums paid. [cite: 200]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "7.1 SUICIDE: If the insured dies by suicide within 24 months of the issue date, we will pay only the premiums paid without interest. [cite: 228]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "11.1 SUICIDE: If insured commits suicide within 2 years of issue or reinstatement, we pay only premiums paid minus any withdrawals and charges, without interest. [cite: 274]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-003",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "7.1 SUICIDE CLAUSE: If the insured commits suicide within two years from the issue date, our liability is limited to a refund of premiums paid. [cite: 11]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "11.1 SUICIDE: If the insured dies by suicide within two years from the issue date, we will pay only the premiums paid, without interest. [cite: 41]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "9.1 SUICIDE EXCLUSION: If insured dies by suicide within 24 months of issue date, we pay only the Account Value, without interest. [cite: 64]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "8.1 SUICIDE: If death occurs by suicide within 2 years of issue or reinstatement, we pay only premiums paid minus withdrawals. [cite: 90]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "5.1 SUICIDE: If death occurs by suicide within 2 years of the issue date, we will only return the premiums paid. [cite: 114]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "8.1 SUICIDE: If death occurs by suicide within 12 months of the coverage effective date, we will not pay a death benefit. [cite: 150]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "1.3 EXCLUSION - SUICIDE: If death occurs by suicide within 2 years of the issue date, we will pay only the premiums paid, without interest. [cite: 167]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "7.1 SUICIDE CLAUSE: If either insured commits suicide within 2 years of the issue date, the death benefit is limited to return of premiums paid. [cite: 200]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "7.1 SUICIDE: If the insured dies by suicide within 24 months of the issue date, we will pay only the premiums paid without interest. [cite: 228]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "11.1 SUICIDE: If insured commits suicide within 2 years of issue or reinstatement, we pay only premiums paid minus any withdrawals and charges, without interest. [cite: 274]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-004",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "5.1 We will pay the death benefit to the beneficiary if: (a) The insured dies while this policy is in force... [cite: 6]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "8.1 Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest [cite: 34]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "5.1 OPTION A (Level Death Benefit) - Currently Selected Death Benefit = Specified Amount [cite: 59]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "4.2 OPTION II - Variable Death Benefit (CURRENTLY SELECTED) Death Benefit = Face Amount + Account Value [cite: 82]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "During Year 2 (May 1, 2025 - April 30, 2026): We pay 70% of face amount ($7,000) plus all premiums paid [cite: 104]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "10.4 Benefits will be paid within 10 business days of receipt of complete claim documentation. [cite: 156]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "1.1 We will pay the death benefit if the insured dies while this policy is in force and all premiums have been paid. [cite: 165]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "1.2 DEATH BENEFIT TRIGGER: The death benefit is payable only upon the death of the SECOND insured to die (survivorship basis). [cite: 183]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "2.1 If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary. [cite: 217]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "6.1 OPTION 1 - Level Death Benefit (CURRENT) Death Benefit = $500,000 (specified amount) [cite: 263]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-005",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "5.1 We will pay the death benefit to the beneficiary if: (a) The insured dies while this policy is in force... [cite: 6]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "8.1 Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest [cite: 34]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "5.1 OPTION A (Level Death Benefit) - Currently Selected Death Benefit = Specified Amount [cite: 59]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "4.2 OPTION II - Variable Death Benefit (CURRENTLY SELECTED) Death Benefit = Face Amount + Account Value [cite: 82]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "EXCEPTION - ACCIDENTAL DEATH: If death results from an accident at any time, we pay the full benefit amount immediately, plus all premiums paid. [cite: 105]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "10.4 Benefits will be paid within 10 business days of receipt of complete claim documentation. [cite: 156]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Pays an additional $750,000 if death results from accidental injury: • Accident must be the direct cause of death • Death must occur within 90 days of accident [cite: 169]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "1.2 DEATH BENEFIT TRIGGER: The death benefit is payable only upon the death of the SECOND insured to die (survivorship basis). [cite: 183]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "2.1 If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary. [cite: 217]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "6.1 OPTION 1 - Level Death Benefit (CURRENT) Death Benefit = $500,000 (specified amount) [cite: 263]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-006",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is 20-Year Level Term Life Insurance [cite: 1] for a single insured[cite: 2]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is Whole Life Insurance [cite: 21] for a single insured[cite: 22]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is Universal Life Insurance [cite: 47] for a single insured[cite: 48]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is Variable Universal Life Insurance [cite: 69] for a single insured[cite: 71]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is Final Expense Life Insurance [cite: 99] for a single insured[cite: 100]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is Group Term Life Insurance [cite: 127] for a single employee[cite: 128]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is Term Life Insurance with Riders [cite: 160] for a single insured[cite: 161]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "2.1 Upon the death of the second insured, we will pay $2,500,000 to the designated beneficiary, minus any outstanding loans. [cite: 187]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is Return of Premium Term Life Insurance [cite: 213] for a single insured[cite: 214]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is Indexed Universal Life Insurance [cite: 238] for a single insured[cite: 239]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-007",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention a 'Free Look' or cancellation refund period in the provided text."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "12. FREE LOOK PERIOD: You may cancel this policy within 30 days of receipt for a full refund of premiums paid. [cite: 43]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention a 'Free Look' or cancellation refund period in the provided text."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention a 'Free Look' or cancellation refund period in the provided text."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "7.1 30-DAY FREE LOOK: You can cancel within 30 days of receiving this policy for a full refund. [cite: 118]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention a 'Free Look' or cancellation refund period in the provided text."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention a 'Free Look' or cancellation refund period in the provided text."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "ARTICLE XI - FREE LOOK PERIOD: The policy owner may cancel within 30 days of policy receipt for a full refund of premium paid. [cite: 209]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention a 'Free Look' or cancellation refund period in the provided text."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention a 'Free Look' or cancellation refund period in the provided text."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-008",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "6.3 If the premium is not paid by the end of the grace period, the policy will lapse and coverage will terminate. [cite: 10]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "9.4 If no election is made within 60 days of lapse, Extended Term Insurance will automatically apply. [cite: 40]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "10.3 Upon lapse, any Account Value in excess of surrender charges will be paid to you automatically. [cite: 68]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "7.1 If account value is insufficient to cover monthly deductions for 61 consecutive days, the policy will lapse. [cite: 88]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "8.1 After 2 years, if you stop paying premiums, your policy will automatically continue with a reduced benefit amount based on the cash value. [cite: 121]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "4.1 Your coverage terminates on the earliest of: ... (e) The last day for which required premiums have been paid [cite: 139]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "1.1 We will pay the death benefit if the insured dies while this policy is in force and all premiums have been paid. [cite: 165]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "4.6 GRACE PERIOD: If payment is not received, you have 60 days to pay before the policy cancels. [cite: 195]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "4.4 Grace period: 31 days. If premium is not paid within grace period, policy lapses and return of premium benefit is forfeited. [cite: 224]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "10.3 If premium not received within grace period, policy lapses and any remaining surrender value is paid to you. [cite: 273]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-009",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "8.1 You may convert this policy to a permanent life insurance policy without evidence of insurability. [cite: 12]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 2 is a permanent whole life policy and does not mention conversion to another permanent policy[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 3 is a permanent universal life policy and does not mention conversion[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 4 is a permanent variable universal life policy and does not mention conversion[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 5 is a whole life policy and does not mention conversion[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "5.1 If your group coverage terminates for any reason except non-payment of premium, you may convert to an individual whole life policy without evidence of insurability. [cite: 140]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "4.2 You may convert all or part of this policy to permanent life insurance without evidence of insurability: ... Before the policy expiration date, or Before your 70th birthday, whichever is earlier [cite: 173]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 8 is a joint survivorship whole life policy and does not mention conversion[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "5.1 You may convert this policy to a permanent life insurance policy without evidence of insurability. [cite: 226]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 10 is an indexed universal life policy and does not mention conversion[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-010",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not provide terms for reinstatement after a lapse."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "10.1 You may reinstate this policy within 3 years of lapse if: (a) You provide evidence of insurability satisfactory to us (b) You pay all overdue premiums with interest at 6% per annum [cite: 46]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not provide terms for reinstatement after a lapse."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "7.3 Reinstatement within 3 years requires: • Evidence of insurability • Payment of all back charges plus 6% interest [cite: 89]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "8.3 You may restart your policy within 2 years by paying missed premiums with interest. [cite: 123]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not provide terms for reinstatement after a lapse."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not provide terms for reinstatement after a lapse."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not provide terms for reinstatement after a lapse."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "8.1 If the policy lapses, you may apply for reinstatement within 5 years if: • You provide satisfactory evidence of insurability • You pay all past due premiums with interest at 6% per annum [cite: 231]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not provide terms for reinstatement after a lapse."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-011",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "4.3 \"Grace Period\" means the 31-day period following the premium due date during which coverage continues without lapse. [cite: 4]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "7.5 If total indebtedness exceeds the cash value, the policy will terminate unless sufficient payment is made within 31 days of notice. [cite: 33]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "2.4 If Account Value falls below the amount needed to pay monthly charges, the policy will enter a 61-day grace period. [cite: 55]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "7.1 If account value is insufficient to cover monthly deductions for 61 consecutive days, the policy will lapse. [cite: 88]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "3.4 GRACE PERIOD: If payment is not received, you have 30 days to pay before the policy cancels. [cite: 110]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not specify a grace period for the employee[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "3.2 GRACE PERIOD: 31 days from due date. [cite: 171]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "4.6 GRACE PERIOD: If payment is not received, you have 60 days to pay before the policy cancels. [cite: 195]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "4.4 Grace period: 31 days. [cite: 224]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "10.2 Grace period: 61 days to pay sufficient premium to bring policy back in force. [cite: 272]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-012",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is 20-Year Level Term Life Insurance [cite: 1] and does not mention policy loans or cash value."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "7.1 You may borrow against the cash value after the policy has been in force for one full year. [cite: 30]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "7.1 Maximum loan: 90% of current Account Value [cite: 61]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "6.1 POLICY LOANS: • Maximum: 90% of surrender value [cite: 87]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "4.3 You can borrow against the cash value or surrender the policy for the cash value at any time. [cite: 113]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Policy is Group Term Life Insurance [cite: 127] and does not mention policy loans or cash value."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Policy is 30-Year Level Premium Term [cite: 160] and does not mention policy loans or cash value."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "5.3 POLICY LOANS: • Available after policy has been in force for 2 years [cite: 196]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "6.1 Policy loans are NOT available under this policy type. [cite: 227]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "7.1 POLICY LOANS: • Available after 1 year [cite: 264]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-013",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Contract does not mention account value or withdrawals[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract mentions cash surrender value [cite: 36] but not partial withdrawals."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "6.1 You may make partial withdrawals from Account Value at any time. [cite: 60]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "6.2 PARTIAL WITHDRAWALS: • Minimum: $1,000 [cite: 87]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract mentions cash value [cite: 113] but not partial withdrawals."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Contract does not mention account value or withdrawals[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Contract does not mention account value or withdrawals[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "5.4 WITHDRAWALS: Partial withdrawals are not permitted under this policy type. [cite: 197]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "6.2 Partial withdrawals are NOT permitted. [cite: 227]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "7.2 PARTIAL WITHDRAWALS: • Minimum: $500 [cite: 264]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-014",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "6.1 Premiums are due monthly on the 15th of each month. [cite: 8]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "2. COVERAGE SUMMARY: Payment Frequency: Annual [cite: 22]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "2.3 You may skip payments as long as the Account Value is sufficient to cover monthly deductions. [cite: 54]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "2.1 Premium payments (after premium load) are allocated to sub-accounts based on your investment instructions. [cite: 77]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "3.2 Premiums are automatically deducted from your bank account on the 1st of each month. [cite: 108]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "The employee pays for voluntary coverage[cite: 129]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "3.1 Annual Premium: $1,089.00 (base + all riders) Due Date: July 12 of each year [cite: 171]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "4.3 Premiums are payable annually on August 20th. [cite: 192]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "4.1 Annual premium of $1,620 is due each September 15. [cite: 222]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "4.3 You may skip premium payments as long as account value is sufficient to cover monthly deductions. [cite: 259]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-015",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention waiver of premium due to disability[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention waiver of premium due to disability[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention waiver of premium due to disability[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention waiver of premium due to disability[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention waiver of premium due to disability[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "11.1 If you become totally disabled before age 60 and remain disabled for 6 consecutive months, your voluntary life insurance premiums will be waived. [cite: 157]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "RIDER 1: WAIVER OF PREMIUM DUE TO DISABILITY If you become totally disabled before age 60 and remain disabled for 6 consecutive months: • All future premiums are waived [cite: 168]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "4.5 WAIVER OPTION: Premium waiver is not available on joint survivorship policies. [cite: 194]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention waiver of premium due to disability[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention waiver of premium due to disability[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-016",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention accelerated death benefits[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention accelerated death benefits[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention accelerated death benefits[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention accelerated death benefits[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention accelerated death benefits[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "7.1 If you are diagnosed with a terminal illness with life expectancy of 12 months or less, you may request acceleration of up to 75% of your death benefit. [cite: 147]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "RIDER 2: ACCELERATED DEATH BENEFIT - TERMINAL ILLNESS ... If diagnosed with a terminal illness: • May access up to 95% of death benefit while living [cite: 168]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention accelerated death benefits[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention accelerated death benefits[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not mention accelerated death benefits[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-017",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy Term: 20 years (expires January 15, 2044)[cite: 2]. No mention of premium return."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Maturity Date: Age 100 (July 8, 2078)[cite: 22]. No mention of premium return before maturity."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Universal Life Insurance Policy[cite: 47]. No mention of premium return at the end of a term."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Variable Universal Life Insurance Policy[cite: 69]. No mention of premium return at the end of a term."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Final Expense Life Insurance[cite: 99]. No mention of premium return at the end of a term."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Group Term Life Insurance[cite: 127]. No mention of premium return."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Policy Period: 30 years (expires July 12, 2054)[cite: 160]. No mention of premium return."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Joint Survivorship Whole Life[cite: 179]. No mention of premium return."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "3.1 END OF TERM ROP: If the insured is alive on September 15, 2044, and all premiums have been paid, we will pay the policy owner $32,400 (100% of premiums paid over 20 years). [cite: 219]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Indexed Universal Life Insurance Policy[cite: 238]. No mention of premium return at the end of a term."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-018",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "7.2 No other exclusions apply to this policy. [cite: 12]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 41]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 64]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "8.3 AVIATION: Death resulting from operating an aircraft as pilot or crew member is excluded unless declared and approved with extra premium. [cite: 92]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "5.2 NO OTHER EXCLUSIONS: This policy has no war exclusion, no aviation exclusion, and no travel restrictions. [cite: 115]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 150]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "6.1 The standard aviation exclusion has been waived for this policy based on the insured's declared private pilot activities. [cite: 175]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "7.4 NO OTHER EXCLUSIONS: No war, aviation, or travel exclusions apply to this policy. [cite: 203]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "7.3 NO OTHER EXCLUSIONS: No war, aviation, travel, or hazardous activity exclusions apply. [cite: 230]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 274]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-019",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "7.2 No other exclusions apply to this policy. [cite: 12]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 41]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 64]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "8.2 WAR EXCLUSION: Death while serving in military conflict in a war zone is excluded if it occurs within 24 months of issue. [cite: 91]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "5.2 NO OTHER EXCLUSIONS: This policy has no war exclusion, no aviation exclusion, and no travel restrictions. [cite: 115]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 150]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 167]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "7.4 NO OTHER EXCLUSIONS: No war, aviation, or travel exclusions apply to this policy. [cite: 203]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "7.3 NO OTHER EXCLUSIONS: No war, aviation, travel, or hazardous activity exclusions apply. [cite: 230]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 274]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-020",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "10.2 MISSTATEMENT OF AGE OR SEX: If the age or sex of the insured has been misstated, we will adjust the death benefit to what the premiums paid would have purchased at the correct age and sex. [cite: 17]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "11.2 MISSTATEMENT OF AGE: If the insured's age was misstated, we will adjust the face amount to what the premium would have purchased at the correct age. [cite: 42]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention age misstatement[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention age misstatement[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention age misstatement[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention age misstatement[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention age misstatement[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention age misstatement[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "9.4 MISSTATEMENT OF AGE: If age was misstated, we will adjust the death benefit to what the premium would have purchased at the correct age. [cite: 236]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention age misstatement[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-021",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is 20-Year Level Term Life Insurance [cite: 1] and does not build account or cash value."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "9.1 CASH SURRENDER: Receive the cash surrender value and terminate the policy. [cite: 36]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "8.1 Cash Surrender Value = Account Value - Surrender Charge - Outstanding Loans [cite: 62]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "3.6 SURRENDER CHARGE SCHEDULE (% of premium paid): Year 3-4: 5% [cite: 81]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "8.2 Or you can take the cash value and cancel the policy. [cite: 122]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Policy is Group Term Life Insurance [cite: 127] and does not build account or cash value."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Policy is 30-Year Level Premium Term [cite: 160] and does not build account or cash value."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "10.1 The policy owner (the Trust) has all ownership rights including the right to: ... Surrender the policy [cite: 208]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "3.2 EARLY SURRENDER ROP: If you surrender this policy before the end of term: ... Years 1-5: 0% premium return [cite: 219]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "8.3 Cash Surrender Value = Account Value - Surrender Charge - Outstanding Loans [cite: 269]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-022",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is 20-Year Level Term Life Insurance[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole Life policy with Face Amount[cite: 22]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "5.2 OPTION B (Increasing Death Benefit) - Available by Request Death Benefit = Specified Amount + Account Value [cite: 59]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "4.2 OPTION II - Variable Death Benefit (CURRENTLY SELECTED) Death Benefit = Face Amount + Account Value [cite: 82]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole Life policy with Benefit Amount[cite: 100]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Group Term Life Insurance[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "30-Year Level Premium Term[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint Survivorship Whole Life with Death Benefit[cite: 182, 187]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Return of Premium Term Life[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "6.2 OPTION 2 - Increasing Death Benefit Death Benefit = Specified Amount + Account Value [cite: 263]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-023",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract is term life and not index-linked[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract is whole life and not index-linked[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract is universal life and not index-linked[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "5.2 Investment risk is borne entirely by the policy owner. [cite: 84]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract is whole life and not index-linked[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract is term life and not index-linked[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract is term life and not index-linked[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract is whole life and not index-linked[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract is term life and not index-linked[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "3.3 CRITICAL: You never lose money due to market decline. The worst case is 0% interest for that year. [cite: 256, 257]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-024",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is 20-Year Level Term Life Insurance [cite: 1] with age and issue details[cite: 2]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Risk Class: Standard Non-Tobacco[cite: 22]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Policy requires Cost of Insurance based on risk class[cite: 50]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Risk Class: Preferred Plus[cite: 71]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "9.1 GUARANTEED ISSUE: This policy was issued without medical questions or exams. [cite: 124]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "2.2 Basic coverage became effective automatically without requiring evidence of insurability. [cite: 134]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Underwriting Class: Preferred Non-Smoker[cite: 161]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Risk Class: Standard[cite: 180]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Rating: Preferred Plus[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Underwriting Class: Standard Plus Non-Tobacco[cite: 239]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-025",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "10.1 INCONTESTABILITY: We cannot contest this policy after it has been in force during the insured's lifetime for two years from the issue date. [cite: 16]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "13. CONTESTABILITY: We may contest this policy only within the first two years while the insured is living, and only for material misrepresentation in the application. [cite: 44]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "9.2 CONTESTABILITY: We may contest this policy for material misrepresentation within 2 years of issue date while insured is living. [cite: 65]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "9.2 CONTESTABILITY: We may contest this policy for material misrepresentation within 2 years of issue date while insured is living. [cite: 65]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "9.3 INCONTESTABILITY: After this policy has been in force for 2 years, we cannot cancel it or deny claims except for non-payment of premiums. [cite: 126]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention contestability[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "SECTION 5: INCONTESTABILITY We will not contest this policy after it has been in force for 2 years during the insured's lifetime, except for non-payment of premiums. [cite: 174]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "7.3 CONTESTABILITY: We may contest this policy for material misrepresentation within 2 years of issue while both insureds are living. [cite: 202]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "7.2 MATERIAL MISREPRESENTATION: We may contest the policy within 2 years of issue if there was material misrepresentation in the application. [cite: 229]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "11.2 CONTESTABILITY: We may contest this policy for material misrepresentation for 2 years from issue date. [cite: 275]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-026",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 1 is an individual term policy[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 2 is an individual whole life policy[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 3 is an individual universal life policy[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 4 is an individual variable universal life policy[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 5 is an individual final expense policy[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "6.1 If you leave employment, you may port your coverage by continuing it as an individual policy. [cite: 143]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 7 is an individual term policy[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 8 is an individual joint survivorship policy[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 9 is an individual return of premium policy[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 10 is an individual indexed universal life policy[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-027",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is 20-Year Level Term Life Insurance [cite: 1] and does not mention dividends."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "6.3 DIVIDEND OPTIONS (select one): ✓ Cash Payment... □ Premium Reduction... □ Accumulate at Interest... □ Paid-Up Additions [cite: 29]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Universal Life Insurance Policy [cite: 47] and does not mention dividends."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Variable Universal Life Insurance Policy [cite: 69] and does not mention dividends."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Final Expense Life Insurance [cite: 99] and does not mention dividends."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Group Term Life Insurance [cite: 127] and does not mention dividends."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "30-Year Level Premium Term [cite: 160] and does not mention dividends."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Joint Survivorship Whole Life [cite: 179] and does not mention dividends."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Return of Premium Term Life [cite: 213] and does not mention dividends."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Indexed Universal Life Insurance Policy [cite: 238] and does not mention dividends."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-028",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 1 covers a single insured[cite: 2]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 2 covers a single insured[cite: 22]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 3 covers a single insured[cite: 48]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 4 covers a single insured[cite: 71]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 5 covers a single insured[cite: 100]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 6 covers a single employee[cite: 128]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 7 covers a single insured[cite: 161]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "9.1 If both insureds die in the same accident or incident and it cannot be determined who died first, the death benefit will be paid immediately. [cite: 206]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 9 covers a single insured[cite: 214]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 10 covers a single insured[cite: 239]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-029",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 1 does not mention a children's term insurance rider[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 2 does not mention a children's term insurance rider[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 3 does not mention a children's term insurance rider[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 4 does not mention a children's term insurance rider[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 5 does not mention a children's term insurance rider[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 6 does not mention a children's term insurance rider[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "RIDER 4: CHILDREN'S TERM INSURANCE RIDER Provides $15,000 coverage on each eligible child [cite: 169]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 8 does not mention a children's term insurance rider[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 9 does not mention a children's term insurance rider[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 10 does not mention a children's term insurance rider[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-030",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Contract 1 does not mention chronic illness benefits[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Contract 2 does not mention chronic illness benefits[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Contract 3 does not mention chronic illness benefits[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Contract 4 does not mention chronic illness benefits[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Contract 5 does not mention chronic illness benefits[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Contract 6 does not mention chronic illness benefits[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "RIDER 3: ACCELERATED DEATH BENEFIT - CHRONIC ILLNESS ... May access up to 2% of face amount per month [cite: 168]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Contract 8 does not mention chronic illness benefits[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Contract 9 does not mention chronic illness benefits[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Contract 10 does not mention chronic illness benefits[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-031",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Contract 1 is a term policy for a single insured[cite: 1, 2]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Contract 2 is a whole life policy for a single insured[cite: 21, 22]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Contract 3 is a universal life policy for a single insured[cite: 47, 48]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Contract 4 is a variable universal life policy for a single insured[cite: 69, 71]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Contract 5 is a final expense policy for a single insured[cite: 99, 100]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Contract 6 is a group term policy for a single employee[cite: 127, 128]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Contract 7 is a term policy for a single insured[cite: 160, 161]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "1.5 PURPOSE: This policy is designed for estate planning and estate tax liquidity purposes. [cite: 186]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Contract 9 is a term policy for a single insured[cite: 213, 214]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Contract 10 is an indexed universal life policy for a single insured[cite: 238, 239]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-032",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 1 does not mention a front-end premium load[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 2 does not mention a front-end premium load[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "2.2 Premiums are allocated to the Account Value after deduction of a 3% premium expense charge. [cite: 53]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "3.1 PREMIUM LOAD: 5.0% of each premium payment [cite: 81]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 5 does not mention a front-end premium load[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 6 does not mention a front-end premium load[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 7 does not mention a front-end premium load[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 8 does not mention a front-end premium load[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 9 does not mention a front-end premium load[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "4.4 PREMIUM LOAD: 3.5% of each premium payment is deducted for expenses. [cite: 260]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-033",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Contract does not mention guaranteed insurability[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Contract does not mention guaranteed insurability[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Contract does not mention guaranteed insurability[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Contract does not mention guaranteed insurability[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Contract does not mention guaranteed insurability[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Contract does not mention guaranteed insurability[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "RIDER 6: GUARANTEED INSURABILITY OPTION Allows purchase of additional coverage without medical underwriting: • May purchase up to $100,000 additional coverage per option date • Option dates: Ages 40, 43... [cite: 170]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Contract does not mention guaranteed insurability[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Contract does not mention guaranteed insurability[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Contract does not mention guaranteed insurability[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-034",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual whole life policy[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual universal life policy[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual variable universal life policy[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual final expense policy[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "3.3 SALARY CHANGES: Your basic benefit will be recalculated annually on your policy anniversary based on your current salary. [cite: 138]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual joint survivorship policy[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual return of premium policy[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual indexed universal life policy[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-035",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "5.1 We will pay the death benefit to the beneficiary if: (a) The insured dies while this policy is in force... [cite: 6]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "8.1 Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest [cite: 34]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "5.1 OPTION A (Level Death Benefit) - Currently Selected Death Benefit = Specified Amount [cite: 59]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "4.2 OPTION II - Variable Death Benefit (CURRENTLY SELECTED) Death Benefit = Face Amount + Account Value [cite: 82]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "EXCEPTION - ACCIDENTAL DEATH: If death results from an accident at any time, we pay the full benefit amount immediately... [cite: 105]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "10.4 Benefits will be paid within 10 business days of receipt of complete claim documentation. [cite: 156]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Pays an additional $750,000 if death results from accidental injury: • Accident must be the direct cause of death • Death must occur within 90 days of accident [cite: 169]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "1.2 DEATH BENEFIT TRIGGER: The death benefit is payable only upon the death of the SECOND insured to die (survivorship basis). [cite: 183]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "2.1 If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary. [cite: 217]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "6.1 OPTION 1 - Level Death Benefit (CURRENT) Death Benefit = $500,000 (specified amount) [cite: 263]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-036",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is 20-Year Level Term Life Insurance [cite: 1] and does not include indexing."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Whole Life Insurance Policy [cite: 21] and does not include indexing."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Universal Life Insurance Policy [cite: 47] and does not include indexing."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Variable Universal Life Insurance Policy [cite: 69] and does not include indexing."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Final Expense Life Insurance [cite: 99] and does not include indexing."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Group Term Life Insurance [cite: 127] and does not include indexing."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "30-Year Level Premium Term [cite: 160] and does not include indexing."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Joint Survivorship Whole Life [cite: 179] and does not include indexing."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Return of Premium Term Life [cite: 213] and does not include indexing."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "3.1 CREDITING CALCULATION: Interest Credited = Index % Change × Participation Rate (subject to Cap and Floor) [cite: 254]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-037",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "7.2 No other exclusions apply to this policy. [cite: 12]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 41]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 64]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Contract only lists suicide, war, and aviation exclusions[cite: 90, 91, 92]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "5.2 NO OTHER EXCLUSIONS: This policy has no war exclusion, no aviation exclusion, and no travel restrictions. [cite: 115]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "8.2 PRE-EXISTING CONDITION LIMITATION: None. Group coverage has no pre-existing condition exclusions. [cite: 151]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion for the base policy[cite: 167]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "7.4 NO OTHER EXCLUSIONS: No war, aviation, or travel exclusions apply to this policy. [cite: 203]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "7.3 NO OTHER EXCLUSIONS: No war, aviation, travel, or hazardous activity exclusions apply. [cite: 230]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Contract only lists suicide exclusion[cite: 274]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-038",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "10.3 ASSIGNMENT: You may assign this policy. [cite: 18]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "4. KEY DEFINITIONS: \"Policy Loan\" - A loan made by us using the cash value as collateral. [cite: 26]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention collateral assignment[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention collateral assignment[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention collateral assignment[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention collateral assignment[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention collateral assignment[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "10.1 The policy owner (the Trust) has all ownership rights including the right to: ... Assign the policy [cite: 208]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "10.1 As policy owner, you may: ... Assign the policy as collateral [cite: 237]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not explicitly mention collateral assignment[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-039",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is 20-Year Level Term Life Insurance[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Whole Life Insurance Policy[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Universal Life Insurance Policy[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Variable Universal Life Insurance Policy[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Final Expense Life Insurance[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Group Term Life Insurance[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "30-Year Level Premium Term[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "6.1 Upon the first death, the policy owner may elect to split this policy into two separate single-life policies, one on each insured. [cite: 198]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Return of Premium Term Life[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Indexed Universal Life Insurance Policy[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-040",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "9.3 We will pay valid claims within 30 days of receiving all required documentation. [cite: 16]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "8.2 Payment will be made within 7 days of receiving complete claim documentation. [cite: 35]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not specify a payment timeframe[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not specify a payment timeframe[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "ComfortCare Senior Insurance: We will pay valid claims within 5 business days. [cite: 117]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "10.4 Benefits will be paid within 10 business days of receipt of complete claim documentation. [cite: 156]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "1.2 Payment will be made to the beneficiary within 30 days of receiving satisfactory proof of death. [cite: 166]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "2.3 Payment will be made within 30 days of receiving complete documentation. [cite: 188]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not specify a payment timeframe[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not specify a payment timeframe[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-041",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is term life and does not have an account value[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is whole life and does not have a flexible-premium account value[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "10.1 If Account Value is insufficient to pay monthly deductions, we will notify you. [cite: 66]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "7.2 Lapse notice will be sent at least 30 days before lapse. [cite: 89]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is whole life and does not have a flexible-premium account value[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is group term and does not have an account value[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is term life and does not have an account value[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is joint whole life and does not have a flexible-premium account value[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is term life and does not have an account value[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "10.1 If account value is insufficient to pay monthly deductions, we will notify you at least 30 days before lapse. [cite: 271]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-042",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual whole life policy[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual universal life policy[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "5.3 Poor investment performance can cause the policy to lapse if account value becomes insufficient to cover charges. [cite: 85]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual whole life policy[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group term policy[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual joint survivorship policy[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual return of premium policy[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual indexed universal life policy[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-043",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is term life[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Policy is whole life[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Policy is universal life[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Policy is variable universal life[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Policy is final expense whole life[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Policy is group term[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Policy is term life[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Policy is joint whole life[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Policy is term life[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "ARTICLE 9 - NO LAPSE GUARANTEE RIDER (OPTIONAL - NOT SELECTED) ... Guarantees coverage will not lapse even if account value drops to zero... [cite: 270]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-044",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is not a return of premium term policy[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is not a return of premium term policy[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is not a return of premium term policy[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is not a return of premium term policy[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is not a return of premium term policy[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is not a return of premium term policy[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is not a return of premium term policy[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is not a return of premium term policy[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "5.4 Upon conversion: • ROP benefit is forfeited • Premiums paid to date are NOT returned [cite: 226]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is not a return of premium term policy[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-045",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "20-Year Level Term Life Insurance[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Whole Life Insurance[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Universal Life Insurance[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Variable Universal Life Insurance[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Whole Life Insurance[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Group Term Life Insurance[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "30-Year Level Premium Term[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "4.2 AFTER YEAR 10: Premium may increase but will never exceed the maximum guaranteed premium of $48,600 per year. [cite: 192]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "20-Year Return of Premium Term Life[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Indexed Universal Life Insurance[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-046",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is 20-Year Level Term Life Insurance [cite: 1] and does not include an accidental death rider in the text."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Contract only mentions Face Amount[cite: 22]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Contract only mentions Specified Amount[cite: 59]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Contract only mentions Face Amount[cite: 72]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "EXCEPTION - ACCIDENTAL DEATH... An accident means a sudden, unexpected event...[cite: 105, 106]. There is no exclusion for alcohol listed."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Contract only mentions Basic and Voluntary coverage[cite: 129]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "RIDER 5: ACCIDENTAL DEATH BENEFIT ... • No payment if insured was under influence of drugs/alcohol [cite: 170]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Contract only mentions Death Benefit[cite: 187]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Contract only mentions Death Benefit[cite: 217]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Contract only mentions Specified Amount[cite: 263]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-047",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "9.4 If no election is made within 60 days of lapse, Extended Term Insurance will automatically apply. [cite: 40]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual universal life policy[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual variable universal life policy[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "8.1 After 2 years, if you stop paying premiums, your policy will automatically continue with a reduced benefit amount based on the cash value. [cite: 121]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group term policy[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual joint survivorship policy[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual return of premium policy[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual indexed universal life policy[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-048",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual whole life policy[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual universal life policy[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual variable universal life policy[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual final expense policy[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "2.3 Voluntary coverage required enrollment within 31 days of hire (Late Entrant provisions apply if enrolling after 31 days). [cite: 135]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual joint survivorship policy[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual return of premium policy[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual indexed universal life policy[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-049",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "5.2 The death benefit will be paid in one lump sum unless the beneficiary chooses an alternate settlement option. [cite: 7]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract does not mention alternate settlement options[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract does not mention alternate settlement options[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract does not mention alternate settlement options[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract does not mention alternate settlement options[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract does not mention alternate settlement options[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract does not mention alternate settlement options[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract does not mention alternate settlement options[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract does not mention alternate settlement options[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract does not mention alternate settlement options[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-050",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy is term life[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "9.2 REDUCED PAID-UP INSURANCE: Continue coverage for a reduced death benefit with no further premiums required. [cite: 37]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Policy is universal life[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Policy is variable universal life[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "8.1 After 2 years, if you stop paying premiums, your policy will automatically continue with a reduced benefit amount based on the cash value. No further premiums needed. [cite: 121]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Policy is group term[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Policy is term life[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Policy is joint whole life[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Policy is term life[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Policy is indexed universal life[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-051",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 2]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 22]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 48]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 71]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 100]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Single employee[cite: 128]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 161]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "9.1 If both insureds die in the same accident or incident and it cannot be determined who died first, the death benefit will be paid immediately. [cite: 206]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 214]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 239]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-052",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 2]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 22]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 48]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 71]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 100]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Single employee[cite: 128]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 161]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "4.6 GRACE PERIOD: If payment is not received, you have 60 days to pay before the policy cancels. [cite: 195]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 214]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Single insured[cite: 239]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-053",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Term life insurance[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Whole life insurance[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Universal life insurance[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Variable universal life insurance[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Whole life insurance[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Group term life insurance[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Term life insurance[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "5.3 POLICY LOANS: ... Loans reduce death benefit dollar-for-dollar • Available before or after first death [cite: 196]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Term life insurance[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Universal life insurance[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-054",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "6.3 If the premium is not paid by the end of the grace period, the policy will lapse and coverage will terminate. [cite: 10]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "The contract does not specify a grace period extension[cite: 33]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "10.2 If sufficient premium is not received within 61 days, policy lapses. [cite: 67]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "7.1 If account value is insufficient to cover monthly deductions for 61 consecutive days, the policy will lapse. [cite: 88]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "3.4 GRACE PERIOD: If payment is not received, you have 30 days to pay before the policy cancels. [cite: 110]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "4.1 Your coverage terminates on the earliest of: ... (e) The last day for which required premiums have been paid [cite: 139]"
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "3.2 GRACE PERIOD: 31 days from due date. [cite: 171]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "4.6 GRACE PERIOD: If payment is not received, you have 60 days to pay before the policy cancels. [cite: 195]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "4.4 Grace period: 31 days. If premium is not paid within grace period, policy lapses and return of premium benefit is forfeited. [cite: 224]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "10.2 Grace period: 61 days to pay sufficient premium to bring policy back in force. [cite: 272]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-055",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "No mention of accelerated death benefits[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "No mention of accelerated death benefits[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "No mention of accelerated death benefits[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "No mention of accelerated death benefits[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "No mention of accelerated death benefits[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "7.1 If you are diagnosed with a terminal illness with life expectancy of 12 months or less, you may request acceleration of up to 75% of your death benefit.[cite: 147]. There is no pre-existing exclusion mentioned."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "RIDER 2: ACCELERATED DEATH BENEFIT - TERMINAL ILLNESS ... If diagnosed with a terminal illness: • May access up to 95% of death benefit while living[cite: 168]. There is no pre-existing exclusion mentioned."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "No mention of accelerated death benefits[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "No mention of accelerated death benefits[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "No mention of accelerated death benefits[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-056",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 1 does not mention children coverage[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 2 does not mention children coverage[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 3 does not mention children coverage[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 4 does not mention children coverage[cite: 69]."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 5 does not mention children coverage[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 6 does not mention children coverage[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "RIDER 4: CHILDREN'S TERM INSURANCE RIDER ... • Coverage from birth (or adoption) to age 25 [cite: 169]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 8 does not mention children coverage[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 9 does not mention children coverage[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Contract 10 does not mention children coverage[cite: 238]."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-057",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "10.1 INCONTESTABILITY: We cannot contest this policy after it has been in force during the insured's lifetime for two years from the issue date. [cite: 16]"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "13. CONTESTABILITY: We may contest this policy only within the first two years while the insured is living, and only for material misrepresentation in the application. [cite: 44]"
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "9.2 CONTESTABILITY: We may contest this policy for material misrepresentation within 2 years of issue date while insured is living. [cite: 65]"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "9.2 CONTESTABILITY: We may contest this policy for material misrepresentation within 2 years of issue date while insured is living. [cite: 65]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "9.3 INCONTESTABILITY: After this policy has been in force for 2 years, we cannot cancel it or deny claims except for non-payment of premiums. [cite: 126]"
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "The contract does not specify a contestability period[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "SECTION 5: INCONTESTABILITY We will not contest this policy after it has been in force for 2 years during the insured's lifetime, except for non-payment of premiums. [cite: 174]"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "7.3 CONTESTABILITY: We may contest this policy for material misrepresentation within 2 years of issue while both insureds are living. [cite: 202]"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "7.2 MATERIAL MISREPRESENTATION: We may contest the policy within 2 years of issue if there was material misrepresentation in the application. [cite: 229]"
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "11.2 CONTESTABILITY: We may contest this policy for material misrepresentation for 2 years from issue date. [cite: 275]"
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-058",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Contract 1 is a term policy[cite: 1]."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Contract 2 is a whole life policy[cite: 21]."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Contract 3 is a universal life policy[cite: 47]."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Variable Universal Life Insurance Policy [cite: 69] ... 4.1 OPTION I - Level Death Benefit Death Benefit = Face Amount [cite: 82]"
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Contract 5 is a whole life policy[cite: 99]."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Contract 6 is a term policy[cite: 127]."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Contract 7 is a term policy[cite: 160]."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Contract 8 is a whole life policy[cite: 179]."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Contract 9 is a term policy[cite: 213]."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Contract 10 is a universal life policy[cite: 238]."
+      }
+    ]
+  }
+]

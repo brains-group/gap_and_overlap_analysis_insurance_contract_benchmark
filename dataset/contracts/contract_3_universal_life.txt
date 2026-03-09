@@ -1,0 +1,176 @@
+═══════════════════════════════════════════════════════════════════
+              UNIVERSAL LIFE INSURANCE POLICY
+              FlexProtect Insurance Solutions
+═══════════════════════════════════════════════════════════════════
+
+Contract Number: FPS-UL-24-03391
+Issue Date: March 10, 2024
+
+═══════════════════════════════════════════════════════════════════
+POLICY OWNER & INSURED
+═══════════════════════════════════════════════════════════════════
+Owner: Robert James Wilson
+Insured: Robert James Wilson
+Gender: Male | DOB: 11/15/1982 | Age: 41
+
+═══════════════════════════════════════════════════════════════════
+COVERAGE SPECIFICATIONS
+═══════════════════════════════════════════════════════════════════
+Specified Amount (Face Value): $400,000
+Planned Premium: $200/month
+Minimum Premium: $75/month
+Target Premium: $200/month
+Death Benefit Option: Level (Option A)
+
+═══════════════════════════════════════════════════════════════════
+BENEFICIARY INFORMATION
+═══════════════════════════════════════════════════════════════════
+Primary: Jennifer Ann Wilson (Wife) - 100%
+Contingent: Robert Wilson Jr. (Son) - 50%
+            Emily Rose Wilson (Daughter) - 50%
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 1 - DEFINITIONS
+═══════════════════════════════════════════════════════════════════
+1.1 "Account Value" means the accumulation of premiums paid, less 
+    deductions for monthly charges and expenses, plus interest 
+    credited.
+
+1.2 "Cost of Insurance" (COI) means the monthly charge for the 
+    death benefit based on the insured's age, sex, and risk class.
+
+1.3 "Monthly Deduction Date" is the 10th day of each month.
+
+1.4 "Surrender Charge" is a percentage-based charge applied if the 
+    policy is surrendered in the first 15 years.
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 2 - FLEXIBLE PREMIUM PAYMENTS
+═══════════════════════════════════════════════════════════════════
+2.1 You may pay premiums at any time and in any amount, subject 
+    to the following limits:
+
+    Minimum: $75 per payment
+    Maximum: $50,000 per year (subject to tax limitations)
+
+2.2 Premiums are allocated to the Account Value after deduction 
+    of a 3% premium expense charge.
+
+2.3 You may skip payments as long as the Account Value is 
+    sufficient to cover monthly deductions.
+
+2.4 If Account Value falls below the amount needed to pay monthly 
+    charges, the policy will enter a 61-day grace period.
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 3 - MONTHLY DEDUCTIONS
+═══════════════════════════════════════════════════════════════════
+3.1 On each Monthly Deduction Date, we deduct from Account Value:
+    (a) Cost of Insurance charge
+    (b) Administrative expense charge: $8.00/month
+    (c) Any outstanding policy loan interest
+
+3.2 Cost of Insurance is calculated as:
+    (Specified Amount - Account Value) × Monthly COI Rate / 1,000
+
+3.3 COI rates are guaranteed not to exceed those shown in the 
+    rate schedule attached to this policy.
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 4 - INTEREST CREDITING
+═══════════════════════════════════════════════════════════════════
+4.1 Interest is credited to Account Value daily based on the 
+    current credited interest rate.
+
+4.2 Guaranteed minimum rate: 2.0% per annum
+    Current rate: 3.5% per annum (subject to change monthly)
+
+4.3 We may declare different rates for different policy years or 
+    account value amounts.
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 5 - DEATH BENEFIT
+═══════════════════════════════════════════════════════════════════
+5.1 OPTION A (Level Death Benefit) - Currently Selected
+    Death Benefit = Specified Amount
+
+5.2 OPTION B (Increasing Death Benefit) - Available by Request
+    Death Benefit = Specified Amount + Account Value
+
+5.3 You may change death benefit options subject to:
+    (a) Evidence of insurability if increasing coverage
+    (b) Payment of a $50 processing fee
+
+5.4 Death benefit is paid minus any outstanding policy loans.
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 6 - PARTIAL WITHDRAWALS
+═══════════════════════════════════════════════════════════════════
+6.1 You may make partial withdrawals from Account Value at any time.
+
+6.2 Minimum withdrawal: $500
+    Maximum: Account Value minus amount needed to keep policy in force
+
+6.3 Withdrawal charges:
+    Years 1-10: $25 per withdrawal
+    Years 11+: No charge
+
+6.4 Withdrawals reduce Account Value and may reduce death benefit 
+    if Account Value falls below minimum required.
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 7 - POLICY LOANS
+═══════════════════════════════════════════════════════════════════
+7.1 Maximum loan: 90% of current Account Value
+
+7.2 Loan interest rate: Variable rate = Moody's Corporate Bond 
+    Index + 1.5%, minimum 4%, adjusted annually each January 1
+
+7.3 Interest may be paid annually or added to loan balance
+
+7.4 Outstanding loan reduces death benefit dollar-for-dollar
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 8 - SURRENDER
+═══════════════════════════════════════════════════════════════════
+8.1 Cash Surrender Value = Account Value - Surrender Charge - 
+    Outstanding Loans
+
+8.2 Surrender Charge Schedule (% of Specified Amount):
+    Year 1: 8% | Year 5: 5% | Year 10: 2% | Year 15+: 0%
+
+8.3 Upon surrender, the policy terminates and coverage ends.
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 9 - LIMITATIONS
+═══════════════════════════════════════════════════════════════════
+9.1 SUICIDE EXCLUSION: If insured dies by suicide within 24 months 
+    of issue date, we pay only the Account Value, without interest.
+
+9.2 CONTESTABILITY: We may contest this policy for material 
+    misrepresentation within 2 years of issue date while insured 
+    is living.
+
+═══════════════════════════════════════════════════════════════════
+ARTICLE 10 - GRACE PERIOD AND LAPSE
+═══════════════════════════════════════════════════════════════════
+10.1 If Account Value is insufficient to pay monthly deductions, 
+     we will notify you. Policy continues for 61 days.
+
+10.2 If sufficient premium is not received within 61 days, policy 
+     lapses.
+
+10.3 Upon lapse, any Account Value in excess of surrender charges 
+     will be paid to you automatically.
+
+═══════════════════════════════════════════════════════════════════
+
+Executed at Phoenix, Arizona
+
+[Signature]
+Chief Executive Officer
+FlexProtect Insurance Solutions
+
+Date: March 10, 2024
+
+═══════════════════════════════════════════════════════════════════

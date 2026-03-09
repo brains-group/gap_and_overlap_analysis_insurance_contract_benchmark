@@ -1,0 +1,3192 @@
+[
+  {
+    "scenario_id": "SCEN-001",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "We will pay the death benefit to the beneficiary if the insured dies while this policy is in force and before the policy expiry date."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Death Benefit = Specified Amount under Option A if the insured dies while the policy is in force."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Death Benefit = Face Amount + Account Value under Option II if the insured dies while coverage is active."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "After Year 2 (on or after May 1, 2026): We pay the full benefit amount."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "If a covered employee dies while insured under the group policy, the insurer will pay the life insurance benefit."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "We will pay the death benefit if the insured dies while this policy is in force and all premiums have been paid."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Death benefit is payable only upon the death of the second insured to die."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Death Benefit = $500,000 (specified amount) if the insured dies while coverage is active."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-002",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "If the insured commits suicide within two years from the issue date, our liability is limited to a refund of premiums paid."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "If the insured dies by suicide within two years from the issue date, we will pay only the premiums paid."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Suicide exclusion applies if death occurs within 24 months of issue."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "If death occurs by suicide within 2 years of issue or reinstatement, we pay only premiums paid."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "If death occurs by suicide within 2 years of the issue date, we will only return the premiums paid."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "If death occurs by suicide within 12 months of the coverage effective date, we will not pay a death benefit."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "If death occurs by suicide within 2 years of the issue date, we will pay only the premiums paid."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "If either insured commits suicide within 2 years of the issue date, the death benefit is limited to return of premiums paid."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "If the insured dies by suicide within 24 months of the issue date, we will pay only the premiums paid."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Suicide exclusion applies if death occurs within the initial contestability period."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-003",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "If the insured commits suicide within two years from the issue date, liability is limited to refund of premiums."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "If the insured dies by suicide within two years from the issue date, we will pay only the premiums paid."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Suicide exclusion: death within 24 months of issue limits payment to premiums."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Suicide within 2 years results in refund of premiums paid."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "If death occurs by suicide within 2 years of the issue date, only premiums paid are returned."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Suicide exclusion applies only within 12 months of the coverage effective date."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Suicide within 2 years of issue results in refund of premiums."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Suicide within 2 years limits benefit to return of premiums."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Suicide within 24 months of issue results in premiums returned only."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Suicide within contestability period restricts payment to premiums."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-004",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Death benefit payable if insured dies while policy is in force."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Upon receipt of proof of death we will pay the beneficiary."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Death benefit equals specified amount if insured dies while policy active."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Death benefit payable based on selected death benefit option."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Full benefit payable after waiting period unless excluded."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Life insurance benefit payable if employee dies while insured."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "We will pay the death benefit if the insured dies while policy is in force."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Death benefit is payable only after the second insured dies."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Death during term results in payment of $300,000."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Death benefit equals specified amount under level option."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-005",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Death benefit payable if insured dies while policy is in force."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Upon receipt of proof of death, we will pay the beneficiary."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Death benefit paid if insured dies while policy active."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Death benefit based on selected option."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Accidental death exception: full benefit paid immediately."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Life insurance benefit payable if employee dies while insured."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Accidental death rider pays additional benefit if death results from accidental injury."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Benefit only payable upon death of second insured."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Death during term results in death benefit payment."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Death benefit equals specified amount under level option."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-006",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Single-life policy covering one insured."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy insures a single life only."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy covers only one insured."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal policy insures a single life."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue whole life policy covers a single insured."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate insures a single employee."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy with riders insures one individual."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "The death benefit is payable only upon the death of the SECOND insured to die."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Return-of-premium term policy covers a single insured."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal policy insures one life."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-007",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "No free-look clause described in the policy text."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "You may cancel within the free look period for a full refund."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "No explicit free look provision stated."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Free look period not described in this excerpt."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "30-DAY FREE LOOK: You can cancel within 30 days for a full refund."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate terms do not describe a free-look refund."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Free look provision not stated."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Free look not described."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "No free look clause stated."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Free look provision not stated in excerpt."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-008",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "If the premium is not paid by the end of the grace period, the policy will lapse and coverage will terminate."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "If no election is made within 60 days of lapse, Extended Term Insurance will automatically apply."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "If Account Value falls below the amount needed to pay monthly charges, the policy will enter a grace period and may lapse."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "If account value is insufficient to cover deductions for 61 consecutive days, the policy will lapse."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "After 2 years, if you stop paying premiums, your policy will automatically continue with a reduced benefit amount."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Coverage ends on the last day for which required premiums have been paid."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "If premiums are not paid after the grace period, coverage terminates."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "If payment is not received within 60 days of grace period, the policy cancels."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "If premium is not paid within grace period, policy lapses and return-of-premium benefit is forfeited."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Coverage depends on sufficient account value to cover charges."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-009",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "You may convert this policy to a permanent life insurance policy without evidence of insurability."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy is already permanent whole life insurance."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy is already permanent coverage."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal policy is already permanent."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue whole life policy is already permanent."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "You may convert to an individual whole life policy without evidence of insurability within 31 days."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "You may convert all or part of this policy to permanent life insurance without evidence of insurability."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy is already permanent."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "You may convert this policy to a permanent life insurance policy without evidence of insurability."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life is already permanent."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-010",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Reinstatement clause not specified in the excerpt."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "You may reinstate this policy within 3 years of lapse if you provide evidence of insurability and pay overdue premiums with interest."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Reinstatement provisions not described in excerpt."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Reinstatement within 3 years requires evidence of insurability and payment of all back charges."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "You may restart your policy within 2 years by paying missed premiums with interest."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group coverage reinstatement is governed by employer plan rules."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Reinstatement clause not shown."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Reinstatement provisions not described in excerpt."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "You may apply for reinstatement within 5 years if overdue premiums are paid with interest and evidence of insurability is provided."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Reinstatement provisions not shown in excerpt."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-011",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Grace Period means the 31-day period following the premium due date during which coverage continues without lapse."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Coverage remains in force during the grace period until lapse provisions apply."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "If Account Value falls below the amount needed to pay monthly charges, the policy will enter a 61-day grace period."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "If account value is insufficient to cover monthly deductions, a lapse notice is provided and coverage continues during the grace period."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Grace Period: If payment is not received, you have 30 days to pay before the policy cancels."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Coverage terminates on the last day for which required premiums have been paid, subject to policy grace provisions."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Grace period: 31 days from due date. Coverage continues during grace period and unpaid premium will be deducted from the death benefit."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Grace period: If payment is not received, you have 60 days to pay before the policy cancels."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Grace period: 31 days. If premium is not paid within grace period, policy lapses."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Policy lapse provisions allow coverage to continue temporarily when charges cannot be paid immediately."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-012",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term life policy does not provide policy loans."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "You may borrow against the cash value after the policy has been in force for one full year."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Maximum loan: 90% of current Account Value."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Policy loans available up to 90% of surrender value."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "You can borrow against the cash value or surrender the policy for the cash value."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate does not provide individual policy loans."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy with riders has no cash value for loans."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Policy loans available after policy has been in force for 2 years."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Policy loans are NOT available under this policy type."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Policy loans available after 1 year up to 90% of surrender value."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-013",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term life policy has no account value."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Withdrawals not specified; access typically via loans or surrender."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "You may make partial withdrawals from Account Value at any time."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Partial withdrawals allowed subject to processing fee."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "You may borrow against the cash value or surrender the policy."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate has no account value."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no cash value withdrawals."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Partial withdrawals are not permitted under this policy type."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Partial withdrawals are NOT permitted."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Partial withdrawals allowed subject to minimum and surrender charge rules."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-014",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Premiums must be paid monthly or policy lapses after grace period."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Premiums required unless non-forfeiture options apply."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "You may skip payments as long as the Account Value is sufficient to cover monthly deductions."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Premium payments are flexible as long as account value covers deductions."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Monthly premium payments required to keep coverage active."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Coverage ends when premiums are not paid."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Premiums due annually; failure leads to lapse after grace period."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Premium payments required annually."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "All premiums must be paid to maintain the policy and ROP benefit."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Premiums may be skipped if account value covers monthly charges."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-015",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "No disability waiver rider included."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy text does not include waiver-of-premium rider."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "No disability waiver provision stated."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "No waiver of premium rider mentioned."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "No disability premium waiver described."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate excerpt does not include disability waiver."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "If you become totally disabled before age 60 and remain disabled for 6 consecutive months, all future premiums are waived."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy has no disability waiver."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "No disability waiver clause."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "No disability waiver provision stated."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-016",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "No accelerated death benefit provision."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Terminal illness acceleration not specified."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy excerpt does not show acceleration rider."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Terminal illness acceleration not specified."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy describes graded death benefit but not accelerated benefit."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "If diagnosed with a terminal illness with life expectancy of 12 months or less, you may request acceleration of up to 75% of your death benefit."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "If diagnosed with a terminal illness, you may access up to 95% of the death benefit while living."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy has no accelerated death benefit."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term policy does not provide living benefits."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "No accelerated death benefit provision shown."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-017",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Standard term policy provides no return of premium."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy does not refund all premiums at term end."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life has account value but no premium refund guarantee."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal policy has investment value but no guaranteed premium refund."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy provides death benefit rather than term refund."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group term certificate has no ROP provision."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Standard term policy with riders has no premium refund feature."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy does not refund premiums."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "If the insured survives the 20-year term and all premiums have been paid, we will return 100% of all premiums paid."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life does not refund all premiums at term end."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-018",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "No aviation exclusion applies."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "No aviation exclusions listed."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Policy does not exclude aviation."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "No aviation exclusion specified."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Policy explicitly states no aviation exclusion."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "No aviation restriction specified."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Accidental death rider excludes aviation as pilot or crew."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "No aviation exclusions apply."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "No war, aviation, travel, or hazardous activity exclusions apply."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "No aviation exclusion stated."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-019",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "No war exclusion clause."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Policy does not exclude military service."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "No war exclusion described."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "No war exclusion described."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Policy explicitly states no war exclusion."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Group policy has no war exclusion."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Accidental death rider excludes war-related events."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "No war exclusions apply."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "No war exclusions apply."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "No war exclusion specified."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-020",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "If age was misstated, we will adjust the death benefit to what the premiums paid would have purchased at the correct age."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "If the insured's age was misstated, we will adjust the face amount accordingly."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Misstatement of age provision adjusts benefits."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Age misstatement results in adjusted benefit amount."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Misstatement of age leads to adjusted benefits."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Policy adjusts benefit if age is misstated."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Misstatement of age clause adjusts benefits."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Misrepresentation within contestability period may affect claim."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "If age was misstated, we adjust the death benefit to what the premium would have purchased."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Misstatement of age provision adjusts death benefit."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-021",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no cash surrender value."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "CASH SURRENDER: Receive the cash surrender value and terminate the policy."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Cash Surrender Value = Account Value - Surrender Charge - Outstanding Loans."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Surrender charge schedule applies and account value may be withdrawn upon surrender."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "You can surrender the policy for the cash value at any time."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate does not allow surrender for cash value."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no surrender value."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Policy accumulates cash value which may be accessed via loans."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Early surrender return schedule: Years 1\u20135 return 0%, Years 6\u201310 return 30%, etc."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Cash Surrender Value = Account Value - Surrender Charge - Outstanding Loans."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-022",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy does not offer increasing death benefit option."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life death benefit not tied to account value."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Option B: Death Benefit = Specified Amount + Account Value."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Option II \u2013 Variable Death Benefit: Death Benefit = Face Amount + Account Value."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue policy provides fixed benefit."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate benefit is based on salary multiple."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term rider policy does not link benefit to account value."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship death benefit fixed at $2,500,000."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Return-of-premium term policy has fixed death benefit."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Option 2 \u2013 Increasing Death Benefit: Specified Amount + Account Value."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-023",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no index-linked investment."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life dividends not linked to market index."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life interest crediting not tied to index."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Account value will fluctuate based on sub-account performance and market changes."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue policy does not invest in market indices."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group term policy has no investment component."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no investment component."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy uses fixed actuarial values."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Return-of-premium term policy has no index account."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Floor Rate: 0% ensures no negative interest even if index declines."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-024",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Standard underwriting requires insurability."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Policy requires underwriting classification."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Universal life requires underwriting approval."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Preferred underwriting class required."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Guaranteed Issue: No medical exams or health questions required."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Coverage eligibility determined through employer group plan."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Preferred underwriting class required."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Joint survivorship policy requires underwriting."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Preferred Plus rating indicates underwriting."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Indexed universal life issued based on underwriting class."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-025",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy may be contested for material misrepresentation within 2 years."
+      },
+      {
+        "contract_id": "C2",
+        "status": "DENIED",
+        "source": "Policy contestable for misrepresentation within contestability period."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Material misrepresentation during contestability period affects claims."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Contestability provisions allow investigation of application."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "Misrepresentation may affect claim during initial years."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Group certificate subject to master policy contestability provisions."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Policy may be contested during initial contestability period."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "We may contest this policy for material misrepresentation within 2 years."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Material misrepresentation allows contesting the policy within 2 years."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Contestability clause allows investigation of application statements."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-026",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual policy not tied to employment."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy owned individually."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy not tied to employment."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal life not employment-dependent."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual policy remains with policyholder."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Coverage terminates when employment ends, but portability and conversion options are available."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy unaffected by employment."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Trust-owned estate planning policy."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual policy unaffected by employment."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual IUL policy unrelated to employment."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-027",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy does not pay dividends."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Dividends may be declared annually based on company experience."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life credits interest rather than dividends."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal policy credits investment returns."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue policy does not declare dividends."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group life certificate does not distribute dividends."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term rider policy does not declare dividends."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy does not specify dividends."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Return-of-premium feature replaces dividends."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life credits interest via index."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-028",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Death benefit payable upon insured death."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Death benefit payable upon proof of death."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Death benefit payable when insured dies while policy active."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Death benefit payable under selected option."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Death benefit payable subject to graded benefit rules."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Life insurance benefit payable upon employee death."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Death benefit payable if insured dies while policy in force."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "If both insureds die in the same accident and order of death cannot be determined, death benefit will be paid immediately."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Death during policy term results in payment."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Death benefit equals specified amount."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-029",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "No child rider."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy does not insure children."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy insures only primary insured."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal policy insures only primary insured."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue policy insures single life."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate covers employee only."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Children\u2019s Term Insurance Rider provides $15,000 coverage on each eligible child."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy insures spouses only."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term policy covers insured only."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal policy insures one life."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-030",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "No chronic illness rider."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy excerpt does not include chronic illness rider."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life excerpt does not specify chronic illness benefit."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal policy excerpt does not include chronic illness rider."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue policy has no living benefits."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate excerpt includes terminal illness acceleration only."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Chronic illness rider allows access to up to 2% of face amount per month when insured cannot perform two or more Activities of Daily Living."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy has no chronic illness rider."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term policy does not include living benefits."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal policy excerpt does not include chronic illness rider."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-031",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy not designed for estate planning trust structures."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy owned individually; estate planning provisions not specified."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy excerpt does not reference estate tax planning."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal life policy does not specify estate trust structure."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Final expense policy intended for burial costs."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group life certificate owned by employer."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy with riders not designed for estate tax liquidity."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "This policy is owned by an irrevocable trust to exclude proceeds from the insureds' taxable estates and provide estate liquidity."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Return-of-premium term policy owned individually."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life excerpt does not reference estate trust ownership."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-032",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy premiums are not allocated to an account value."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy premiums accumulate cash value but not through front-end load."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Premiums are allocated to the Account Value after deduction of a 3% premium expense charge."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Premium load of 5% is deducted from each premium payment before allocation."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue whole life does not describe front-end premium loads."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate does not allocate premiums to an account value."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy premiums are not invested."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship whole life policy does not describe front-end loads."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Return-of-premium term policy has fixed annual premium."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Premium load of 3.5% is deducted for expenses before premium allocation."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-033",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy conversion allowed but not new purchase options at specific ages."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy does not include guaranteed insurability option."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life excerpt does not specify guaranteed purchase options."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal life policy requires evidence of insurability for increases."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Final expense policy does not include guaranteed purchase rider."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group coverage determined by employer plan."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Guaranteed Insurability Option allows purchase of additional coverage at ages 40, 43, 46, 49 without medical underwriting."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy does not specify guaranteed purchase options."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Return-of-premium term policy does not provide guaranteed purchase rider."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal policy requires evidence of insurability for coverage increase."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-034",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy benefit not linked to salary."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy has fixed face amount."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy benefit not tied to salary."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal life benefit independent of salary."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Final expense policy has fixed face amount."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Basic benefit equals 2\u00d7 annual salary and will be recalculated annually based on salary changes."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual term policy benefit fixed."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy benefit fixed."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Return-of-premium term policy benefit fixed."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life policy benefit fixed unless option changed."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-035",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Death benefit payable if insured dies while policy in force."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Upon receipt of proof of death we will pay the beneficiary."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Death benefit payable if insured dies while policy active."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Death benefit payable based on selected death benefit option."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Accidental death qualifies for full benefit immediately."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Group life benefit payable upon insured employee death."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Accidental Death Benefit rider pays additional benefit if death results from accidental injury."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Benefit only triggered after both insureds die."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Death during policy term results in payment of death benefit."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Death benefit payable while coverage active."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-036",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no index-linked interest."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life dividend not tied directly to index performance."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life interest credited at declared rate."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Investment performance directly affects account value."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Final expense policy not linked to index performance."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group term coverage has no investment account."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no index crediting."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy not linked to index."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term policy has no index crediting."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Interest credited equals index gain subject to participation rate and cap."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-037",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "No pre-existing condition exclusions apply."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Policy covers death from illness if policy active."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Universal life policy covers death from illness."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Variable universal life covers death from illness."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Policy explicitly states no pre-existing condition exclusions."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Group coverage states no pre-existing condition exclusions."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Term policy covers death while policy active."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Joint survivorship policy pays benefit when both insureds die."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "ROP term policy pays death benefit during term."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Indexed universal life policy covers death while active."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-038",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy assignment not specified."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Policy loans and collateral assignment allowed through cash value."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Account value may be pledged via policy loan or assignment."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Policy loans reduce death benefit dollar-for-dollar."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Cash value may be borrowed against."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate owned by employer."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no cash value to pledge."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Policy loans available up to 90% of cash surrender value."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Policy loans not available."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Policy loans available up to 90% of surrender value."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-039",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Single life policy."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Single life whole life policy."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy covers one life."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal life policy covers one life."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue whole life policy covers one life."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group life certificate insures employee only."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy covers single insured."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Policy owner may elect to split the joint survivorship policy into two single-life policies."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term policy insures one life."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal policy covers one insured."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-040",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "We will pay valid claims within 30 days of receiving required documentation."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Payment will be made within 7 days of receiving complete claim documentation."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Death benefit paid upon receipt of proof of death."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Payment made after claim documentation verified."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "We will pay valid claims within 5 business days."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Beneficiaries must submit claim form and death certificate."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Payment will be made within 30 days after proof of death."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Payment will be made within 30 days of receiving documentation."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "ROP payments made within 60 days of applicable date."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Claim paid after verification of required documents."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-041",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "If the premium is not paid by the end of the grace period, the policy will lapse and coverage will terminate."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "If premiums stop and cash value exists, non-forfeiture options such as reduced paid-up or extended term may apply."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "If Account Value falls below required charges, the policy enters a 61-day grace period and may lapse if not funded."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "If account value becomes insufficient to cover charges, the policy will lapse after notice."
+      },
+      {
+        "contract_id": "C5",
+        "status": "DENIED",
+        "source": "If payment is not received within the grace period, the policy cancels."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Coverage ends on the last day for which required premiums have been paid."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "If premiums are not paid after the grace period, coverage terminates."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "If payment is not received within 60 days, the policy cancels."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "If premium is not paid within grace period, the policy lapses and ROP benefit is forfeited."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "If account value becomes insufficient to cover charges, the policy enters a grace period and may lapse."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-042",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no investment account."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life dividends not directly tied to market performance."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life interest credited at declared rate."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Account value and death benefit may fluctuate based on sub-account performance."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue whole life not linked to equity markets."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group term policy has no investment component."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no investment account."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy does not use equity sub-accounts."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term policy has no investment component."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Index account interest depends on market performance but losses are limited by the floor rate."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-043",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy does not use account value."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy has guaranteed premiums and cash value schedule."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life excerpt does not include no-lapse guarantee rider."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal life excerpt does not include guarantee rider."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Final expense policy has fixed premium and benefit."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group policy does not include lapse guarantees."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy does not depend on account value."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy premium structure fixed."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term policy does not depend on index credits."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "No-lapse guarantee rider available but not currently elected."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-044",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Standard term policy conversion does not refund premiums."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy is already permanent."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy already permanent."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal policy already permanent."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue policy already permanent."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate conversion not related to premium refund."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy conversion allowed but does not refund premiums."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy already permanent."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Upon conversion, ROP benefit is forfeited and premiums paid are not returned."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life policy already permanent."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-045",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy premium schedule fixed during term."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life premium guaranteed level."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life premium flexible."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal life premium flexible."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue whole life premium guaranteed level."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group policy premium determined by employer plan."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy premium fixed."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "After the 10-year premium guarantee period, premiums may increase but will not exceed the maximum guaranteed amount."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term premium level during term."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life premium flexible."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-046",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Death benefit payable if insured dies while policy active."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Death benefit payable upon proof of death."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Death benefit payable if insured dies while policy active."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Death benefit payable based on selected option."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Accidental death covered unless suicide exclusion applies."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Life insurance benefit payable upon employee death."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Accidental death rider excludes payment if insured was under the influence of drugs or alcohol."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy pays only after both insureds die."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Death during term results in payment of death benefit."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Death benefit payable while policy active."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-047",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "DENIED",
+        "source": "Policy lapses if premiums not paid."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "If no non-forfeiture option chosen within 60 days, extended term insurance automatically applies."
+      },
+      {
+        "contract_id": "C3",
+        "status": "DENIED",
+        "source": "Universal life policy lapses if account value insufficient."
+      },
+      {
+        "contract_id": "C4",
+        "status": "DENIED",
+        "source": "Variable universal policy lapses if account value insufficient."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "After two years, policy may continue with reduced benefit using cash value."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Group coverage ends if premiums stop."
+      },
+      {
+        "contract_id": "C7",
+        "status": "DENIED",
+        "source": "Term policy terminates after grace period."
+      },
+      {
+        "contract_id": "C8",
+        "status": "DENIED",
+        "source": "Policy cancels if premium not paid within grace period."
+      },
+      {
+        "contract_id": "C9",
+        "status": "DENIED",
+        "source": "Policy lapses if premium unpaid."
+      },
+      {
+        "contract_id": "C10",
+        "status": "DENIED",
+        "source": "Policy lapses if account value depleted."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-048",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual policy not linked to employment."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy independent of employer."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy independent of employer."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal life policy independent of employer."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Guaranteed issue whole life independent of employer."
+      },
+      {
+        "contract_id": "C6",
+        "status": "DENIED",
+        "source": "Voluntary coverage requires enrollment within 31 days of hire; late entrant provisions apply."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual policy not employer based."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy not employment based."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Individual ROP policy."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life policy independent of employer."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-049",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Death benefit will be paid in one lump sum unless the beneficiary chooses an alternate settlement option."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Settlement options available for beneficiary payments."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Death benefit payable to beneficiary subject to settlement options."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Settlement options may be selected by beneficiary."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Claims processed after documentation."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Benefit paid according to claim settlement provisions."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Beneficiary may receive payment according to settlement provisions."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Death benefit payable after both insureds die."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Death benefit payable during term."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Death benefit payable according to settlement provisions."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-050",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy has no paid-up option."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Reduced Paid-Up Insurance option allows coverage to continue without further premiums."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy requires sufficient account value."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal policy requires account value."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Policy may continue with reduced benefit based on accumulated cash value."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group coverage tied to employment."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy does not provide paid-up option."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship policy requires premiums unless loan values used."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term policy requires continued premiums."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life policy depends on account value."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-051",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy does not support beneficiary trust management."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life beneficiary designation may include trusts."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life beneficiary may be designated."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal beneficiary designation allowed."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Beneficiary designation allowed."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Beneficiary changes allowed through HR."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Beneficiary designation allowed."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Policy owned by an irrevocable trust with trustee managing proceeds."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "Beneficiary designation allowed."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Beneficiary designation allowed."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-052",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Policy remains incontestable after 2 years."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Policy contestability period limited to initial years."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Contestability provisions apply."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Contestability clause applies."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Suicide exclusion applies within first two years."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Contestability provisions governed by group policy."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Policy cannot be contested after two years."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Contestability clause applies within first two years."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Contestability provisions apply."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Contestability provisions apply."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-053",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Death benefit payable during policy term."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Whole life benefit payable upon death."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Universal life benefit payable upon death."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Variable universal benefit payable upon death."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Final expense policy pays death benefit."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Group life pays benefit to beneficiaries."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Term policy pays benefit upon death."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Benefit paid only after both insureds die."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Death during term results in benefit payment."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Indexed universal life pays benefit upon death."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-054",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy no investment component."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life dividends not directly tied to index."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life uses credited interest rate."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Investment performance affects account value."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Final expense policy fixed."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group policy fixed benefit."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy fixed."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Joint survivorship fixed."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term fixed."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Index crediting based on market performance."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-055",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Policy covers death from natural causes."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Whole life covers death from illness."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Universal life covers death from illness."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Variable universal covers death from illness."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Policy covers death unless excluded."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Group life covers death while insured."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Term policy covers death."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Benefit payable after both insureds die."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Death benefit payable."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Indexed universal life covers death."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-056",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy does not involve policy splitting."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "source": "Whole life policy single insured."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "source": "Universal life policy single insured."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "source": "Variable universal life policy single insured."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "source": "Final expense policy single insured."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "source": "Group certificate covers employee only."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "source": "Term policy single insured."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Split option allows policy to divide into two single-life policies."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "source": "ROP term single insured."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "source": "Indexed universal life single insured."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-057",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Policy provides death benefit during term."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Whole life provides death benefit."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Universal life death benefit payable."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Variable universal life death benefit payable."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Final expense policy pays benefit."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Group life pays benefit."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Term life pays benefit."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "source": "Requires both insureds to die."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "Death benefit payable during term."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Indexed universal life death benefit payable."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-058",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "source": "Policy continues until expiry date if premiums paid."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "source": "Whole life coverage continues to maturity age."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "source": "Universal life remains active while account value sufficient."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "source": "Variable universal life remains active while charges covered."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "source": "Guaranteed issue policy coverage continues with premiums."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "source": "Coverage remains while employee eligible."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "source": "Term policy remains active during term."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "source": "Joint survivorship policy continues until second death."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "source": "ROP term policy remains active during term."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "source": "Indexed universal life remains active while account value sufficient."
+      }
+    ]
+  }
+]

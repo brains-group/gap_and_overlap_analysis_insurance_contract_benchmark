@@ -1,0 +1,1820 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix li:      <http://www.lifeinsurance.org/ontology#> .
+@prefix li_abox: <http://www.lifeinsurance.org/ontology/abox#> .
+
+<http://www.lifeinsurance.org/ontology/abox>
+    a owl:Ontology ;
+    owl:imports <http://www.lifeinsurance.org/ontology> .
+
+# This following contains the ABox (instance data) for all 10 contracts.
+#
+# CONTRACT INSTANCES:
+#   C1:  li_abox:Policy_C1  = SecureLife 20-Year Level Term
+#   C2:  li_abox:Policy_C2  = Guardian Participating Whole Life
+#   C3:  li_abox:Policy_C3  = FlexProtect Universal Life
+#   C4:  li_abox:Policy_C4  = Pinnacle Variable Universal Life
+#   C5:  li_abox:Policy_C5  = ComfortCare Final Expense (Guaranteed Issue)
+#   C6:  li_abox:Policy_C6  = Alliance Group Term Certificate
+#   C7:  li_abox:Policy_C7  = ProtectPlus 30-Year Term with 6 Riders
+#   C8:  li_abox:Policy_C8  = Estate Planning Joint Survivorship
+#   C9:  li_abox:Policy_C9  = ValueGuard Return of Premium Term
+#   C10: li_abox:Policy_C10 = Horizon Indexed Universal Life
+#
+# ═══════════════════════════════════════════════════════════════════════
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 1: SecureLife 20-Year Level Term Life
+# Policy: SL-2024-TRM-00123 | Insured: John Michael Anderson | Age: 38
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C1 a li:LevelTermPolicy ;
+    li:policyNumber "SL-2024-TRM-00123" ;
+    li:issueDate "2024-01-15"^^xsd:date ;
+    li:expiryDate "2044-01-15"^^xsd:date ;
+    li:policyTermYears 20 ;
+    li:stateOfIssuance "Connecticut" ;
+    li:policyAnniversaryMonth 1 ;
+    li:policyAnniversaryDay 15 ;
+    li:faceAmount 500000.00 ;
+    li:monthlyPremiumAmount 45.00 ;
+    li:premiumPaymentFrequency "monthly" ;
+    li:premiumDueDayOfMonth 15 ;
+    li:sourceContractID "C1" ;
+    li:coverageStatus "covered" ;
+
+    li:hasInsured li_abox:Insured_C1 ;
+    li:hasOwner li_abox:Owner_C1 ;
+    li:issuedBy li_abox:Insurer_C1 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C1 ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C1 ;
+    li:hasContingentBeneficiary li_abox:ContingentBenef_C1_1, li_abox:ContingentBenef_C1_2 ;
+    li:hasPremium li_abox:Premium_C1 ;
+    li:hasGracePeriod li_abox:GracePeriod_C1 ;
+    li:hasExclusion li_abox:SuicideExclusion_C1 ;
+    li:hasProvision li_abox:Incontestability_C1, li_abox:MisstatementOfAge_C1, li_abox:Assignment_C1,
+                    li_abox:Conversion_C1, li_abox:BeneficiaryChange_C1, li_abox:SettlementOption_C1 ;
+    li:hasUnderwritingType li:FullUnderwriting ;
+    .
+
+li_abox:Insured_C1 a li:Insured ;
+    li:partyName "John Michael Anderson" ;
+    li:dateOfBirth "1985-03-22"^^xsd:date ;
+    li:ageAtIssue 38 ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 1" ;
+    .
+
+li_abox:Owner_C1 a li:PolicyOwner ;
+    li:partyName "John Michael Anderson" ;
+    li:sourceContractID "C1" ;
+    .
+
+li_abox:Insurer_C1 a li:Insurer ;
+    li:insurerName "SecureLife Insurance Company" ;
+    li:claimsAddress "P.O. Box 5000, Hartford, CT 06102" ;
+    li:sourceContractID "C1" ;
+    .
+
+li_abox:DeathBenefit_C1 a li:LevelDeathBenefit ;
+    li:faceAmount 500000.00 ;
+    li:deathBenefitPaymentDays 30 ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 5.1, 9.3" ;
+    li:coverageSourceText "We will pay the death benefit to the beneficiary if: (a) The insured dies while this policy is in force, and (b) We receive proof of death acceptable to us, and (c) The death occurs before the policy expiry date. We will pay valid claims within 30 days of receiving all required documentation." ;
+    .
+
+li_abox:PrimaryBenef_C1 a li:PrimaryBeneficiary ;
+    li:partyName "Sarah Elizabeth Anderson" ;
+    li:beneficiaryRelationship "Spouse" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 3" ;
+    .
+
+li_abox:ContingentBenef_C1_1 a li:ContingentBeneficiary ;
+    li:partyName "Emma Grace Anderson" ;
+    li:beneficiaryRelationship "Daughter" ;
+    li:beneficiarySharePercentage 50.0 ;
+    li:sourceContractID "C1" ;
+    .
+
+li_abox:ContingentBenef_C1_2 a li:ContingentBeneficiary ;
+    li:partyName "Lucas James Anderson" ;
+    li:beneficiaryRelationship "Son" ;
+    li:beneficiarySharePercentage 50.0 ;
+    li:sourceContractID "C1" ;
+    .
+
+li_abox:Premium_C1 a li:LevelPremium ;
+    li:monthlyPremiumAmount 45.00 ;
+    li:premiumPaymentFrequency "monthly" ;
+    li:premiumDueDayOfMonth 15 ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 2, 6.1" ;
+    .
+
+li_abox:GracePeriod_C1 a li:PremiumNonpaymentGracePeriod ;
+    li:gracePeriodDays 31 ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 4.3, 6.2" ;
+    li:coverageSourceText "Grace Period means the 31-day period following the premium due date during which coverage continues without lapse." ;
+    .
+
+li_abox:SuicideExclusion_C1 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 24 ;
+    li:suicideBenefitType li:ReturnPremiumsPaid ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 7.1" ;
+    li:coverageSourceText "SUICIDE CLAUSE: If the insured commits suicide within two years from the issue date, our liability is limited to a refund of premiums paid." ;
+    .
+
+li_abox:Incontestability_C1 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 10.1" ;
+    .
+
+li_abox:MisstatementOfAge_C1 a li:MisstatementOfAgeProvision ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 10.2" ;
+    li:coverageSourceText "MISSTATEMENT OF AGE OR SEX: If the age or sex of the insured has been misstated, we will adjust the death benefit to what the premiums paid would have purchased at the correct age and sex." ;
+    .
+
+li_abox:Assignment_C1 a li:AssignmentProvision ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 10.3" ;
+    .
+
+li_abox:Conversion_C1 a li:ConversionPrivilege ;
+    li:conversionMaxAge 65 ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 8" ;
+    li:coverageSourceText "Conversion must occur before the earlier of: (a) The policy expiry date, or (b) The insured's 65th birthday." ;
+    .
+
+li_abox:BeneficiaryChange_C1 a li:BeneficiaryChangeProvision ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 10.3 (implied)" ;
+    .
+
+li_abox:SettlementOption_C1 a li:SettlementOptionProvision ;
+    li:sourceContractID "C1" ;
+    li:sourceContractSection "Section 5.2" ;
+    li:coverageSourceText "The death benefit will be paid in one lump sum unless the beneficiary chooses an alternate settlement option." ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 2: Guardian Participating Whole Life
+# Policy: GFP-WL-2024-8847 | Insured: Margaret Rose Chen | Age: 45
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C2 a li:ParticipatingWholeLifePolicy ;
+    li:policyNumber "GFP-WL-2024-8847" ;
+    li:issueDate "2024-02-01"^^xsd:date ;
+    li:effectiveDate "2024-02-01"^^xsd:date ;
+    li:maturityDate "2078-07-08"^^xsd:date ;
+    li:stateOfIssuance "Massachusetts" ;
+    li:faceAmount 250000.00 ;
+    li:annualPremiumAmount 3240.00 ;
+    li:premiumPaymentFrequency "annual" ;
+    li:premiumPaymentPeriod "To age 100" ;
+    li:sourceContractID "C2" ;
+    li:coverageStatus "covered" ;
+
+    li:hasInsured li_abox:Insured_C2 ;
+    li:hasOwner li_abox:Owner_C2 ;
+    li:issuedBy li_abox:Insurer_C2 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C2 ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C2 ;
+    li:hasContingentBeneficiary li_abox:ContingentBenef_C2 ;
+    li:hasPremium li_abox:Premium_C2 ;
+    li:hasCashValue li_abox:CashValue_C2 ;
+    li:hasPolicyLoan li_abox:PolicyLoan_C2 ;
+    li:hasGracePeriod li_abox:GracePeriod_C2 ;
+    li:hasExclusion li_abox:SuicideExclusion_C2 ;
+    li:hasProvision li_abox:Incontestability_C2, li_abox:FreeLook_C2, li_abox:MisstatementOfAge_C2,
+                    li_abox:Reinstatement_C2, li_abox:BeneficiaryChange_C2 ;
+    li:hasNonForfeitureOption li_abox:CashSurrender_C2, li_abox:ReducedPaidUp_C2, li_abox:ExtendedTerm_C2 ;
+    li:hasCreditingMechanism li_abox:DividendCred_C2 ;
+    li:hasDividendOption li_abox:PaidUpAdditions_C2 ;
+    li:hasUnderwritingType li:FullUnderwriting ;
+    .
+
+li_abox:Insured_C2 a li:Insured ;
+    li:partyName "Margaret Rose Chen" ;
+    li:dateOfBirth "1978-07-08"^^xsd:date ;
+    li:ageAtIssue 45 ;
+    li:hasRiskClass li:StandardClass ;
+    li:smokerStatus "Non-Tobacco" ;
+    li:sourceContractID "C2" ;
+    .
+
+li_abox:Owner_C2 a li:PolicyOwner ;
+    li:partyName "Margaret Rose Chen" ;
+    li:sourceContractID "C2" ;
+    .
+
+li_abox:Insurer_C2 a li:Insurer ;
+    li:insurerName "Guardian Family Protection Corp." ;
+    li:insurerAddress "Boston, Massachusetts" ;
+    li:sourceContractID "C2" ;
+    .
+
+li_abox:DeathBenefit_C2 a li:LevelDeathBenefit ;
+    li:faceAmount 250000.00 ;
+    li:deathBenefitPaymentDays 7 ;
+    li:deathBenefitFormula "Face Amount + Paid-Up Additions - Policy Loans - Loan Interest" ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 8.1, 8.2" ;
+    li:coverageSourceText "Upon receipt of proof of death, we will pay the beneficiary: Face Amount + Paid-Up Additions - Policy Loans - Loan Interest. Payment will be made within 7 days of receiving complete claim documentation." ;
+    .
+
+li_abox:PrimaryBenef_C2 a li:PrimaryBeneficiary ;
+    li:partyName "David Chen" ;
+    li:beneficiaryRelationship "Husband" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C2" ;
+    .
+
+li_abox:ContingentBenef_C2 a li:ContingentBeneficiary ;
+    li:partyName "Chen Family Trust" ;
+    li:beneficiaryRelationship "Trust" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C2" ;
+    .
+
+li_abox:Premium_C2 a li:LevelPremium ;
+    li:annualPremiumAmount 3240.00 ;
+    li:premiumPaymentFrequency "annual" ;
+    li:sourceContractID "C2" ;
+    .
+
+li_abox:CashValue_C2 a li:GuaranteedCashValue ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 5" ;
+    li:coverageSourceText "Guaranteed cash value at end of Year 10: $28,450. Guaranteed cash value at end of Year 20: $71,200. Actual cash value may be higher due to dividend credits." ;
+    .
+
+li_abox:PolicyLoan_C2 a li:PolicyLoan ;
+    li:policyLoanMaxPercentOfCV 90.0 ;
+    li:policyLoanInterestRate 5.0 ;
+    li:policyLoanInterestRateType "fixed" ;
+    li:loanMinimumYearsInForce 1 ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 7" ;
+    li:coverageSourceText "You may borrow against the cash value after the policy has been in force for one full year. Maximum loan amount: 90% of current cash surrender value. Loan interest rate: 5% per annum, compounded annually." ;
+    .
+
+li_abox:GracePeriod_C2 a li:PremiumNonpaymentGracePeriod ;
+    li:gracePeriodDays 31 ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 6 (implied)" ;
+    .
+
+li_abox:SuicideExclusion_C2 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 24 ;
+    li:suicideBenefitType li:ReturnPremiumsPaid ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 11.1" ;
+    li:coverageSourceText "SUICIDE: If the insured dies by suicide within two years from the issue date, we will pay only the premiums paid, without interest." ;
+    .
+
+li_abox:Incontestability_C2 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 13" ;
+    .
+
+li_abox:FreeLook_C2 a li:FreeLookProvision ;
+    li:freeLookDays 30 ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 12" ;
+    .
+
+li_abox:MisstatementOfAge_C2 a li:MisstatementOfAgeProvision ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 11.2" ;
+    .
+
+li_abox:Reinstatement_C2 a li:ReinstatementProvision ;
+    li:reinstatementPeriodYears 3 ;
+    li:reinstatementInterestRate 6.0 ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 10" ;
+    .
+
+li_abox:BeneficiaryChange_C2 a li:BeneficiaryChangeProvision ;
+    li:sourceContractID "C2" ;
+    .
+
+li_abox:CashSurrender_C2 a li:CashSurrenderOption ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 9.1" ;
+    .
+
+li_abox:ReducedPaidUp_C2 a li:ReducedPaidUpOption ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 9.2" ;
+    .
+
+li_abox:ExtendedTerm_C2 a li:ExtendedTermOption ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 9.3, 9.4" ;
+    li:coverageSourceText "If no election is made within 60 days of lapse, Extended Term Insurance will automatically apply." ;
+    .
+
+li_abox:DividendCred_C2 a li:DividendCrediting ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 6" ;
+    .
+
+li_abox:PaidUpAdditions_C2 a li:PaidUpAdditionsDividendOption ;
+    li:sourceContractID "C2" ;
+    li:sourceContractSection "Section 6.3" ;
+    li:coverageSourceText "Current selection: Paid-Up Additions" ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 3: FlexProtect Universal Life
+# Policy: FPS-UL-24-03391 | Insured: Robert James Wilson | Age: 41
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C3 a li:UniversalLifePolicy ;
+    li:policyNumber "FPS-UL-24-03391" ;
+    li:issueDate "2024-03-10"^^xsd:date ;
+    li:stateOfIssuance "Arizona" ;
+    li:faceAmount 400000.00 ;
+    li:targetPremiumAmount 200.00 ;
+    li:monthlyPremiumAmount 200.00 ;
+    li:sourceContractID "C3" ;
+    li:coverageStatus "covered" ;
+    li:lapseAutoPaysSurrenderValue true ;
+
+    li:hasInsured li_abox:Insured_C3 ;
+    li:hasOwner li_abox:Owner_C3 ;
+    li:issuedBy li_abox:Insurer_C3 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C3 ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C3 ;
+    li:hasContingentBeneficiary li_abox:ContingentBenef_C3_1, li_abox:ContingentBenef_C3_2 ;
+    li:hasPremium li_abox:Premium_C3 ;
+    li:hasCashValue li_abox:AccountValue_C3 ;
+    li:hasSurrenderCharge li_abox:SurrenderCharge_C3 ;
+    li:hasPolicyLoan li_abox:PolicyLoan_C3 ;
+    li:hasPartialWithdrawal li_abox:PartialWithdrawal_C3 ;
+    li:hasGracePeriod li_abox:GracePeriod_C3 ;
+    li:hasExclusion li_abox:SuicideExclusion_C3 ;
+    li:hasProvision li_abox:Incontestability_C3, li_abox:DeathBenefitChange_C3 ;
+    li:hasCharge li_abox:COI_C3, li_abox:AdminCharge_C3 ;
+    li:hasCreditingMechanism li_abox:FixedCred_C3 ;
+    li:hasUnderwritingType li:FullUnderwriting ;
+    .
+
+li_abox:Insured_C3 a li:Insured ;
+    li:partyName "Robert James Wilson" ;
+    li:dateOfBirth "1982-11-15"^^xsd:date ;
+    li:ageAtIssue 41 ;
+    li:gender "Male" ;
+    li:sourceContractID "C3" ;
+    .
+
+li_abox:Owner_C3 a li:PolicyOwner ;
+    li:partyName "Robert James Wilson" ;
+    li:sourceContractID "C3" ;
+    .
+
+li_abox:Insurer_C3 a li:Insurer ;
+    li:insurerName "FlexProtect Insurance Solutions" ;
+    li:insurerAddress "Phoenix, Arizona" ;
+    li:sourceContractID "C3" ;
+    .
+
+li_abox:DeathBenefit_C3 a li:LevelDeathBenefit ;
+    li:faceAmount 400000.00 ;
+    li:deathBenefitFormula "Specified Amount - Outstanding Loans" ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 5.1, 5.4" ;
+    li:coverageSourceText "OPTION A (Level Death Benefit) - Currently Selected. Death Benefit = Specified Amount. Death benefit is paid minus any outstanding policy loans." ;
+    .
+
+li_abox:PrimaryBenef_C3 a li:PrimaryBeneficiary ;
+    li:partyName "Jennifer Ann Wilson" ;
+    li:beneficiaryRelationship "Wife" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C3" ;
+    .
+
+li_abox:ContingentBenef_C3_1 a li:ContingentBeneficiary ;
+    li:partyName "Robert Wilson Jr." ;
+    li:beneficiaryRelationship "Son" ;
+    li:beneficiarySharePercentage 50.0 ;
+    li:sourceContractID "C3" ;
+    .
+
+li_abox:ContingentBenef_C3_2 a li:ContingentBeneficiary ;
+    li:partyName "Emily Rose Wilson" ;
+    li:beneficiaryRelationship "Daughter" ;
+    li:beneficiarySharePercentage 50.0 ;
+    li:sourceContractID "C3" ;
+    .
+
+li_abox:Premium_C3 a li:FlexiblePremium ;
+    li:targetPremiumAmount 200.00 ;
+    li:minimumPremiumAmount 75.00 ;
+    li:maximumPremiumAnnual 50000.00 ;
+    li:monthlyPremiumAmount 200.00 ;
+    li:premiumPaymentFrequency "flexible" ;
+    li:premiumSkippingAllowed true ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 2" ;
+    li:hasPremiumLoad li_abox:PremiumLoad_C3 ;
+    .
+
+li_abox:PremiumLoad_C3 a li:PremiumLoad ;
+    li:premiumLoadPercentage 3.0 ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 2.2" ;
+    .
+
+li_abox:AccountValue_C3 a li:AccountValue ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 1.1" ;
+    li:coverageSourceText "Account Value means the accumulation of premiums paid, less deductions for monthly charges and expenses, plus interest credited." ;
+    .
+
+li_abox:SurrenderCharge_C3 a li:SurrenderCharge ;
+    li:surrenderChargeBasis "specified_amount" ;
+    li:surrenderChargePeriodYears 15 ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 8.2" ;
+    li:coverageSourceText "Surrender Charge Schedule (% of Specified Amount): Year 1: 8% | Year 5: 5% | Year 10: 2% | Year 15+: 0%" ;
+    .
+
+li_abox:PolicyLoan_C3 a li:PolicyLoan ;
+    li:policyLoanMaxPercentOfCV 90.0 ;
+    li:policyLoanInterestRateType "variable" ;
+    li:policyLoanInterestRateFormula "Moody's Corporate Bond Index + 1.5%, minimum 4%, adjusted annually each January 1" ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 7" ;
+    .
+
+li_abox:PartialWithdrawal_C3 a li:PartialWithdrawal ;
+    li:withdrawalMinimumAmount 500.00 ;
+    li:withdrawalFeePerTransaction 25.00 ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 6" ;
+    li:coverageSourceText "Withdrawal charges: Years 1-10: $25 per withdrawal, Years 11+: No charge" ;
+    .
+
+li_abox:GracePeriod_C3 a li:AccountValueDepletionGracePeriod ;
+    li:gracePeriodDays 61 ;
+    li:lapsePriorNoticeRequiredDays 30 ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 10" ;
+    li:coverageSourceText "If Account Value is insufficient to pay monthly deductions, we will notify you. Policy continues for 61 days." ;
+    .
+
+li_abox:SuicideExclusion_C3 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 24 ;
+    li:suicideBenefitType li:ReturnAccountValue ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 9.1" ;
+    li:coverageSourceText "SUICIDE EXCLUSION: If insured dies by suicide within 24 months of issue date, we pay only the Account Value, without interest." ;
+    .
+
+li_abox:Incontestability_C3 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 9.2" ;
+    .
+
+li_abox:DeathBenefitChange_C3 a li:DeathBenefitChangeOption ;
+    li:deathBenefitOptionChangeFee 50.00 ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 5.3" ;
+    .
+
+li_abox:COI_C3 a li:CostOfInsurance ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 3" ;
+    .
+
+li_abox:AdminCharge_C3 a li:AdministrativeCharge ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 3.1" ;
+    li:coverageSourceText "Administrative expense charge: $8.00/month" ;
+    .
+
+li_abox:FixedCred_C3 a li:FixedInterestCrediting ;
+    li:creditingGuaranteedMinimumRate 2.0 ;
+    li:creditingCurrentRate 3.5 ;
+    li:creditingFrequency "daily" ;
+    li:sourceContractID "C3" ;
+    li:sourceContractSection "Article 4" ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 4: Pinnacle Variable Universal Life
+# Policy: PIL-VUL-2024-5521 | Insured: Dr. Amanda Katherine Foster | Age: 48
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C4 a li:VariableUniversalLifePolicy ;
+    li:policyNumber "PIL-VUL-2024-5521" ;
+    li:issueDate "2024-04-05"^^xsd:date ;
+    li:stateOfIssuance "New York" ;
+    li:faceAmount 1000000.00 ;
+    li:targetPremiumAmount 12000.00 ;
+    li:annualPremiumAmount 12000.00 ;
+    li:sourceContractID "C4" ;
+    li:coverageStatus "covered" ;
+    li:freeAllocChangesPerYear 12 ;
+    li:allocationChangeFeeAfterFree 25.00 ;
+
+    li:hasInsured li_abox:Insured_C4 ;
+    li:hasOwner li_abox:Owner_C4 ;
+    li:issuedBy li_abox:Insurer_C4 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C4 ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C4 ;
+    li:hasContingentBeneficiary li_abox:ContingentBenef_C4 ;
+    li:hasPremium li_abox:Premium_C4 ;
+    li:hasCashValue li_abox:AccountValue_C4 ;
+    li:hasSurrenderCharge li_abox:SurrenderCharge_C4 ;
+    li:hasPolicyLoan li_abox:PolicyLoan_C4 ;
+    li:hasPartialWithdrawal li_abox:PartialWithdrawal_C4 ;
+    li:hasGracePeriod li_abox:GracePeriod_C4 ;
+    li:hasExclusion li_abox:SuicideExclusion_C4, li_abox:WarExclusion_C4, li_abox:AviationExclusion_C4 ;
+    li:hasProvision li_abox:Incontestability_C4, li_abox:Reinstatement_C4, li_abox:DeathBenefitChange_C4 ;
+    li:hasCharge li_abox:COI_C4, li_abox:AdminCharge_C4, li_abox:MECharge_C4 ;
+    li:hasCreditingMechanism li_abox:VarSubAcctCred_C4 ;
+    li:hasSubAccount li_abox:SubAccount_C4_Equity, li_abox:SubAccount_C4_Balanced,
+                     li_abox:SubAccount_C4_GovtBond, li_abox:SubAccount_C4_MoneyMkt ;
+    li:hasUnderwritingType li:FullUnderwriting ;
+    .
+
+li_abox:Insured_C4 a li:Insured ;
+    li:partyName "Dr. Amanda Katherine Foster" ;
+    li:dateOfBirth "1975-09-03"^^xsd:date ;
+    li:ageAtIssue 48 ;
+    li:gender "Female" ;
+    li:hasRiskClass li:PreferredPlusClass ;
+    li:sourceContractID "C4" ;
+    .
+
+li_abox:Owner_C4 a li:PolicyOwner ;
+    li:partyName "Dr. Amanda Katherine Foster" ;
+    li:sourceContractID "C4" ;
+    .
+
+li_abox:Insurer_C4 a li:Insurer ;
+    li:insurerName "Pinnacle Investment Life Corp." ;
+    li:insurerAddress "New York, New York" ;
+    li:sourceContractID "C4" ;
+    .
+
+li_abox:DeathBenefit_C4 a li:IncreasingDeathBenefit ;
+    li:faceAmount 1000000.00 ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 4.2" ;
+    li:coverageSourceText "OPTION II - Variable Death Benefit (CURRENTLY SELECTED). Death Benefit = Face Amount + Account Value. Higher charges but death benefit grows with account." ;
+    .
+
+li_abox:PrimaryBenef_C4 a li:PrimaryBeneficiary ;
+    li:partyName "Michael Thomas Foster" ;
+    li:beneficiaryRelationship "Spouse" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C4" ;
+    .
+
+li_abox:ContingentBenef_C4 a li:ContingentBeneficiary ;
+    li:partyName "Foster Children's Trust" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C4" ;
+    .
+
+li_abox:Premium_C4 a li:FlexiblePremium ;
+    li:annualPremiumAmount 12000.00 ;
+    li:premiumPaymentFrequency "flexible" ;
+    li:premiumSkippingAllowed true ;
+    li:sourceContractID "C4" ;
+    li:hasPremiumLoad li_abox:PremiumLoad_C4 ;
+    .
+
+li_abox:PremiumLoad_C4 a li:PremiumLoad ;
+    li:premiumLoadPercentage 5.0 ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 3.1" ;
+    .
+
+li_abox:AccountValue_C4 a li:AccountValue ;
+    li:sourceContractID "C4" ;
+    .
+
+li_abox:SurrenderCharge_C4 a li:SurrenderCharge ;
+    li:surrenderChargeBasis "premiums_paid" ;
+    li:surrenderChargePeriodYears 7 ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 3.6" ;
+    li:coverageSourceText "SURRENDER CHARGE SCHEDULE (% of premium paid): Year 1-2: 7% | Year 3-4: 5% | Year 5-6: 3% | Year 7+: 0%" ;
+    .
+
+li_abox:PolicyLoan_C4 a li:PolicyLoan ;
+    li:policyLoanMaxPercentOfCV 90.0 ;
+    li:policyLoanInterestRate 5.5 ;
+    li:policyLoanInterestRateType "fixed" ;
+    li:loanCollateralAccount "Money Market sub-account" ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 6.1" ;
+    li:coverageSourceText "Loan amounts are moved to the Money Market sub-account." ;
+    .
+
+li_abox:PartialWithdrawal_C4 a li:PartialWithdrawal ;
+    li:withdrawalMinimumAmount 1000.00 ;
+    li:withdrawalFeePerTransaction 50.00 ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 6.2" ;
+    .
+
+li_abox:GracePeriod_C4 a li:AccountValueDepletionGracePeriod ;
+    li:gracePeriodDays 61 ;
+    li:lapsePriorNoticeRequiredDays 30 ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 7" ;
+    .
+
+li_abox:SuicideExclusion_C4 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 24 ;
+    li:suicideBenefitType li:ReturnPremiumsMinusWithdrawals ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 8.1" ;
+    li:coverageSourceText "SUICIDE: If death occurs by suicide within 2 years of issue or reinstatement, we pay only premiums paid minus withdrawals." ;
+    .
+
+li_abox:WarExclusion_C4 a li:WarExclusion ;
+    li:exclusionPeriodMonths 24 ;
+    li:exclusionIsTimeBounded true ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 8.2" ;
+    li:coverageSourceText "WAR EXCLUSION: Death while serving in military conflict in a war zone is excluded if it occurs within 24 months of issue." ;
+    .
+
+li_abox:AviationExclusion_C4 a li:AviationExclusion ;
+    li:exclusionIsTimeBounded false ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 8.3" ;
+    li:coverageSourceText "AVIATION: Death resulting from operating an aircraft as pilot or crew member is excluded unless declared and approved with extra premium." ;
+    .
+
+li_abox:Incontestability_C4 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C4" ;
+    .
+
+li_abox:Reinstatement_C4 a li:ReinstatementProvision ;
+    li:reinstatementPeriodYears 3 ;
+    li:reinstatementInterestRate 6.0 ;
+    li:reinstatementNewSuicidePeriod true ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 7.3" ;
+    .
+
+li_abox:DeathBenefitChange_C4 a li:DeathBenefitChangeOption ;
+    li:deathBenefitOptionChangeFee 50.00 ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 4.3" ;
+    .
+
+li_abox:COI_C4 a li:CostOfInsurance ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 3.4" ;
+    .
+
+li_abox:AdminCharge_C4 a li:AdministrativeCharge ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 3.3" ;
+    li:coverageSourceText "ADMINISTRATIVE CHARGE: $15 per month" ;
+    .
+
+li_abox:MECharge_C4 a li:MortalityAndExpenseCharge ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 3.2" ;
+    li:coverageSourceText "MORTALITY & EXPENSE RISK CHARGE: 0.90% per annum of account value, deducted daily" ;
+    .
+
+li_abox:VarSubAcctCred_C4 a li:VariableSubAccountCrediting ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 5" ;
+    .
+
+li_abox:SubAccount_C4_Equity a li:SubAccount ;
+    li:accountLabel "Equity Growth Fund" ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 2.3" ;
+    li:coverageSourceText "Current Allocation: Equity Growth Fund: 40%" ;
+    .
+
+li_abox:SubAccount_C4_Balanced a li:SubAccount ;
+    li:accountLabel "Balanced Allocation Fund" ;
+    li:sourceContractID "C4" ;
+    .
+
+li_abox:SubAccount_C4_GovtBond a li:SubAccount ;
+    li:accountLabel "Government Bond Fund" ;
+    li:sourceContractID "C4" ;
+    .
+
+li_abox:SubAccount_C4_MoneyMkt a li:SubAccount ;
+    li:accountLabel "Money Market Fund" ;
+    li:sourceContractID "C4" ;
+    li:sourceContractSection "Section 2.2, 5.4" ;
+    li:coverageSourceText "Money Market Fund (guaranteed minimum 1.5%)" ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 5: ComfortCare Final Expense (Guaranteed Issue)
+# Policy: CC-FE-2024-9903 | Insured: Dorothy Mae Johnson | Age: 72
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C5 a li:FinalExpensePolicy ;
+    li:policyNumber "CC-FE-2024-9903" ;
+    li:issueDate "2024-05-01"^^xsd:date ;
+    li:effectiveDate "2024-05-01"^^xsd:date ;
+    li:stateOfIssuance "Florida" ;
+    li:faceAmount 10000.00 ;
+    li:monthlyPremiumAmount 87.50 ;
+    li:premiumPaymentFrequency "monthly" ;
+    li:premiumDueDayOfMonth 1 ;
+    li:premiumRetryDayOfMonth 15 ;
+    li:minimumIssueAge 50 ;
+    li:maximumIssueAge 85 ;
+    li:sourceContractID "C5" ;
+    li:coverageStatus "covered" ;
+
+    li:hasInsured li_abox:Insured_C5 ;
+    li:hasOwner li_abox:Owner_C5 ;
+    li:issuedBy li_abox:Insurer_C5 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C5 ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C5 ;
+    li:hasPremium li_abox:Premium_C5 ;
+    li:hasCashValue li_abox:CashValue_C5 ;
+    li:hasGracePeriod li_abox:GracePeriod_C5 ;
+    li:hasExclusion li_abox:SuicideExclusion_C5 ;
+    li:hasProvision li_abox:Incontestability_C5, li_abox:FreeLook_C5, li_abox:Portability_C5,
+                    li_abox:BeneficiaryChange_C5, li_abox:Reinstatement_C5 ;
+    li:hasNonForfeitureOption li_abox:ReducedPaidUp_C5, li_abox:CashSurrender_C5 ;
+    li:hasUnderwritingType li:GuaranteedIssueUnderwriting ;
+    .
+
+li_abox:Insured_C5 a li:Insured ;
+    li:partyName "Dorothy Mae Johnson" ;
+    li:dateOfBirth "1951-06-12"^^xsd:date ;
+    li:ageAtIssue 72 ;
+    li:gender "Female" ;
+    li:sourceContractID "C5" ;
+    .
+
+li_abox:Owner_C5 a li:PolicyOwner ;
+    li:partyName "Dorothy Mae Johnson" ;
+    li:sourceContractID "C5" ;
+    .
+
+li_abox:Insurer_C5 a li:Insurer ;
+    li:insurerName "ComfortCare Senior Insurance" ;
+    li:claimsAddress "P.O. Box 777, Tampa, FL 33601" ;
+    li:insurerPhone "1-800-COMFORT (1-800-266-3678)" ;
+    li:sourceContractID "C5" ;
+    .
+
+li_abox:DeathBenefit_C5 a li:GradedDeathBenefit ;
+    li:faceAmount 10000.00 ;
+    li:deathBenefitPaymentDays 5 ;
+    li:gradedBenefitYear1Percent 30.0 ;
+    li:gradedBenefitYear2Percent 70.0 ;
+    li:gradedBenefitFullYear 3 ;
+    li:gradedBenefitAccidentalDeathException true ;
+    li:gradedBenefitIncludesPremiumsPaid true ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 2, 6" ;
+    li:coverageSourceText "GRADED DEATH BENEFIT. Year 1: 30% + all premiums paid. Year 2: 70% + all premiums paid. Year 3+: 100%. EXCEPTION - ACCIDENTAL DEATH: full benefit immediately, plus all premiums paid. We will pay valid claims within 5 business days." ;
+    .
+
+li_abox:PrimaryBenef_C5 a li:PrimaryBeneficiary ;
+    li:partyName "Linda Sue Johnson" ;
+    li:beneficiaryRelationship "Daughter" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C5" ;
+    .
+
+li_abox:Premium_C5 a li:LevelPremium ;
+    li:monthlyPremiumAmount 87.50 ;
+    li:premiumPaymentFrequency "monthly" ;
+    li:premiumDueDayOfMonth 1 ;
+    li:premiumRetryDayOfMonth 15 ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 3" ;
+    li:coverageSourceText "Premiums are automatically deducted from your bank account on the 1st of each month. If a payment fails, we will try again on the 15th." ;
+    .
+
+li_abox:CashValue_C5 a li:GuaranteedCashValue ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 4" ;
+    li:coverageSourceText "Approximate cash value after 10 years: $3,200" ;
+    .
+
+li_abox:GracePeriod_C5 a li:PremiumNonpaymentGracePeriod ;
+    li:gracePeriodDays 30 ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 3.4" ;
+    .
+
+li_abox:SuicideExclusion_C5 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 24 ;
+    li:suicideBenefitType li:ReturnPremiumsPaid ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 5.1" ;
+    .
+
+li_abox:Incontestability_C5 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 9.3" ;
+    .
+
+li_abox:FreeLook_C5 a li:FreeLookProvision ;
+    li:freeLookDays 30 ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 7.1" ;
+    .
+
+li_abox:Portability_C5 a li:PortabilityProvision ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 7.3" ;
+    li:coverageSourceText "PORTABILITY: You own this policy. It stays with you even if you move to another state." ;
+    .
+
+li_abox:BeneficiaryChange_C5 a li:BeneficiaryChangeProvision ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 7.2" ;
+    .
+
+li_abox:Reinstatement_C5 a li:ReinstatementProvision ;
+    li:reinstatementPeriodYears 2 ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 8.3" ;
+    .
+
+li_abox:ReducedPaidUp_C5 a li:ReducedPaidUpOption ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 8.1" ;
+    li:coverageSourceText "After 2 years, if you stop paying premiums, your policy will automatically continue with a reduced benefit amount based on the cash value. No further premiums needed." ;
+    .
+
+li_abox:CashSurrender_C5 a li:CashSurrenderOption ;
+    li:sourceContractID "C5" ;
+    li:sourceContractSection "Section 8.2" ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 6: Alliance Group Term Life Certificate
+# Policy: AGB-GT-2024-TechCorp-00842 | Employee: Alex Morgan Taylor
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C6 a li:GroupLifeCertificate ;
+    li:policyNumber "AGB-GT-2024-TechCorp-00842" ;
+    li:issueDate "2024-06-01"^^xsd:date ;
+    li:effectiveDate "2024-06-01"^^xsd:date ;
+    li:stateOfIssuance "California" ;
+    li:faceAmount 280000.00 ;
+    li:monthlyPremiumAmount 12.00 ;
+    li:sourceContractID "C6" ;
+    li:coverageStatus "covered" ;
+
+    li:hasInsured li_abox:Insured_C6 ;
+    li:hasEmployee li_abox:Employee_C6 ;
+    li:issuedBy li_abox:Insurer_C6 ;
+    li:governedByMasterPolicy li_abox:MasterPolicy_C6 ;
+    li:heldByEmployer li_abox:Employer_C6 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C6_Basic, li_abox:DeathBenefit_C6_Voluntary ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C6 ;
+    li:hasContingentBeneficiary li_abox:ContingentBenef_C6 ;
+    li:hasPremium li_abox:Premium_C6_Employer, li_abox:Premium_C6_Employee ;
+    li:hasGracePeriod li_abox:GracePeriod_C6 ;
+    li:hasExclusion li_abox:SuicideExclusion_C6 ;
+    li:hasProvision li_abox:Incontestability_C6, li_abox:Conversion_C6, li_abox:Portability_C6,
+                    li_abox:WaiverOfPremium_C6, li_abox:BeneficiaryChange_C6, li_abox:LateEntrant_C6,
+                    li_abox:CoverageTermination_C6 ;
+    li:hasLivingBenefit li_abox:TerminalIllnessADB_C6 ;
+    .
+
+li_abox:Insured_C6 a li:Insured ;
+    li:partyName "Alex Morgan Taylor" ;
+    li:dateOfBirth "1990-02-14"^^xsd:date ;
+    li:sourceContractID "C6" ;
+    .
+
+li_abox:Employee_C6 a li:Employee ;
+    li:partyName "Alex Morgan Taylor" ;
+    li:employeeID "TC-8842" ;
+    li:employeeDepartment "Software Engineering" ;
+    li:dateOfHire "2022-03-01"^^xsd:date ;
+    li:annualSalaryAmount 90000.00 ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Certificate Holder section" ;
+    .
+
+li_abox:Insurer_C6 a li:Insurer ;
+    li:insurerName "Alliance Group Benefits" ;
+    li:insurerAddress "Dallas, Texas" ;
+    li:claimsAddress "1200 Insurance Plaza, Dallas, TX 75201" ;
+    li:claimsPhone "1-888-555-CLAIM" ;
+    li:sourceContractID "C6" ;
+    .
+
+li_abox:MasterPolicy_C6 a li:MasterGroupPolicy ;
+    li:policyNumber "AGB-2024-TC-GROUP" ;
+    li:sourceContractID "C6" ;
+    .
+
+li_abox:Employer_C6 a li:Employer ;
+    li:partyName "TechCorp Industries, Inc." ;
+    li:insurerAddress "San Jose, California" ;
+    li:sourceContractID "C6" ;
+    .
+
+li_abox:DeathBenefit_C6_Basic a li:BasicGroupCoverage ;
+    li:faceAmount 180000.00 ;
+    li:salaryMultiple 2.0 ;
+    li:deathBenefitPaymentDays 10 ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 3.1" ;
+    li:coverageSourceText "BASIC LIFE: Your basic benefit equals 2 times your annual base salary, rounded to the next higher $1,000. Benefits will be paid within 10 business days of receipt of complete claim documentation." ;
+    .
+
+li_abox:DeathBenefit_C6_Voluntary a li:VoluntarySupplementalCoverage ;
+    li:faceAmount 100000.00 ;
+    li:salaryMaxTotalCoverage 1000000.00 ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 3.2, 3.4" ;
+    li:coverageSourceText "VOLUNTARY SUPPLEMENTAL: You may elect additional coverage in increments of $10,000, up to a maximum of 5 times salary. Total coverage cannot exceed $1,000,000." ;
+    .
+
+li_abox:PrimaryBenef_C6 a li:PrimaryBeneficiary ;
+    li:partyName "Jordan Casey Taylor" ;
+    li:beneficiaryRelationship "Spouse" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C6" ;
+    .
+
+li_abox:ContingentBenef_C6 a li:ContingentBeneficiary ;
+    li:partyName "Taylor Family Revocable Trust" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C6" ;
+    .
+
+li_abox:Premium_C6_Employer a li:EmployerPaidPremium ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Coverage Summary" ;
+    li:coverageSourceText "Employer pays basic" ;
+    .
+
+li_abox:Premium_C6_Employee a li:EmployeePaidPremium ;
+    li:monthlyPremiumAmount 12.00 ;
+    li:sourceContractID "C6" ;
+    li:coverageSourceText "employee pays $12/month for voluntary coverage" ;
+    .
+
+li_abox:GracePeriod_C6 a li:PremiumNonpaymentGracePeriod ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 4.1(e)" ;
+    li:coverageSourceText "The last day for which required premiums have been paid" ;
+    .
+
+li_abox:SuicideExclusion_C6 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 12 ;
+    li:suicideBenefitType li:NoBenefit ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 8.1" ;
+    li:coverageSourceText "SUICIDE: If death occurs by suicide within 12 months of the coverage effective date, we will not pay a death benefit." ;
+    .
+
+li_abox:Incontestability_C6 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 1.3 (implied from master policy)" ;
+    .
+
+li_abox:Conversion_C6 a li:ConversionPrivilege ;
+    li:conversionDeadlineDays 31 ;
+    li:conversionMaxAmount 200000.00 ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 5" ;
+    li:coverageSourceText "You must apply for conversion within 31 days of termination. Maximum amount: Lesser of group coverage or $200,000." ;
+    .
+
+li_abox:Portability_C6 a li:PortabilityProvision ;
+    li:portabilityApplicationDays 31 ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 6" ;
+    .
+
+li_abox:WaiverOfPremium_C6 a li:WaiverOfPremiumProvision ;
+    li:waiverDisabilityWaitingMonths 6 ;
+    li:waiverMaxAgeAtDisability 60 ;
+    li:waiverTerminationAge 65 ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 11" ;
+    .
+
+li_abox:BeneficiaryChange_C6 a li:BeneficiaryChangeProvision ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 9.1" ;
+    li:coverageSourceText "You may change your beneficiary at any time by submitting a change form to your employer's HR department." ;
+    .
+
+li_abox:LateEntrant_C6 a li:LateEntrantProvision ;
+    li:lateEntrantEnrollmentWindowDays 31 ;
+    li:lateEntrantRequiresEOI true ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 2.3" ;
+    li:coverageSourceText "Voluntary coverage required enrollment within 31 days of hire (Late Entrant provisions apply if enrolling after 31 days)." ;
+    .
+
+li_abox:CoverageTermination_C6 a li:CoverageTerminationTrigger ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 4.1" ;
+    li:coverageSourceText "Coverage terminates on earliest of: (a) master policy terminates, (b) last day of month employee ceases eligible, (c) cease active full-time employment, (d) request termination of voluntary coverage, (e) last day premiums paid." ;
+    .
+
+li_abox:TerminalIllnessADB_C6 a li:TerminalIllnessADB ;
+    li:adbMaxPercentOfFaceAmount 75.0 ;
+    li:adbMinimumAmount 5000.00 ;
+    li:adbMaximumAmount 250000.00 ;
+    li:terminalIllnessLifeExpectancyMonths 12 ;
+    li:adbActuarialDiscountApplies true ;
+    li:sourceContractID "C6" ;
+    li:sourceContractSection "Section 7" ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 7: ProtectPlus 30-Year Term with 6 Riders
+# Policy: PP-TL-2024-6729R | Insured: Christopher David Bennett | Age: 37
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C7 a li:TermWithRidersPolicy ;
+    li:policyNumber "PP-TL-2024-6729R" ;
+    li:issueDate "2024-07-12"^^xsd:date ;
+    li:expiryDate "2054-07-12"^^xsd:date ;
+    li:policyTermYears 30 ;
+    li:stateOfIssuance "Colorado" ;
+    li:faceAmount 750000.00 ;
+    li:annualPremiumAmount 1089.00 ;
+    li:sourceContractID "C7" ;
+    li:coverageStatus "covered" ;
+
+    li:hasInsured li_abox:Insured_C7 ;
+    li:hasOwner li_abox:Owner_C7 ;
+    li:issuedBy li_abox:Insurer_C7 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C7 ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C7_1, li_abox:PrimaryBenef_C7_2, li_abox:PrimaryBenef_C7_3 ;
+    li:hasContingentBeneficiary li_abox:ContingentBenef_C7 ;
+    li:hasPremium li_abox:Premium_C7 ;
+    li:hasGracePeriod li_abox:GracePeriod_C7 ;
+    li:hasExclusion li_abox:SuicideExclusion_C7 ;
+    li:hasProvision li_abox:Incontestability_C7, li_abox:GuaranteedRenewal_C7, li_abox:Conversion_C7,
+                    li_abox:BeneficiaryChange_C7 ;
+    li:hasRider li_abox:WaiverRider_C7, li_abox:TerminalIllnessADBRider_C7, li_abox:ChronicIllnessADBRider_C7,
+                li_abox:ChildrenRider_C7, li_abox:AccidentalDeathRider_C7, li_abox:GIORider_C7, li_abox:AviationWaiver_C7 ;
+    li:hasUnderwritingType li:FullUnderwriting ;
+    .
+
+li_abox:Insured_C7 a li:Insured ;
+    li:partyName "Christopher David Bennett" ;
+    li:dateOfBirth "1987-05-20"^^xsd:date ;
+    li:ageAtIssue 37 ;
+    li:gender "Male" ;
+    li:hasRiskClass li:PreferredClass ;
+    li:smokerStatus "Non-Smoker" ;
+    li:sourceContractID "C7" ;
+    .
+
+li_abox:Owner_C7 a li:PolicyOwner ;
+    li:partyName "Christopher David Bennett" ;
+    li:sourceContractID "C7" ;
+    .
+
+li_abox:Insurer_C7 a li:Insurer ;
+    li:insurerName "ProtectPlus Family Insurance Co." ;
+    li:insurerAddress "Denver, Colorado" ;
+    li:sourceContractID "C7" ;
+    .
+
+li_abox:DeathBenefit_C7 a li:LevelDeathBenefit ;
+    li:faceAmount 750000.00 ;
+    li:deathBenefitPaymentDays 30 ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 1" ;
+    .
+
+li_abox:PrimaryBenef_C7_1 a li:PrimaryBeneficiary ;
+    li:partyName "Rachel Marie Bennett" ;
+    li:beneficiaryRelationship "Wife" ;
+    li:beneficiarySharePercentage 60.0 ;
+    li:sourceContractID "C7" ;
+    .
+
+li_abox:PrimaryBenef_C7_2 a li:PrimaryBeneficiary ;
+    li:partyName "Christopher Bennett Jr." ;
+    li:beneficiaryRelationship "Son" ;
+    li:beneficiarySharePercentage 20.0 ;
+    li:sourceContractID "C7" ;
+    .
+
+li_abox:PrimaryBenef_C7_3 a li:PrimaryBeneficiary ;
+    li:partyName "Olivia Grace Bennett" ;
+    li:beneficiaryRelationship "Daughter" ;
+    li:beneficiarySharePercentage 20.0 ;
+    li:sourceContractID "C7" ;
+    .
+
+li_abox:ContingentBenef_C7 a li:ContingentBeneficiary ;
+    li:partyName "Bennett Family Irrevocable Trust" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C7" ;
+    .
+
+li_abox:Premium_C7 a li:LevelPremium ;
+    li:annualPremiumAmount 1089.00 ;
+    li:premiumPaymentFrequency "annual" ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 3" ;
+    .
+
+li_abox:GracePeriod_C7 a li:PremiumNonpaymentGracePeriod ;
+    li:gracePeriodDays 31 ;
+    li:unpaidPremiumDeductedOnDeathDuringGrace true ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 3.2" ;
+    li:coverageSourceText "GRACE PERIOD: 31 days from due date. Coverage continues during grace period. If death occurs during grace period, unpaid premium will be deducted from death benefit." ;
+    .
+
+li_abox:SuicideExclusion_C7 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 24 ;
+    li:suicideBenefitType li:ReturnPremiumsPaid ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 1.3" ;
+    .
+
+li_abox:Incontestability_C7 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 5" ;
+    .
+
+li_abox:GuaranteedRenewal_C7 a li:GuaranteedRenewabilityProvision ;
+    li:renewableToAge 95 ;
+    li:renewalPremiumBasis "increased per renewal rate schedule" ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 4.1" ;
+    li:coverageSourceText "This policy is guaranteed renewable to age 95 at increased premiums shown in the renewal rate schedule." ;
+    .
+
+li_abox:Conversion_C7 a li:ConversionPrivilege ;
+    li:conversionMaxAge 70 ;
+    li:conversionMinAmount 50000.00 ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 4.2" ;
+    .
+
+li_abox:BeneficiaryChange_C7 a li:BeneficiaryChangeProvision ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 7.3" ;
+    .
+
+li_abox:WaiverRider_C7 a li:WaiverOfPremiumRider ;
+    li:riderAnnualPremium 102.00 ;
+    li:waiverDisabilityWaitingMonths 6 ;
+    li:waiverMaxAgeAtDisability 60 ;
+    li:waiverTerminationAge 65 ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 2, Rider 1" ;
+    .
+
+li_abox:TerminalIllnessADBRider_C7 a li:TerminalIllnessADBRider ;
+    li:riderAnnualPremium 0.00 ;
+    li:adbMaxPercentOfFaceAmount 95.0 ;
+    li:adbMinimumAmount 10000.00 ;
+    li:adbMaximumAmount 500000.00 ;
+    li:terminalIllnessLifeExpectancyMonths 24 ;
+    li:adbActuarialDiscountApplies true ;
+    li:adbActuarialDiscountApproxPercentPerYear 8.0 ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 2, Rider 2" ;
+    li:coverageSourceText "Included at no charge. Benefit reduced by actuarial discount (approximately 8% per year)." ;
+    .
+
+li_abox:ChronicIllnessADBRider_C7 a li:ChronicIllnessADBRider ;
+    li:riderAnnualPremium 48.00 ;
+    li:adlMinimumUnableToPerform 2 ;
+    li:adlQualifyingPeriodDays 90 ;
+    li:chronicallyIllMonthlyAdvancePercentage 2.0 ;
+    li:chronicIllnessMaxTotalPercentage 50.0 ;
+    li:adbActuarialDiscountApplies false ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 2, Rider 3" ;
+    .
+
+li_abox:ChildrenRider_C7 a li:ChildrenTermRider ;
+    li:riderAnnualPremium 156.00 ;
+    li:childrenRiderCoverageAmount 15000.00 ;
+    li:childrenRiderMaxAge 25 ;
+    li:childrenRiderConversionMultiple 5.0 ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 2, Rider 4" ;
+    li:coverageSourceText "Children may convert to individual policy at age 25 without evidence of insurability, up to 5 times the rider amount." ;
+    .
+
+li_abox:AccidentalDeathRider_C7 a li:AccidentalDeathBenefitRider ;
+    li:riderAnnualPremium 94.00 ;
+    li:adbRiderAdditionalBenefitAmount 750000.00 ;
+    li:adbRiderAccidentDeathWindowDays 90 ;
+    li:adbRiderTerminationAge 70 ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 2, Rider 5" ;
+    .
+
+li_abox:GIORider_C7 a li:GuaranteedInsurabilityRider ;
+    li:riderAnnualPremium 89.00 ;
+    li:gioOptionDates "Ages 40, 43, 46, 49 and at birth/adoption of child" ;
+    li:gioMaxCoveragePerOption 100000.00 ;
+    li:gioTerminationAge 50 ;
+    li:gioExerciseWindowDays 90 ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 2, Rider 6" ;
+    .
+
+li_abox:AviationWaiver_C7 a li:AviationExclusionWaiver ;
+    li:riderAnnualPremium 175.00 ;
+    li:sourceContractID "C7" ;
+    li:sourceContractSection "Section 6" ;
+    li:coverageSourceText "The standard aviation exclusion has been waived for this policy based on the insured's declared private pilot activities. Additional premium of $175/year is included in the base premium." ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 8: Estate Planning Joint Survivorship (Second-to-Die)
+# Policy: EPL-JSL-2024-1156 | Insureds: William & Elizabeth Hartford
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C8 a li:JointSurvivorshipPolicy ;
+    li:policyNumber "EPL-JSL-2024-1156" ;
+    li:issueDate "2024-08-20"^^xsd:date ;
+    li:stateOfIssuance "Connecticut" ;
+    li:faceAmount 2500000.00 ;
+    li:annualPremiumAmount 32400.00 ;
+    li:premiumPaymentFrequency "annual" ;
+    li:premiumDueDayOfMonth 20 ;
+    li:premiumGuaranteePeriodYears 10 ;
+    li:maximumGuaranteedPremium 48600.00 ;
+    li:waiverOfPremiumAvailable false ;
+    li:sourceContractID "C8" ;
+    li:coverageStatus "covered" ;
+
+    li:hasFirstInsured li_abox:FirstInsured_C8 ;
+    li:hasSecondInsured li_abox:SecondInsured_C8 ;
+    li:hasOwner li_abox:Owner_C8 ;
+    li:heldInTrust li_abox:Trust_C8 ;
+    li:issuedBy li_abox:Insurer_C8 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C8 ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C8 ;
+    li:hasPremium li_abox:Premium_C8 ;
+    li:hasCashValue li_abox:CashValue_C8 ;
+    li:hasPolicyLoan li_abox:PolicyLoan_C8 ;
+    li:hasGracePeriod li_abox:GracePeriod_C8 ;
+    li:hasExclusion li_abox:SuicideExclusion_C8 ;
+    li:hasProvision li_abox:Incontestability_C8, li_abox:FreeLook_C8, li_abox:SplitOption_C8, li_abox:SimultaneousDeath_C8 ;
+    li:hasEstatePlanningProvision li_abox:EstateTaxLiquidity_C8, li_abox:ThreeYearLookback_C8, li_abox:CrummeyPower_C8 ;
+    li:hasUnderwritingType li:FullUnderwriting ;
+    .
+
+li_abox:FirstInsured_C8 a li:FirstInsured ;
+    li:partyName "William Alexander Hartford" ;
+    li:dateOfBirth "1956-12-05"^^xsd:date ;
+    li:ageAtIssue 67 ;
+    li:gender "Male" ;
+    li:hasRiskClass li:StandardClass ;
+    li:sourceContractID "C8" ;
+    .
+
+li_abox:SecondInsured_C8 a li:SecondInsured ;
+    li:partyName "Elizabeth Anne Hartford" ;
+    li:dateOfBirth "1958-03-18"^^xsd:date ;
+    li:ageAtIssue 66 ;
+    li:gender "Female" ;
+    li:hasRiskClass li:PreferredClass ;
+    li:sourceContractID "C8" ;
+    .
+
+li_abox:Owner_C8 a li:PolicyOwner ;
+    li:partyName "The Hartford Family Irrevocable Life Insurance Trust" ;
+    li:sourceContractID "C8" ;
+    .
+
+li_abox:Trust_C8 a li:IrrevocableTrust ;
+    li:partyName "The Hartford Family Irrevocable Life Insurance Trust" ;
+    li:trustDate "2024-08-01"^^xsd:date ;
+    li:trusteeName "First National Bank of Connecticut" ;
+    li:trusteeType "corporate trustee" ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Policy Owner section" ;
+    .
+
+li_abox:Insurer_C8 a li:Insurer ;
+    li:insurerName "Estate Planning Life Assurance Ltd." ;
+    li:insurerAddress "Hartford, Connecticut" ;
+    li:sourceContractID "C8" ;
+    .
+
+li_abox:DeathBenefit_C8 a li:SurvivorshipDeathBenefit ;
+    li:faceAmount 2500000.00 ;
+    li:deathBenefitPaymentDays 30 ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article I, II" ;
+    li:coverageSourceText "DEATH BENEFIT TRIGGER: The death benefit is payable only upon the death of the SECOND insured to die (survivorship basis). Payment will be made within 30 days of receiving complete documentation." ;
+    .
+
+li_abox:PrimaryBenef_C8 a li:PrimaryBeneficiary ;
+    li:partyName "Hartford Family Irrevocable Life Insurance Trust" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C8" ;
+    .
+
+li_abox:Premium_C8 a li:LevelPremium ;
+    li:annualPremiumAmount 32400.00 ;
+    li:premiumPaymentFrequency "annual" ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article IV" ;
+    .
+
+li_abox:CashValue_C8 a li:GuaranteedCashValue ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article V.2" ;
+    li:coverageSourceText "Projected cash value (based on current assumptions): End of Year 10: $285,000. End of Year 20: $712,000." ;
+    .
+
+li_abox:PolicyLoan_C8 a li:PolicyLoan ;
+    li:policyLoanMaxPercentOfCV 90.0 ;
+    li:policyLoanInterestRate 5.5 ;
+    li:policyLoanInterestRateType "variable" ;
+    li:loanMinimumYearsInForce 2 ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article V.3" ;
+    .
+
+li_abox:GracePeriod_C8 a li:PremiumNonpaymentGracePeriod ;
+    li:gracePeriodDays 60 ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article IV" ;
+    li:coverageSourceText "4.6 GRACE PERIOD: A grace period of 60 days will be granted for the payment of every premium after the first. During this period, the policy will remain in full force. If the first insured dies during this grace period, the policy will continue in force as provided in Article 3.1, subject to the payment of the overdue premium." ;
+    .
+
+li_abox:SuicideExclusion_C8 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 24 ;
+    li:suicideBenefitType li:ReturnPremiumsPaid ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article VII.1" ;
+    li:coverageSourceText "SUICIDE CLAUSE: If either insured commits suicide within 2 years of the issue date, the death benefit is limited to return of premiums paid." ;
+    .
+
+li_abox:Incontestability_C8 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article VII.3" ;
+    .
+
+li_abox:FreeLook_C8 a li:FreeLookProvision ;
+    li:freeLookDays 30 ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article XI" ;
+    .
+
+li_abox:SplitOption_C8 a li:SplitOption ;
+    li:splitOptionElectionYearsAfterDeath 2 ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article VI" ;
+    .
+
+li_abox:SimultaneousDeath_C8 a li:SimultaneousDeathEvent ;
+    li:simultaneousDeathWindowDays 30 ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article IX" ;
+    .
+
+li_abox:EstateTaxLiquidity_C8 a li:EstateTaxLiquidityProvision ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article I.5" ;
+    .
+
+li_abox:ThreeYearLookback_C8 a li:ThreeYearLookbackRule ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article VIII.3" ;
+    .
+
+li_abox:CrummeyPower_C8 a li:CrummeyPower ;
+    li:sourceContractID "C8" ;
+    li:sourceContractSection "Article VIII.3" ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 9: ValueGuard Return of Premium Term
+# Policy: VG-ROP-2024-4183 | Insured: Nicole Christine Martinez | Age: 36
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C9 a li:ReturnOfPremiumTermPolicy ;
+    li:policyNumber "VG-ROP-2024-4183" ;
+    li:issueDate "2024-09-15"^^xsd:date ;
+    li:expiryDate "2044-09-15"^^xsd:date ;
+    li:policyTermYears 20 ;
+    li:stateOfIssuance "Minnesota" ;
+    li:faceAmount 300000.00 ;
+    li:annualPremiumAmount 1620.00 ;
+    li:premiumPaymentFrequency "annual" ;
+    li:sourceContractID "C9" ;
+    li:coverageStatus "covered" ;
+
+    li:hasInsured li_abox:Insured_C9 ;
+    li:hasOwner li_abox:Owner_C9 ;
+    li:issuedBy li_abox:Insurer_C9 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C9 ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C9 ;
+    li:hasContingentBeneficiary li_abox:ContingentBenef_C9_1, li_abox:ContingentBenef_C9_2 ;
+    li:hasPremium li_abox:Premium_C9 ;
+    li:hasGracePeriod li_abox:GracePeriod_C9 ;
+    li:hasExclusion li_abox:SuicideExclusion_C9 ;
+    li:hasProvision li_abox:Incontestability_C9, li_abox:MisstatementOfAge_C9, li_abox:Conversion_C9,
+                    li_abox:Assignment_C9, li_abox:Reinstatement_C9 ;
+    li:hasLivingBenefit li_abox:ROPBenefit_C9 ;
+    li:hasUnderwritingType li:FullUnderwriting ;
+    .
+
+li_abox:Insured_C9 a li:Insured ;
+    li:partyName "Nicole Christine Martinez" ;
+    li:dateOfBirth "1988-04-07"^^xsd:date ;
+    li:ageAtIssue 36 ;
+    li:gender "Female" ;
+    li:hasRiskClass li:PreferredPlusClass ;
+    li:smokerStatus "Non-Smoker" ;
+    li:sourceContractID "C9" ;
+    .
+
+li_abox:Owner_C9 a li:PolicyOwner ;
+    li:partyName "Nicole Christine Martinez" ;
+    li:sourceContractID "C9" ;
+    .
+
+li_abox:Insurer_C9 a li:Insurer ;
+    li:insurerName "ValueGuard Life Insurance Company" ;
+    li:insurerAddress "Minneapolis, Minnesota" ;
+    li:insurerWebsite "service@valueguardlife.com" ;
+    li:insurerPhone "1-800-VALUE-GUARD" ;
+    li:sourceContractID "C9" ;
+    .
+
+li_abox:DeathBenefit_C9 a li:LevelDeathBenefit ;
+    li:faceAmount 300000.00 ;
+    li:deathBenefitPaymentDays 60 ;
+    li:sourceContractID "C9" ;
+    li:sourceContractSection "Section 2, 3.4" ;
+    li:coverageSourceText "If the insured dies during the policy term while the policy is in force, we will pay $300,000 to the beneficiary. ROP payments are made within 60 days of the applicable date." ;
+    .
+
+li_abox:PrimaryBenef_C9 a li:PrimaryBeneficiary ;
+    li:partyName "Carlos Roberto Martinez" ;
+    li:beneficiaryRelationship "Husband" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C9" ;
+    .
+
+li_abox:ContingentBenef_C9_1 a li:ContingentBeneficiary ;
+    li:partyName "Sofia Isabella Martinez" ;
+    li:beneficiaryRelationship "Daughter" ;
+    li:beneficiarySharePercentage 50.0 ;
+    li:sourceContractID "C9" ;
+    .
+
+li_abox:ContingentBenef_C9_2 a li:ContingentBeneficiary ;
+    li:partyName "Marco Daniel Martinez" ;
+    li:beneficiaryRelationship "Son" ;
+    li:beneficiarySharePercentage 50.0 ;
+    li:sourceContractID "C9" ;
+    .
+
+li_abox:Premium_C9 a li:LevelPremium ;
+    li:annualPremiumAmount 1620.00 ;
+    li:premiumPaymentFrequency "annual" ;
+    li:sourceContractID "C9" ;
+    .
+
+li_abox:GracePeriod_C9 a li:PremiumNonpaymentGracePeriod ;
+    li:gracePeriodDays 31 ;
+    li:sourceContractID "C9" ;
+    li:sourceContractSection "Section 4.4" ;
+    .
+
+li_abox:SuicideExclusion_C9 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 24 ;
+    li:suicideBenefitType li:ReturnPremiumsPaid ;
+    li:sourceContractID "C9" ;
+    li:sourceContractSection "Section 7.1" ;
+    .
+
+li_abox:Incontestability_C9 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C9" ;
+    li:sourceContractSection "Section 7.2 (implied)" ;
+    .
+
+li_abox:MisstatementOfAge_C9 a li:MisstatementOfAgeProvision ;
+    li:sourceContractID "C9" ;
+    li:sourceContractSection "Section 9.4" ;
+    li:coverageSourceText "If age was misstated, we will adjust the death benefit to what the premium would have purchased at the correct age. ROP amount is not affected." ;
+    .
+
+li_abox:Conversion_C9 a li:ConversionPrivilege ;
+    li:conversionMaxAge 65 ;
+    li:conversionMinAmount 50000.00 ;
+    li:sourceContractID "C9" ;
+    li:sourceContractSection "Section 5" ;
+    li:coverageSourceText "Conversion available: At any time before the policy expires, OR Before the insured's 65th birthday, whichever is earlier. Upon conversion: ROP benefit is forfeited." ;
+    .
+
+li_abox:Assignment_C9 a li:AssignmentProvision ;
+    li:sourceContractID "C9" ;
+    li:sourceContractSection "Section 10.1" ;
+    li:coverageSourceText "As policy owner, you may: Assign the policy as collateral." ;
+    .
+
+li_abox:Reinstatement_C9 a li:ReinstatementProvision ;
+    li:reinstatementPeriodYears 5 ;
+    li:reinstatementInterestRate 6.0 ;
+    li:reinstatementNewSuicidePeriod true ;
+    li:sourceContractID "C9" ;
+    li:sourceContractSection "Section 8" ;
+    li:coverageSourceText "Upon reinstatement, the ROP benefit is recalculated to exclude the lapsed period. A new 2-year suicide and contestability period begins upon reinstatement." ;
+    .
+
+li_abox:ROPBenefit_C9 a li:ReturnOfPremiumBenefit ;
+    li:ropPercentAtEndOfTerm 100.0 ;
+    li:ropLatePremiumPenaltyPercentage 10.0 ;
+    li:ropLapseForfeitsROP true ;
+    li:sourceContractID "C9" ;
+    li:sourceContractSection "Section 3, 4.5" ;
+    li:coverageSourceText "If the insured survives the 20-year term and all premiums have been paid, we will return 100% of all premiums paid ($32,400). If a premium is paid late (during grace period), the ROP benefit is reduced by 10% for each late payment. If premium is not paid within grace period, policy lapses and return of premium benefit is forfeited." ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# CONTRACT 10: Horizon Indexed Universal Life
+# Policy: HWP-IUL-2024-7290 | Insured: Jessica Lynn Thompson | Age: 44
+# ═══════════════════════════════════════════════════════════════════════
+
+li_abox:Policy_C10 a li:IndexedUniversalLifePolicy ;
+    li:policyNumber "HWP-IUL-2024-7290" ;
+    li:issueDate "2024-10-03"^^xsd:date ;
+    li:stateOfIssuance "Illinois" ;
+    li:faceAmount 500000.00 ;
+    li:targetPremiumAmount 6000.00 ;
+    li:annualPremiumAmount 6000.00 ;
+    li:sourceContractID "C10" ;
+    li:coverageStatus "covered" ;
+    li:lapseAutoPaysSurrenderValue true ;
+    li:freeAllocChangesPerYear 4 ;
+    li:allocationChangeFeeAfterFree 25.00 ;
+
+    li:hasInsured li_abox:Insured_C10 ;
+    li:hasOwner li_abox:Owner_C10 ;
+    li:issuedBy li_abox:Insurer_C10 ;
+    li:hasDeathBenefit li_abox:DeathBenefit_C10 ;
+    li:hasPrimaryBeneficiary li_abox:PrimaryBenef_C10 ;
+    li:hasContingentBeneficiary li_abox:ContingentBenef_C10 ;
+    li:hasPremium li_abox:Premium_C10 ;
+    li:hasCashValue li_abox:AccountValue_C10 ;
+    li:hasSurrenderCharge li_abox:SurrenderCharge_C10 ;
+    li:hasPolicyLoan li_abox:PolicyLoan_C10 ;
+    li:hasPartialWithdrawal li_abox:PartialWithdrawal_C10 ;
+    li:hasGracePeriod li_abox:GracePeriod_C10 ;
+    li:hasExclusion li_abox:SuicideExclusion_C10 ;
+    li:hasProvision li_abox:Incontestability_C10, li_abox:DeathBenefitChange_C10 ;
+    li:hasCharge li_abox:COI_C10, li_abox:AdminCharge_C10 ;
+    li:hasCreditingMechanism li_abox:IndexedCred_C10, li_abox:FixedCred_C10 ;
+    li:hasIndexAccount li_abox:IndexAccount_C10_SP500, li_abox:IndexAccount_C10_NASDAQ, li_abox:IndexAccount_C10_Global ;
+    li:hasRider li_abox:NoLapseGuarantee_C10 ;
+    li:hasUnderwritingType li:FullUnderwriting ;
+    .
+
+li_abox:Insured_C10 a li:Insured ;
+    li:partyName "Jessica Lynn Thompson" ;
+    li:dateOfBirth "1980-01-25"^^xsd:date ;
+    li:ageAtIssue 44 ;
+    li:gender "Female" ;
+    li:hasRiskClass li:StandardPlusClass ;
+    li:smokerStatus "Non-Tobacco" ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:Owner_C10 a li:PolicyOwner ;
+    li:partyName "Jessica Lynn Thompson" ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:Insurer_C10 a li:Insurer ;
+    li:insurerName "Horizon Wealth Protection Insurance" ;
+    li:insurerAddress "Chicago, Illinois" ;
+    li:insurerPhone "1-888-HORIZON-1" ;
+    li:insurerWebsite "www.horizonwealthprotection.com" ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:DeathBenefit_C10 a li:LevelDeathBenefit ;
+    li:faceAmount 500000.00 ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 6.1" ;
+    li:coverageSourceText "OPTION 1 - Level Death Benefit (CURRENT). Death Benefit = $500,000 (specified amount). Lower ongoing charges." ;
+    .
+
+li_abox:PrimaryBenef_C10 a li:PrimaryBeneficiary ;
+    li:partyName "Matthew Scott Thompson" ;
+    li:beneficiaryRelationship "Spouse" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:ContingentBenef_C10 a li:ContingentBeneficiary ;
+    li:partyName "Thompson Family Trust" ;
+    li:beneficiarySharePercentage 100.0 ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:Premium_C10 a li:FlexiblePremium ;
+    li:targetPremiumAmount 6000.00 ;
+    li:minimumPremiumAmount 100.00 ;
+    li:maximumPremiumAnnual 50000.00 ;
+    li:premiumPaymentFrequency "flexible" ;
+    li:premiumSkippingAllowed true ;
+    li:sourceContractID "C10" ;
+    li:hasPremiumLoad li_abox:PremiumLoad_C10 ;
+    .
+
+li_abox:PremiumLoad_C10 a li:PremiumLoad ;
+    li:premiumLoadPercentage 3.5 ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 4.4" ;
+    .
+
+li_abox:AccountValue_C10 a li:AccountValue ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:SurrenderCharge_C10 a li:SurrenderCharge ;
+    li:surrenderChargeBasis "premiums_paid_first_10_years" ;
+    li:surrenderChargePeriodYears 12 ;
+    li:freeWithdrawalAnnualPercentage 10.0 ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 8" ;
+    li:coverageSourceText "Surrender charge is calculated as a percentage of premiums paid in the first 10 years. Year 1: 10%... Year 12+: 0%. FREE PARTIAL WITHDRAWAL: You may withdraw up to 10% of account value each year without surrender charge after Year 1." ;
+    .
+
+li_abox:PolicyLoan_C10 a li:PolicyLoan ;
+    li:policyLoanMaxPercentOfCV 90.0 ;
+    li:policyLoanInterestRate 4.0 ;
+    li:policyLoanInterestRateType "fixed" ;
+    li:loanedAmountCreditingRate 3.0 ;
+    li:loanMinimumYearsInForce 1 ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 7.1" ;
+    li:coverageSourceText "Loan interest: 4% annually (fixed loan rate). Loaned amounts earn fixed account rate (3%). Net cost: 1% annually." ;
+    .
+
+li_abox:PartialWithdrawal_C10 a li:PartialWithdrawal ;
+    li:withdrawalMinimumAmount 500.00 ;
+    li:withdrawalFeePerTransaction 50.00 ;
+    li:withdrawalFreeNumberPerYear 10 ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 7.2" ;
+    .
+
+li_abox:GracePeriod_C10 a li:AccountValueDepletionGracePeriod ;
+    li:gracePeriodDays 61 ;
+    li:lapsePriorNoticeRequiredDays 30 ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 10" ;
+    .
+
+li_abox:SuicideExclusion_C10 a li:SuicideExclusion ;
+    li:suicideExclusionPeriodMonths 24 ;
+    li:suicideBenefitType li:ReturnPremiumsMinusWithdrawalsAndCharges ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 11.1" ;
+    li:coverageSourceText "SUICIDE: If insured commits suicide within 2 years of issue or reinstatement, we pay only premiums paid minus any withdrawals and charges, without interest." ;
+    .
+
+li_abox:Incontestability_C10 a li:IncontestabilityProvision ;
+    li:contestabilityPeriodYears 2 ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 11.2" ;
+    .
+
+li_abox:DeathBenefitChange_C10 a li:DeathBenefitChangeOption ;
+    li:deathBenefitOptionChangeNoticeDays 60 ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 6.3" ;
+    .
+
+li_abox:COI_C10 a li:CostOfInsurance ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 5.1" ;
+    .
+
+li_abox:AdminCharge_C10 a li:AdministrativeCharge ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 5.2" ;
+    li:coverageSourceText "Administrative Charge: $12 per month" ;
+    .
+
+li_abox:IndexedCred_C10 a li:IndexedCrediting ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 2, 3" ;
+    .
+
+li_abox:FixedCred_C10 a li:FixedInterestCrediting ;
+    li:creditingGuaranteedMinimumRate 2.0 ;
+    li:creditingCurrentRate 3.0 ;
+    li:creditingFrequency "annual" ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 2.2" ;
+    .
+
+li_abox:IndexAccount_C10_SP500 a li:IndexAccount ;
+    li:accountLabel "S&P 500 Index Account (Annual Point-to-Point)" ;
+    li:creditingMethod "annual_point_to_point" ;
+    li:creditingPeriodYears 1 ;
+    li:indexDividendsIncluded false ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 2.1A" ;
+    li:hasCapRate li_abox:CapRate_C10_SP500 ;
+    li:hasFloorRate li_abox:FloorRate_C10_SP500 ;
+    li:hasParticipationRate li_abox:ParticipationRate_C10_SP500 ;
+    .
+
+li_abox:CapRate_C10_SP500 a li:CapRate ;
+    li:capRateCurrentValue 10.5 ;
+    li:capRateGuaranteedMinimum 4.0 ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:FloorRate_C10_SP500 a li:FloorRate ;
+    li:floorRateValue 0.0 ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:ParticipationRate_C10_SP500 a li:ParticipationRate ;
+    li:participationRateCurrent 100.0 ;
+    li:participationRateGuaranteedMinimum 25.0 ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:IndexAccount_C10_NASDAQ a li:IndexAccount ;
+    li:accountLabel "NASDAQ-100 Index Account (Annual Point-to-Point)" ;
+    li:creditingMethod "annual_point_to_point" ;
+    li:creditingPeriodYears 1 ;
+    li:indexDividendsIncluded false ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:IndexAccount_C10_Global a li:IndexAccount ;
+    li:accountLabel "Global Diversified Index Account" ;
+    li:creditingMethod "annual_point_to_point" ;
+    li:creditingPeriodYears 1 ;
+    li:indexDividendsIncluded false ;
+    li:sourceContractID "C10" ;
+    .
+
+li_abox:NoLapseGuarantee_C10 a li:NoLapseGuaranteeRider ;
+    li:sourceContractID "C10" ;
+    li:sourceContractSection "Article 9" ;
+    li:coverageStatus "not_selected" ;
+    li:coverageSourceText "Available as optional rider: Guarantees coverage will not lapse even if account value drops to zero, as long as minimum guaranteed premiums are paid. Not currently elected on this policy." ;
+    .
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# END OF ABOX — v3.0
+# ═══════════════════════════════════════════════════════════════════════

@@ -1,0 +1,692 @@
+[
+  {
+    "scenario_id": "SCEN-031",
+    "category": "ESTATE_PLANNING_ILIT_OWNERSHIP",
+    "scenario_description": "A wealthy couple wants to ensure their life insurance proceeds are excluded from their taxable estate and immediately available for estate tax liquidity upon the death of the surviving spouse.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:heldInTrust ?trust . ?trust a li:IrrevocableTrust . OPTIONAL { ?policy li:sourceContractSection ?sourceSection . } OPTIONAL { ?policy li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual term policy. Not structured for estate planning and not held in trust. No estate tax liquidity feature.",
+        "source": "Contract is individually owned. No trust or estate planning structure."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual whole life. Not held in an irrevocable trust. No joint survivorship or estate tax liquidity feature.",
+        "source": "Policy owner is the insured directly. No trust structure."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual universal life. Not held in trust. No estate tax liquidity design.",
+        "source": "Policy owner is the insured directly. No trust structure."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual VUL. Not held in trust. No estate tax liquidity design.",
+        "source": "Policy owner is the insured directly. No trust structure."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual final expense policy. Not designed for estate planning.",
+        "source": "Policy owner is the insured directly. No trust structure."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate. Not designed for estate planning.",
+        "source": "Group policy owned by employer. No individual trust structure."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual term policy. Not held in an irrevocable trust (contingent beneficiary is an irrevocable trust, but ownership is individual).",
+        "source": "Policy owner is the insured directly, not a trust."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "Specifically designed for estate planning. The policy is owned by an ILIT (Hartford Family Irrevocable Life Insurance Trust) to exclude the $2,500,000 proceeds from both insureds' taxable estates. Proceeds are paid to the trust upon the second death, providing liquidity for estate taxes. Three-year lookback rule and Crummey power provisions are noted.",
+        "source": "Article VIII, 8.1, 8.2: 'This policy is owned by an irrevocable trust to exclude proceeds from the insureds' taxable estates. IMPORTANT TAX NOTE: Proceeds paid to the trust should not be includable in either insured's estate if the trust is properly structured and maintained.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual ROP term policy. Not designed for estate planning.",
+        "source": "Policy owner is the insured directly. No trust structure."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "Individual IUL policy. Not held in an irrevocable trust.",
+        "source": "Policy owner is the insured directly. No trust structure."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:heldInTrust ?trust . ?trust a li:IrrevocableTrust ; li:isNegated true . OPTIONAL { ?policy li:sourceContractSection ?sourceSection . } OPTIONAL { ?policy li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-032",
+    "category": "PREMIUM_LOAD_COMPARISON",
+    "scenario_description": "A policy owner pays a premium into a flexible-premium permanent policy. A portion of the premium is deducted as a front-end load before allocation to the account.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?loadPct ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasPremium ?prem . ?prem li:hasPremiumLoad ?load . ?load li:premiumLoadPercentage ?loadPct . OPTIONAL { ?load li:sourceContractSection ?sourceSection . } OPTIONAL { ?load li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium term policy. No premium load is applied.",
+        "source": "Contract has no premium load provision."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium whole life. No front-end premium load is stated.",
+        "source": "Contract has no premium load provision."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "A 3% premium expense charge is deducted from each premium before the remainder is allocated to the account value.",
+        "source": "Article 2.2: 'Premiums are allocated to the Account Value after deduction of a 3% premium expense charge.'"
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "A 5% premium load is deducted from each premium payment before allocation to sub-accounts. This is the highest load among all contracts.",
+        "source": "Section 3.1: 'PREMIUM LOAD: 5.0% of each premium payment.'"
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium final expense policy. No front-end premium load is stated.",
+        "source": "Contract has no premium load provision."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate. No premium load provision.",
+        "source": "Contract has no premium load provision."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium term policy with riders. No premium load is applied.",
+        "source": "Contract has no premium load provision."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium joint survivorship policy. No premium load is stated.",
+        "source": "Contract has no premium load provision."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Level-premium ROP term policy. No premium load is applied.",
+        "source": "Contract has no premium load provision."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "A 3.5% premium load is deducted from each premium payment before allocation to index or fixed accounts.",
+        "source": "Article 4.4: 'PREMIUM LOAD: 3.5% of each premium payment is deducted for expenses.'"
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasPremium ?prem . ?prem li:hasPremiumLoad ?load . ?load li:isNegated true . OPTIONAL { ?load li:sourceContractSection ?sourceSection . } OPTIONAL { ?load li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-033",
+    "category": "GUARANTEED_INSURABILITY_OPTION",
+    "scenario_description": "The insured turns 43 years old and wishes to purchase additional life insurance coverage without undergoing a new medical examination.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?optionDates ?maxPerOption ?terminationAge ?exerciseDays ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasRider ?rider . ?rider a li:GuaranteedInsurabilityRider . OPTIONAL { ?rider li:gioOptionDates ?optionDates . } OPTIONAL { ?rider li:gioMaxCoveragePerOption ?maxPerOption . } OPTIONAL { ?rider li:gioTerminationAge ?terminationAge . } OPTIONAL { ?rider li:gioExerciseWindowDays ?exerciseDays . } OPTIONAL { ?rider li:sourceContractSection ?sourceSection . } OPTIONAL { ?rider li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "No guaranteed insurability option rider attached.",
+        "source": "Contract does not include a GIO rider."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "No GIO rider in this whole life contract.",
+        "source": "Contract does not include a GIO rider."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No GIO rider attached. Death benefit increase is available but requires evidence of insurability.",
+        "source": "Contract does not include a GIO rider. Article 5.3 requires EOI to increase coverage."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No GIO rider attached. Increasing coverage requires proof of insurability.",
+        "source": "Contract does not include a GIO rider. Section 4.3 requires proof of insurability for increases."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "No GIO rider in this final expense policy.",
+        "source": "Contract does not include a GIO rider."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "No GIO rider in this group certificate.",
+        "source": "Contract does not include a GIO rider."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Guaranteed Insurability Option Rider (Rider 6) is attached. Age 43 is one of the specified option dates (ages 40, 43, 46, 49). The insured may purchase up to $100,000 of additional coverage without EOI within 90 days of turning 43.",
+        "source": "Section 2, Rider 6: 'Allows purchase of additional coverage without medical underwriting. Option dates: Ages 40, 43, 46, 49 and at birth/adoption of child. May purchase up to $100,000 additional coverage per option date. Must exercise within 90 days of option date. All options terminate at age 50.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "No GIO rider in this joint survivorship policy.",
+        "source": "Contract does not include a GIO rider."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "No GIO rider attached.",
+        "source": "Contract does not include a GIO rider."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No GIO rider attached. Death benefit increase requires evidence of insurability and 60 days notice.",
+        "source": "Contract does not include a GIO rider. Article 6.3 requires EOI to increase coverage."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasRider ?rider . ?rider a li:GuaranteedInsurabilityRider ; li:isNegated true . OPTIONAL { ?rider li:sourceContractSection ?sourceSection . } OPTIONAL { ?rider li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-034",
+    "category": "SALARY_BASED_BENEFIT_SALARY_INCREASE",
+    "scenario_description": "An employee covered under a group life certificate receives a significant salary raise. The policy owner wishes to know if the basic life insurance benefit automatically changes.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?salaryMultiple ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . ?db a li:BasicGroupCoverage ; li:salaryMultiple ?salaryMultiple . OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Fixed face amount term policy. Benefit is not tied to salary.",
+        "source": "Contract has fixed face amount of $500,000, not salary-based."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Fixed face amount whole life. Benefit is not tied to salary.",
+        "source": "Contract has fixed face amount of $250,000."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Fixed face amount universal life. Benefit is not tied to salary.",
+        "source": "Contract has fixed specified amount of $400,000."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Fixed face amount VUL. Benefit is not tied to salary.",
+        "source": "Contract has fixed face amount of $1,000,000."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Fixed face amount final expense policy. Benefit is not tied to salary.",
+        "source": "Contract has fixed face amount of $10,000."
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "The basic life insurance benefit equals 2 times annual base salary. Following a salary increase, the basic benefit will automatically be recalculated annually on the policy anniversary, rounded to the next higher $1,000. Total coverage cannot exceed $1,000,000.",
+        "source": "Section 3.1, 3.3: 'BASIC LIFE: Your basic benefit equals 2 times your annual base salary, rounded to the next higher $1,000. SALARY CHANGES: Your basic benefit will be recalculated annually on your policy anniversary based on your current salary. MAXIMUM BENEFIT: Total coverage cannot exceed $1,000,000.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Fixed face amount term policy with riders. Benefit is not tied to salary.",
+        "source": "Contract has fixed face amount of $750,000."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Fixed face amount joint survivorship policy. Benefit is not tied to salary.",
+        "source": "Contract has fixed face amount of $2,500,000."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Fixed face amount ROP term policy. Benefit is not tied to salary.",
+        "source": "Contract has fixed face amount of $300,000."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "Fixed face amount IUL. Benefit is not tied to salary.",
+        "source": "Contract has fixed face amount of $500,000."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . ?db a li:BasicGroupCoverage ; li:isNegated true . OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-035",
+    "category": "ACCIDENTAL_DEATH_BENEFIT_RIDER_PAYOUT",
+    "scenario_description": "The insured dies in a car accident that is the direct cause of death. The insured's blood alcohol level was below the legal limit. Death occurs 30 days after the accident.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?additionalBenefit ?deathWindowDays ?terminationAge ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasRider ?rider . ?rider a li:AccidentalDeathBenefitRider ; li:adbRiderAdditionalBenefitAmount ?additionalBenefit ; li:adbRiderAccidentDeathWindowDays ?deathWindowDays . OPTIONAL { ?rider li:adbRiderTerminationAge ?terminationAge . } OPTIONAL { ?rider li:sourceContractSection ?sourceSection . } OPTIONAL { ?rider li:coverageSourceText ?sourceText . } FILTER(?deathWindowDays >= 30) }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "No accidental death benefit rider attached to this basic term policy.",
+        "source": "Contract does not include an ADB rider."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "No accidental death benefit rider in this whole life contract.",
+        "source": "Contract does not include an ADB rider."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No accidental death benefit rider attached.",
+        "source": "Contract does not include an ADB rider."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No accidental death benefit rider attached.",
+        "source": "Contract does not include an ADB rider."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "No ADB rider attached, but the graded benefit exception for accidental death pays the full face amount immediately.",
+        "source": "Section 2: Accidental death exception applies to the graded benefit, not a separate rider."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "No accidental death benefit rider in this group certificate.",
+        "source": "Contract does not include an ADB rider."
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Accidental Death Benefit Rider (Rider 5) pays an additional $750,000. Death at 30 days post-accident is within the 90-day window. Blood alcohol below legal limit eliminates the drug/alcohol exclusion. Total payout: $750,000 base + $750,000 ADB = $1,500,000. Note: this rider terminates at the insured's age 70.",
+        "source": "Section 2, Rider 5: 'Pays an additional $750,000 if death results from accidental injury: Accident must be the direct cause of death. Death must occur within 90 days of accident. Excludes: suicide, self-inflicted injury, war, aviation (as pilot/crew). No payment if insured was under influence of drugs/alcohol. Terminates at insured's age 70.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "No ADB rider in this joint survivorship policy.",
+        "source": "Contract does not include an ADB rider."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "No ADB rider attached.",
+        "source": "Contract does not include an ADB rider."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No ADB rider attached.",
+        "source": "Contract does not include an ADB rider."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasRider ?rider . ?rider a li:AccidentalDeathBenefitRider ; li:isNegated true . OPTIONAL { ?rider li:sourceContractSection ?sourceSection . } OPTIONAL { ?rider li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-036",
+    "category": "IUL_CAP_RATE_INDEX_GAIN",
+    "scenario_description": "The S&P 500 index rises 18% during the policy year. The policy owner expects to receive the full 18% interest credit on the indexed account.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?accountLabel ?capValue ?capMin ?participationCurrent ?participationMin ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasIndexAccount ?ia . ?ia li:accountLabel ?accountLabel ; li:hasCapRate ?capNode ; li:hasParticipationRate ?prNode . ?capNode li:capRateCurrentValue ?capValue ; li:capRateGuaranteedMinimum ?capMin . ?prNode li:participationRateCurrent ?participationCurrent ; li:participationRateGuaranteedMinimum ?participationMin . OPTIONAL { ?ia li:sourceContractSection ?sourceSection . } OPTIONAL { ?ia li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy with no index account.",
+        "source": "Contract has no index crediting mechanism."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Whole life with no index account.",
+        "source": "Contract has no index crediting mechanism."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Universal life with fixed crediting only, no index account.",
+        "source": "Article 4: Fixed interest crediting, no index accounts."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Variable universal life — the sub-accounts invest directly in mutual funds. A sub-account tracking the S&P 500 would directly reflect the 18% gain minus fund expenses. There is no cap rate mechanism in VUL.",
+        "source": "Section 2: Sub-accounts invest in shares of designated mutual funds. No cap or floor mechanism."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Final expense policy with no index account.",
+        "source": "Contract has no index crediting mechanism."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate with no index account.",
+        "source": "Contract has no index crediting mechanism."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Term policy with no index account.",
+        "source": "Contract has no index crediting mechanism."
+      },
+      {
+        "contract_id": "C8",
+        "status": "NOT_APPLICABLE",
+        "details": "Joint survivorship whole life with no index account.",
+        "source": "Contract has no index crediting mechanism."
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "ROP term policy with no index account.",
+        "source": "Contract has no index crediting mechanism."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "Interest is credited at the cap rate of 10.5% despite the index gaining 18%. The S&P 500 Account applies 100% participation rate subject to the 10.5% current cap. The 7.5% excess gain above the cap is not credited, but the 0% floor protects against any loss.",
+        "source": "Article 2.1A, 3.1, 3.2: 'S&P 500 Index Account: Current Cap: 10.5% | Participation Rate: 100% | Floor: 0%. Gain: 15% [example shows 10.5% cap applied]. Interest Credited = Index % Change × Participation Rate (subject to Cap and Floor).'"
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasIndexAccount ?ia . ?ia li:isNegated true . OPTIONAL { ?ia li:sourceContractSection ?sourceSection . } OPTIONAL { ?ia li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-037",
+    "category": "PRE_EXISTING_CONDITION_EXCLUSION",
+    "scenario_description": "An insured who had a pre-existing heart condition (disclosed in the application) dies from heart failure. The claim is submitted and the insurer checks for pre-existing condition exclusions.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID . FILTER NOT EXISTS { ?policy li:hasExclusion ?excl . ?excl a li:PreExistingConditionExclusion . } }",
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasExclusion ?excl . ?excl a li:PreExistingConditionExclusion . OPTIONAL { ?excl li:sourceContractSection ?sourceSection . } OPTIONAL { ?excl li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion in this fully-underwritten term policy. The condition was disclosed and priced into the policy at underwriting.",
+        "source": "Section 7: Only suicide exclusion applies. No pre-existing condition exclusion is present."
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion. Full underwriting accepted the disclosed condition.",
+        "source": "Section 11: Only suicide and misstatement of age exclusions listed. No pre-existing condition exclusion."
+      },
+      {
+        "contract_id": "C3",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion in this fully-underwritten UL.",
+        "source": "Article 9: Only suicide and contestability exclusions listed."
+      },
+      {
+        "contract_id": "C4",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion in this fully-underwritten VUL.",
+        "source": "Section 8: Only suicide, war, and aviation exclusions listed."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion. Guaranteed issue — no health information was ever collected, so pre-existing conditions cannot be used to deny a claim after 2 years.",
+        "source": "Section 9.3: 'INCONTESTABILITY: After this policy has been in force for 2 years, we cannot cancel it or deny claims except for non-payment of premiums.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion. This is explicitly stated in the contract.",
+        "source": "Section 8.2: 'PRE-EXISTING CONDITION LIMITATION: None. Group coverage has no pre-existing condition exclusions.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion in this fully-underwritten term policy.",
+        "source": "Section 1.3, 7: Only suicide exclusion and aviation waiver noted. No pre-existing condition exclusion."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion in this fully-underwritten joint survivorship policy.",
+        "source": "Article VII: Only suicide exclusion is listed. No pre-existing condition exclusion."
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion in this fully-underwritten ROP term policy.",
+        "source": "Section 7: Only suicide and contestability exclusions listed."
+      },
+      {
+        "contract_id": "C10",
+        "status": "COVERED",
+        "details": "No pre-existing condition exclusion in this fully-underwritten IUL policy.",
+        "source": "Article 11: Only suicide and contestability exclusions listed."
+      }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-038",
+    "category": "POLICY_ASSIGNMENT_AS_COLLATERAL",
+    "scenario_description": "The policy owner wishes to use their life insurance policy as collateral for a bank loan, assigning the policy to the lender.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:AssignmentProvision . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } } UNION { ?policy li:sourceContractID ?contractID ; li:hasCashValue ?cv . FILTER NOT EXISTS { ?policy li:hasProvision ?prov . ?prov a li:AssignmentProvision . } FILTER EXISTS { { ?policy a li:ParticipatingWholeLifePolicy } UNION { ?policy a li:JointSurvivorshipPolicy } } OPTIONAL { ?cv li:sourceContractSection ?sourceSection . } OPTIONAL { ?cv li:coverageSourceText ?sourceText . } } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "Assignment is explicitly permitted. The policy may be assigned as collateral; however, the insurer is not responsible for the validity of any assignment, and it is not binding until written notice is received at the home office.",
+        "source": "Section 10.3: 'ASSIGNMENT: You may assign this policy. We are not responsible for the validity of any assignment. An assignment is not binding on us until we receive written notice at our home office.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "Assignment provision is present in this whole life policy.",
+        "source": "Policy_C2 has li_abox:Assignment_C2 a li:AssignmentProvision per the ABox."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit assignment provision is stated in this universal life contract.",
+        "source": "Contract is silent on assignment."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit assignment provision is stated in this VUL contract.",
+        "source": "Contract is silent on assignment."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit assignment provision is stated in this final expense contract.",
+        "source": "Contract is silent on assignment."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Group term certificate — assignment of group coverage as collateral is not stated.",
+        "source": "Contract is silent on assignment."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit assignment provision in this term-with-riders contract.",
+        "source": "Contract is silent on assignment."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "Assignment as collateral is permitted, but requires trustee authorization since the policy is owned by an irrevocable trust (ILIT). Upon obtaining trustee approval, the collateral assignment may proceed.",
+        "source": "Article X, 10.3: 'Policy may not be assigned without trustee authorization.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "Assignment as collateral is explicitly permitted under this ROP term policy.",
+        "source": "Section 10.1: 'As policy owner, you may: Assign the policy as collateral.'"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit assignment provision is stated in this IUL contract.",
+        "source": "Contract is silent on assignment."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:AssignmentProvision ; li:isNegated true . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-039",
+    "category": "JOINT_POLICY_SPLIT_OPTION",
+    "scenario_description": "The first insured on a joint survivorship policy has died. The surviving insured and the trust want to explore splitting the joint policy into two separate individual policies.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?electionYears ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:SplitOption ; li:splitOptionElectionYearsAfterDeath ?electionYears . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured policy. No split option applicable.",
+        "source": "Individual single-insured policy. No split provision."
+      },
+      {
+        "contract_id": "C2",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured policy. No split option applicable.",
+        "source": "Individual single-insured policy. No split provision."
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured policy. No split option applicable.",
+        "source": "Individual single-insured policy. No split provision."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured policy. No split option applicable.",
+        "source": "Individual single-insured policy. No split provision."
+      },
+      {
+        "contract_id": "C5",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured policy. No split option applicable.",
+        "source": "Individual single-insured policy. No split provision."
+      },
+      {
+        "contract_id": "C6",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured group certificate. No split option applicable.",
+        "source": "Single-insured group certificate. No split provision."
+      },
+      {
+        "contract_id": "C7",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured policy. No split option applicable.",
+        "source": "Individual single-insured policy. No split provision."
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "A split option exists. The policy owner may elect to split the joint policy into two separate single-life policies within 2 years of the first death. Evidence of insurability may be required. This option is primarily designed for divorce or trust modification situations.",
+        "source": "Article VI, 6.1, 6.2: 'Upon the first death, the policy owner may elect to split this policy into two separate single-life policies. Requirements: Must elect within 2 years of first death. Each policy's face amount determined by actuarial allocation. Evidence of insurability may be required. This option is rarely exercised and primarily exists for divorce or trust modification situations.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured policy. No split option applicable.",
+        "source": "Individual single-insured policy. No split provision."
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "Single-insured policy. No split option applicable.",
+        "source": "Individual single-insured policy. No split provision."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasProvision ?prov . ?prov a li:SplitOption ; li:isNegated true . OPTIONAL { ?prov li:sourceContractSection ?sourceSection . } OPTIONAL { ?prov li:coverageSourceText ?sourceText . } }"
+  },
+  {
+    "scenario_id": "SCEN-040",
+    "category": "CLAIM_PAYMENT_SPEED_COMPARISON",
+    "scenario_description": "A beneficiary submits a complete and valid death claim with all required documentation. The beneficiary wants to know the fastest possible time to receive payment.",
+    "query_covered": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?paymentDays ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . ?db li:deathBenefitPaymentDays ?paymentDays . OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } } ORDER BY ?paymentDays",
+    "contract_responses": [
+      {
+        "contract_id": "C1",
+        "status": "COVERED",
+        "details": "Claims paid within 30 calendar days of receiving all required documentation.",
+        "source": "Section 9.3: 'We will pay valid claims within 30 days of receiving all required documentation.'"
+      },
+      {
+        "contract_id": "C2",
+        "status": "COVERED",
+        "details": "Claims paid within 7 calendar days of receiving complete claim documentation — the fastest among the individual policies.",
+        "source": "Section 8.2: 'Payment will be made within 7 days of receiving complete claim documentation.'"
+      },
+      {
+        "contract_id": "C3",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit payment timeline is stated in this contract.",
+        "source": "Contract is silent on claim payment timeline."
+      },
+      {
+        "contract_id": "C4",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit payment timeline is stated in this VUL contract.",
+        "source": "Contract is silent on claim payment timeline."
+      },
+      {
+        "contract_id": "C5",
+        "status": "COVERED",
+        "details": "Claims paid within 5 business days — the fastest payment commitment of all contracts.",
+        "source": "Section 6: 'We will pay valid claims within 5 business days.'"
+      },
+      {
+        "contract_id": "C6",
+        "status": "COVERED",
+        "details": "Benefits paid within 10 business days of receipt of complete claim documentation.",
+        "source": "Section 10.4: 'Benefits will be paid within 10 business days of receipt of complete claim documentation.'"
+      },
+      {
+        "contract_id": "C7",
+        "status": "COVERED",
+        "details": "Claims paid within 30 days of receiving satisfactory proof of death.",
+        "source": "Section 1.2: 'Payment will be made to the beneficiary within 30 days of receiving satisfactory proof of death.'"
+      },
+      {
+        "contract_id": "C8",
+        "status": "COVERED",
+        "details": "Claims paid within 30 days of receiving complete documentation (both death certificates required).",
+        "source": "Article II, 2.3: 'Payment will be made within 30 days of receiving complete documentation.'"
+      },
+      {
+        "contract_id": "C9",
+        "status": "COVERED",
+        "details": "Claims paid within 60 days of the applicable date — the longest individual death benefit payment window.",
+        "source": "Section 2, 3.4: 'ROP payments are made within 60 days of the applicable date.' (Applied to death benefit payment.)"
+      },
+      {
+        "contract_id": "C10",
+        "status": "NOT_APPLICABLE",
+        "details": "No explicit payment timeline is stated in this IUL contract.",
+        "source": "Contract is silent on claim payment timeline."
+      }
+    ],
+    "query_denied": "PREFIX li: <http://www.lifeinsurance.org/ontology#> SELECT DISTINCT ?contractID ?sourceSection ?sourceText WHERE { ?policy li:sourceContractID ?contractID ; li:hasDeathBenefit ?db . ?db li:deathBenefitPaymentDays ?paymentDays ; li:isNegated true . OPTIONAL { ?db li:sourceContractSection ?sourceSection . } OPTIONAL { ?db li:coverageSourceText ?sourceText . } }"
+  }
+]

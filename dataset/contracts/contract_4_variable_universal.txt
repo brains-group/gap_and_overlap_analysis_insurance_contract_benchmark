@@ -1,0 +1,181 @@
+┌───────────────────────────────────────────────────────────────────┐
+│         VARIABLE UNIVERSAL LIFE INSURANCE POLICY                  │
+│         Pinnacle Investment Life Corp.                            │
+└───────────────────────────────────────────────────────────────────┘
+
+Policy Number: PIL-VUL-2024-5521
+Policy Date: April 5, 2024
+
+┌───────────────────────────────────────────────────────────────────┐
+│  INSURED PARTY                                                    │
+└───────────────────────────────────────────────────────────────────┘
+Name: Dr. Amanda Katherine Foster
+Date of Birth: September 3, 1975
+Gender: Female | Age at Issue: 48 | Class: Preferred Plus
+
+┌───────────────────────────────────────────────────────────────────┐
+│  POLICY SPECIFICATIONS                                            │
+└───────────────────────────────────────────────────────────────────┘
+Initial Face Amount: $1,000,000
+Planned Annual Premium: $12,000
+Death Benefit Option: Option II (Face + Account Value)
+
+┌───────────────────────────────────────────────────────────────────┐
+│  BENEFICIARIES                                                    │
+└───────────────────────────────────────────────────────────────────┘
+Primary: Michael Thomas Foster (Spouse) - 100%
+Secondary: Foster Children's Trust - 100%
+
+┌───────────────────────────────────────────────────────────────────┐
+│  SECTION 1: IMPORTANT DEFINITIONS                                 │
+└───────────────────────────────────────────────────────────────────┘
+1.1 "Sub-Account" means a segregated investment account that 
+    invests in shares of a designated mutual fund.
+
+1.2 "Unit Value" means the value of one unit of a sub-account, 
+    calculated daily based on fund performance.
+
+1.3 "Accumulation Units" means units held in sub-accounts before 
+    any distributions.
+
+1.4 "Mortality and Expense Risk Charge" (M&E) is a daily charge 
+    of 0.90% annually to cover insurance risks and administrative 
+    costs.
+
+┌───────────────────────────────────────────────────────────────────┐
+│  SECTION 2: INVESTMENT ALLOCATION                                 │
+└───────────────────────────────────────────────────────────────────┘
+2.1 Premium payments (after premium load) are allocated to 
+    sub-accounts based on your investment instructions.
+
+2.2 Available Sub-Accounts:
+    • Equity Growth Fund
+    • Balanced Allocation Fund
+    • Government Bond Fund
+    • International Equity Fund
+    • Money Market Fund (guaranteed minimum 1.5%)
+    • Real Estate Securities Fund
+
+2.3 Current Allocation:
+    Equity Growth Fund: 40%
+    Balanced Allocation Fund: 30%
+    Government Bond Fund: 20%
+    Money Market Fund: 10%
+
+2.4 You may change allocations at any time by written request 
+    or through our online portal. No fee for first 12 changes 
+    per year; $25 fee thereafter.
+
+┌───────────────────────────────────────────────────────────────────┐
+│  SECTION 3: CHARGES AND FEES                                      │
+└───────────────────────────────────────────────────────────────────┘
+3.1 PREMIUM LOAD: 5.0% of each premium payment
+
+3.2 MORTALITY & EXPENSE RISK CHARGE: 0.90% per annum of account 
+    value, deducted daily
+
+3.3 ADMINISTRATIVE CHARGE: $15 per month
+
+3.4 COST OF INSURANCE: Monthly charge based on:
+    (Face Amount at Risk) × (Monthly COI Rate) / 1,000
+    Face Amount at Risk = Death Benefit - Account Value
+
+3.5 FUND EXPENSES: Each sub-account has its own expense ratio 
+    ranging from 0.45% to 1.25% annually (detailed in prospectus)
+
+3.6 SURRENDER CHARGE SCHEDULE (% of premium paid):
+    Year 1-2: 7% | Year 3-4: 5% | Year 5-6: 3% | Year 7+: 0%
+
+┌───────────────────────────────────────────────────────────────────┐
+│  SECTION 4: DEATH BENEFIT OPTIONS                                 │
+└───────────────────────────────────────────────────────────────────┘
+4.1 OPTION I - Level Death Benefit
+    Death Benefit = Face Amount
+    Lower charges but no growth from investments
+
+4.2 OPTION II - Variable Death Benefit (CURRENTLY SELECTED)
+    Death Benefit = Face Amount + Account Value
+    Higher charges but death benefit grows with account
+
+4.3 You may switch between options subject to:
+    • Proof of insurability for increases
+    • Minimum face amount requirements
+    • $50 administrative fee
+
+┌───────────────────────────────────────────────────────────────────┐
+│  SECTION 5: INVESTMENT RISK DISCLOSURE                            │
+└───────────────────────────────────────────────────────────────────┘
+5.1 IMPORTANT: The account value and death benefit (under Option II) 
+    are NOT guaranteed and will fluctuate based on sub-account 
+    performance.
+
+5.2 Investment risk is borne entirely by the policy owner.
+
+5.3 Poor investment performance can cause the policy to lapse if 
+    account value becomes insufficient to cover charges.
+
+5.4 The Money Market sub-account has a guaranteed minimum rate of 
+    1.5% but other sub-accounts have no guaranteed minimum return.
+
+┌───────────────────────────────────────────────────────────────────┐
+│  SECTION 6: LOANS AND WITHDRAWALS                                 │
+└───────────────────────────────────────────────────────────────────┘
+6.1 POLICY LOANS:
+    • Maximum: 90% of surrender value
+    • Interest Rate: 5.5% per annum (fixed)
+    • Loan amounts are moved to the Money Market sub-account
+    • Reduces death benefit dollar-for-dollar
+
+6.2 PARTIAL WITHDRAWALS:
+    • Minimum: $1,000
+    • Maximum: Account value minus $5,000
+    • Processing fee: $50
+    • Surrender charges may apply (see Section 3.6)
+    • Reduces face amount proportionally
+
+┌───────────────────────────────────────────────────────────────────┐
+│  SECTION 7: POLICY LAPSE AND REINSTATEMENT                        │
+└───────────────────────────────────────────────────────────────────┘
+7.1 If account value is insufficient to cover monthly deductions 
+    for 61 consecutive days, the policy will lapse.
+
+7.2 Lapse notice will be sent at least 30 days before lapse.
+
+7.3 Reinstatement within 3 years requires:
+    • Evidence of insurability
+    • Payment of all back charges plus 6% interest
+    • Repayment of outstanding loans
+
+┌───────────────────────────────────────────────────────────────────┐
+│  SECTION 8: EXCLUSIONS                                            │
+└───────────────────────────────────────────────────────────────────┘
+8.1 SUICIDE: If death occurs by suicide within 2 years of issue 
+    or reinstatement, we pay only premiums paid minus withdrawals.
+
+8.2 WAR EXCLUSION: Death while serving in military conflict in a 
+    war zone is excluded if it occurs within 24 months of issue.
+
+8.3 AVIATION: Death resulting from operating an aircraft as pilot 
+    or crew member is excluded unless declared and approved with 
+    extra premium.
+
+┌───────────────────────────────────────────────────────────────────┐
+│  SECTION 9: REGULATORY INFORMATION                                │
+└───────────────────────────────────────────────────────────────────┘
+9.1 This policy is issued in connection with Pinnacle Investment 
+    Life Separate Account A, a registered unit investment trust.
+
+9.2 The prospectus for the Separate Account and underlying funds 
+    must be read carefully before investing.
+
+9.3 This is a securities product subject to SEC regulation.
+
+┌───────────────────────────────────────────────────────────────────┐
+│  EXECUTION                                                        │
+│                                                                   │
+│  Pinnacle Investment Life Corp.                                   │
+│  New York, New York                                               │
+│                                                                   │
+│  ____________________________    April 5, 2024                    │
+│  President & CEO                                                  │
+└───────────────────────────────────────────────────────────────────┘
