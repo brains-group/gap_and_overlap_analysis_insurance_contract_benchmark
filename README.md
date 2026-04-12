@@ -61,4 +61,5 @@ If you use the code, data, or benchmark from this repository in your research, p
   month = {05},
   booktitle = {Workshop on Quality of Knowledge Graphs (QKG) at ESWC 2026}
 }
+
 ---
