@@ -49,4 +49,16 @@ pip install -r requirements.txt
 
 The notebook files have all the experiments. Each notebook is self-contained.
 
+## Citation
+
+If you use the code, data, or benchmark from this repository in your research, please cite our paper:
+
+```bibtex
+@inproceedings{mridul2026benchmark,
+  title={{A Benchmark for Gap and Overlap Analysis as a Test of KG Task Readiness}},
+  author={Mridul, Maruf Ahmed and Kapa, Rohit and Seneviratne, Oshani},
+  year = {2026},
+  month = {05},
+  booktitle = {Workshop on Quality of Knowledge Graphs (QKG) at ESWC 2026}
+}
 ---
